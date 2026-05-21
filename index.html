@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>תזכורת לקוח — מערכת ניהול תסקירים ותזכורות</title>
+  <meta name="description" content="מערכת ניהול תסקירים, חוזים ותזכורות אוטומטיות — מותאמת לעסקים ישראלים" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand: #18a058;
+      --brand-dark: #0c7a43;
+      --brand-light: rgba(24,160,88,0.1);
+      --text: #1a1a2e;
+      --text-2: #4a5568;
+      --bg: #f8fafb;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Rubik', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ─────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 48px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-brand__icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .nav-brand__text {
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-links a {
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--text-2);
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-links a:hover { background: var(--brand-light); color: var(--brand); }
+    .nav-cta {
+      background: var(--brand) !important;
+      color: #fff !important;
+      font-weight: 600 !important;
+      padding: 10px 20px !important;
+    }
+    .nav-cta:hover { background: var(--brand-dark) !important; }
+
+    /* ── HERO ─────────────────────────────── */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 96px 48px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--brand-light);
+      color: var(--brand);
+      border: 1px solid rgba(24,160,88,0.2);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--brand); }
+
+    .hero-desc {
+      font-size: 18px;
+      color: var(--text-2);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--brand-dark); transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: background 0.15s, transform 0.15s;
+    }
+    .btn-secondary:hover { background: var(--bg); transform: translateY(-1px); }
+
+    /* Hero visual */
+    .hero-visual {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    }
+    .hero-visual__bar {
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-visual__dots { display: flex; gap: 6px; }
+    .hero-visual__dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+    }
+    .hero-visual__dot:first-child { background: rgba(255,255,255,0.8); }
+    .hero-visual__title { color: rgba(255,255,255,0.9); font-size: 13px; font-weight: 600; }
+
+    .hero-visual__body { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+    .mock-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .mock-card__left { display: flex; flex-direction: column; gap: 4px; }
+    .mock-card__title { font-weight: 600; font-size: 13px; color: var(--text); }
+    .mock-card__sub { font-size: 12px; color: var(--text-2); }
+    .mock-badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .mock-badge--green { background: rgba(24,160,88,0.12); color: var(--brand); }
+    .mock-badge--yellow { background: rgba(234,179,8,0.12); color: #b45309; }
+    .mock-badge--red { background: rgba(239,68,68,0.12); color: #dc2626; }
+
+    /* ── STATS ─────────────────────────────── */
+    .stats {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 48px;
+    }
+    .stats-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--brand);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 14px;
+      color: var(--text-2);
+      font-weight: 500;
+    }
+
+    /* ── FEATURES ─────────────────────────────── */
+    section { max-width: 1100px; margin: 0 auto; padding: 80px 48px; }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .section-header h2 {
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .section-header p {
+      font-size: 17px;
+      color: var(--text-2);
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .feature-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.07);
+      transform: translateY(-2px);
+    }
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--brand-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+    .feature-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .feature-card p {
+      font-size: 14px;
+      color: var(--text-2);
+      line-height: 1.6;
+    }
+
+    /* ── HOW IT WORKS ─────────────────────────────── */
+    .how-bg { background: var(--white); }
+    .steps {
+      display: flex;
+      gap: 0;
+      align-items: flex-start;
+    }
+    .step {
+      flex: 1;
+      text-align: center;
+      padding: 0 24px;
+      position: relative;
+    }
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 24px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--border);
+      z-index: 0;
+    }
+    .step__num {
+      position: relative;
+      z-index: 1;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .step p { font-size: 14px; color: var(--text-2); }
+
+    /* ── CTA ─────────────────────────────── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      padding: 80px 48px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(24px, 3vw, 40px);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .cta-section p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 36px;
+    }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--brand-dark);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+    /* ── FOOTER ─────────────────────────────── */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.6);
+      padding: 40px 48px;
+      text-align: center;
+      font-size: 14px;
+    }
+    footer strong { color: #fff; }
+
+    /* ── RESPONSIVE ─────────────────────────────── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 48px 24px; gap: 40px; }
+      .hero-visual { display: none; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); padding: 0; }
+      section { padding: 48px 24px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .steps { flex-direction: column; gap: 32px; }
+      .step::after { display: none; }
+      .cta-section { padding: 48px 24px; }
+      footer { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">
+    <div class="nav-brand__icon">💼</div>
+    <span class="nav-brand__text">תזכורת לקוח</span>
+  </a>
+  <div class="nav-links">
+    <a href="#features">תכונות</a>
+    <a href="#how">איך זה עובד</a>
+    <a href="/app" class="nav-cta">כניסה למערכת →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div style="background: linear-gradient(180deg, #f0fdf4 0%, var(--bg) 100%);">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span>✨</span>
+        <span>מותאם לעסקים ישראלים</span>
+      </div>
+      <h1>ניהול תסקירים ותזכורות <span>בלי כאב ראש</span></h1>
+      <p class="hero-desc">
+        ייבא מסמכים, חלץ נתונים אוטומטית עם AI, נהל לקוחות וקבל תזכורות לפני שכל חוזה או תסקיר פג תוקף.
+      </p>
+      <div class="hero-actions">
+        <a href="/app" class="btn-primary">🚀 התחל בחינם</a>
+        <a href="#features" class="btn-secondary">למד עוד ↓</a>
+      </div>
+    </div>
+
+    <!-- Mock app preview -->
+    <div class="hero-visual">
+      <div class="hero-visual__bar">
+        <div class="hero-visual__dots">
+          <div class="hero-visual__dot"></div>
+          <div class="hero-visual__dot"></div>
+          <div class="hero-visual__dot"></div>
+        </div>
+        <span class="hero-visual__title">תזכורת לקוח — לוח בקרה</span>
+      </div>
+      <div class="hero-visual__body">
+        <div class="mock-card">
+          <div class="mock-card__left">
+            <div class="mock-card__title">חוזה — מילניום שירותים</div>
+            <div class="mock-card__sub">פג תוקף: 15.07.2026</div>
+          </div>
+          <span class="mock-badge mock-badge--yellow">⏰ 55 ימים</span>
+        </div>
+        <div class="mock-card">
+          <div class="mock-card__left">
+            <div class="mock-card__title">תסקיר בדיקה — כרמל תעשיות</div>
+            <div class="mock-card__sub">פג תוקף: 30.08.2026</div>
+          </div>
+          <span class="mock-badge mock-badge--green">✅ בתוקף</span>
+        </div>
+        <div class="mock-card">
+          <div class="mock-card__left">
+            <div class="mock-card__title">חוזה — דלתא לוגיסטיקה</div>
+            <div class="mock-card__sub">פג תוקף: 02.06.2026</div>
+          </div>
+          <span class="mock-badge mock-badge--red">🔴 12 ימים</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-num">100%</div>
+      <div class="stat-label">עברית מלאה — ממשק ו-OCR</div>
+    </div>
+    <div>
+      <div class="stat-num">AI</div>
+      <div class="stat-label">חילוץ נתונים אוטומטי</div>
+    </div>
+    <div>
+      <div class="stat-num">0₪</div>
+      <div class="stat-label">עלות הרצה עצמית</div>
+    </div>
+    <div>
+      <div class="stat-num">∞</div>
+      <div class="stat-label">לקוחות ומסמכים</div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="section-header">
+    <h2>כל מה שצריך במקום אחד</h2>
+    <p>מתוכנן עבור עסקים שצריכים לעקוב אחר מסמכים, חוזים ותסקירים בזמן אמת</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">📄</div>
+      <h3>ייבוא מסמכים חכם</h3>
+      <p>גרור ושחרר PDF, Word, Excel ועוד. AI יחלץ אוטומטית את שם הלקוח, תאריכים, סכומים ועוד.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⏰</div>
+      <h3>תזכורות אוטומטיות</h3>
+      <p>קבל אימייל 90, 60 ו-30 יום לפני שחוזה או תסקיר פג תוקף. לא עוד הפתעות.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">👥</div>
+      <h3>ניהול לקוחות</h3>
+      <p>כרטיס לקוח מלא עם היסטוריית חוזים, תזכורות ומשימות. כולל חיפוש מהיר.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔍</div>
+      <h3>חיפוש מלא בתוך המסמכים</h3>
+      <p>חפש לפי שם לקוח, מספר חוזה, תאריך ועוד — גם בתוכן המסמך עצמו.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏭</div>
+      <h3>קטלוג ציוד</h3>
+      <p>נהל מלאי ציוד — מנופים, פיגומים, מעליות ועוד — מקושר לתסקירי הבדיקה.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔐</div>
+      <h3>כניסה עם Google</h3>
+      <p>אבטחה ברמה ארגונית — כניסה מאובטחת עם חשבון Google. ניהול הרשאות פשוט.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<div class="how-bg">
+  <section id="how" style="background: var(--white);">
+    <div class="section-header">
+      <h2>איך זה עובד?</h2>
+      <p>תהליך פשוט בשלושה שלבים</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step__num">1</div>
+        <h3>ייבא מסמך</h3>
+        <p>גרור קבצים או הגדר תיקיית מעקב. המערכת מטפלת ב-PDF, Word, Excel ותמונות.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">2</div>
+        <h3>AI מחלץ נתונים</h3>
+        <p>GPT-4 קורא את המסמך ומחלץ שם לקוח, תאריך פקיעה, סכום, ועוד — אוטומטית.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">3</div>
+        <h3>קבל תזכורות</h3>
+        <p>בוחר ימים מראש, ומקבל אימייל עם כל הפרטים כשמתקרבים לפקיעה.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>מוכן להתחיל?</h2>
+  <p>כניסה עם Google — מוכן תוך דקה</p>
+  <a href="/app" class="btn-white">🚀 כנס למערכת</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <strong>תזכורת לקוח</strong> — מערכת ניהול תסקירים ותזכורות לעסקים ישראלים<br />
+    <span style="margin-top: 8px; display: block;">
+      פותח עם ❤️ | <a href="/app" style="color: rgba(255,255,255,0.7); text-decoration: none;">כניסה למערכת</a>
+    </span>
+  </p>
+</footer>
+
+</body>
+</html>
