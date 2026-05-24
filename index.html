@@ -383,12 +383,115 @@
     }
     footer strong { color: #fff; }
 
+    /* ── AUTH CARD ─────────────────────────────── */
+    .auth-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 32px 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .auth-tabs {
+      display: flex;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 24px;
+      gap: 0;
+    }
+    .auth-tab {
+      flex: 1;
+      background: none;
+      border: none;
+      padding: 10px 0;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-2);
+      cursor: pointer;
+      position: relative;
+      transition: color 0.15s;
+    }
+    .auth-tab::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      right: 0;
+      left: 0;
+      height: 2px;
+      background: var(--brand);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+    .auth-tab.active { color: var(--brand); }
+    .auth-tab.active::after { transform: scaleX(1); }
+
+    .auth-pane { display: none; }
+    .auth-pane.active { display: block; }
+
+    .auth-field { margin-bottom: 14px; }
+    .auth-field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-2);
+      margin-bottom: 6px;
+    }
+    .auth-field input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color 0.15s;
+      outline: none;
+    }
+    .auth-field input:focus { border-color: var(--brand); background: var(--white); }
+
+    .auth-btn {
+      width: 100%;
+      margin-top: 6px;
+      padding: 12px;
+      background: var(--brand);
+      color: #fff;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .auth-btn:hover { background: var(--brand-dark); }
+    .auth-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .auth-msg {
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      display: none;
+    }
+    .auth-msg.success { background: rgba(24,160,88,0.1); color: var(--brand); display: block; }
+    .auth-msg.error { background: rgba(239,68,68,0.1); color: #dc2626; display: block; }
+
+    .auth-hint {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-2);
+      text-align: center;
+    }
+
     /* ── RESPONSIVE ─────────────────────────────── */
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
       .nav-links a:not(.nav-cta) { display: none; }
       .hero { grid-template-columns: 1fr; padding: 48px 24px; gap: 40px; }
-      .hero-visual { display: none; }
+      .auth-card { max-width: 100%; }
       .stats-inner { grid-template-columns: repeat(2, 1fr); padding: 0; }
       section { padding: 48px 24px; }
       .features-grid { grid-template-columns: 1fr; }
@@ -427,43 +530,52 @@
         ייבא מסמכים, חלץ נתונים אוטומטית עם AI, נהל לקוחות וקבל תזכורות לפני שכל חוזה או תסקיר פג תוקף.
       </p>
       <div class="hero-actions">
-        <a href="/app" class="btn-primary">🚀 התחל בחינם</a>
+        <a href="#register-card" class="btn-primary">🚀 התחל בחינם</a>
         <a href="#features" class="btn-secondary">למד עוד ↓</a>
       </div>
     </div>
 
-    <!-- Mock app preview -->
-    <div class="hero-visual">
-      <div class="hero-visual__bar">
-        <div class="hero-visual__dots">
-          <div class="hero-visual__dot"></div>
-          <div class="hero-visual__dot"></div>
-          <div class="hero-visual__dot"></div>
-        </div>
-        <span class="hero-visual__title"> ReminderOCR  — לוח בקרה</span>
+    <!-- Auth card -->
+    <div class="auth-card" id="register-card">
+      <!-- Tabs -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" onclick="switchTab('login')">כניסה</button>
+        <button class="auth-tab" onclick="switchTab('register')">הרשמה</button>
       </div>
-      <div class="hero-visual__body">
-        <div class="mock-card">
-          <div class="mock-card__left">
-            <div class="mock-card__title">חוזה — מילניום שירותים</div>
-            <div class="mock-card__sub">פג תוקף: 15.07.2026</div>
-          </div>
-          <span class="mock-badge mock-badge--yellow">⏰ 55 ימים</span>
+
+      <!-- Messages -->
+      <div id="auth-msg" class="auth-msg"></div>
+
+      <!-- Login pane -->
+      <div class="auth-pane active" id="pane-login">
+        <div class="auth-field">
+          <label>אימייל</label>
+          <input id="login-email" type="email" placeholder="you@example.com" autocomplete="email" />
         </div>
-        <div class="mock-card">
-          <div class="mock-card__left">
-            <div class="mock-card__title">תסקיר בדיקה — כרמל תעשיות</div>
-            <div class="mock-card__sub">פג תוקף: 30.08.2026</div>
-          </div>
-          <span class="mock-badge mock-badge--green">✅ בתוקף</span>
+        <div class="auth-field">
+          <label>סיסמה</label>
+          <input id="login-password" type="password" placeholder="••••••••" autocomplete="current-password" />
         </div>
-        <div class="mock-card">
-          <div class="mock-card__left">
-            <div class="mock-card__title">חוזה — דלתא לוגיסטיקה</div>
-            <div class="mock-card__sub">פג תוקף: 02.06.2026</div>
-          </div>
-          <span class="mock-badge mock-badge--red">🔴 12 ימים</span>
+        <button class="auth-btn" onclick="handleLogin()">כניסה</button>
+      </div>
+
+      <!-- Register pane -->
+      <div class="auth-pane" id="pane-register">
+        <div class="auth-field">
+          <label>שם מלא</label>
+          <input id="reg-name" type="text" placeholder="ישראל ישראלי" autocomplete="name" />
         </div>
+        <div class="auth-field">
+          <label>אימייל</label>
+          <input id="reg-email" type="email" placeholder="you@example.com" autocomplete="email" />
+        </div>
+        <div class="auth-field">
+          <label>סיסמה</label>
+          <input id="reg-password" type="password" placeholder="לפחות 8 תווים" autocomplete="new-password" oninput="checkPwStrength()" />
+        </div>
+        <p id="pw-hint" style="font-size:12px;color:#b45309;margin:-6px 0 10px;display:none">הסיסמה חייבת להכיל לפחות 8 תווים</p>
+        <button class="auth-btn" onclick="handleRegister()">הרשמה</button>
+        <p class="auth-hint">לאחר ההרשמה ישלח אימייל לאימות הכתובת</p>
       </div>
     </div>
   </div>
@@ -523,11 +635,11 @@
       <h3>קטלוג ציוד</h3>
       <p>נהל מלאי ציוד — מנופים, פיגומים, מעליות ועוד — מקושר לתסקירי הבדיקה.</p>
     </div>
-    <div class="feature-card">
-      <div class="feature-icon">🔐</div>
-      <h3>כניסה עם Google</h3>
-      <p>אבטחה ברמה ארגונית — כניסה מאובטחת עם חשבון Google. ניהול הרשאות פשוט.</p>
-    </div>
+<!--    <div class="feature-card">-->
+<!--      <div class="feature-icon">🔐</div>-->
+<!--      <h3>כניסה עם Google</h3>-->
+<!--      <p>אבטחה ברמה ארגונית — כניסה מאובטחת עם חשבון Google. ניהול הרשאות פשוט.</p>-->
+<!--    </div>-->
   </div>
 </section>
 
@@ -564,6 +676,83 @@
   <p>כניסה עם Google — מוכן תוך דקה</p>
   <a href="/app" class="btn-white">🚀 כנס למערכת</a>
 </div>
+
+<script>
+  const API = 'https://reminder-server-production-a76c.up.railway.app';
+
+  function switchTab(tab) {
+    document.querySelectorAll('.auth-tab').forEach((t, i) => {
+      t.classList.toggle('active', (i === 0 && tab === 'login') || (i === 1 && tab === 'register'));
+    });
+    document.getElementById('pane-login').classList.toggle('active', tab === 'login');
+    document.getElementById('pane-register').classList.toggle('active', tab === 'register');
+    showMsg('', '');
+  }
+
+  function showMsg(text, type) {
+    const el = document.getElementById('auth-msg');
+    el.textContent = text;
+    el.className = 'auth-msg' + (type ? ' ' + type : '');
+  }
+
+  function checkPwStrength() {
+    const pw = document.getElementById('reg-password').value;
+    document.getElementById('pw-hint').style.display = (pw && pw.length < 8) ? 'block' : 'none';
+  }
+
+  async function handleLogin() {
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value;
+    if (!email || !password) return showMsg('יש למלא את כל השדות', 'error');
+    try {
+      const res = await fetch(`${API}/api/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await res.json();
+      if (!res.ok) return showMsg(errorText(data.error), 'error');
+      window.location.href = 'https://reminder-git-master-pavel-arshavskys-projects.vercel.app/';
+    } catch {
+      showMsg('שגיאת תקשורת, אנא נסה שנית', 'error');
+    }
+  }
+
+  async function handleRegister() {
+    const name = document.getElementById('reg-name').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    const password = document.getElementById('reg-password').value;
+    if (!name || !email || !password) return showMsg('יש למלא את כל השדות', 'error');
+    if (password.length < 8) return showMsg('הסיסמה חייבת להכיל לפחות 8 תווים', 'error');
+    try {
+      const res = await fetch(`${API}/api/auth/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ name, email, password }),
+      });
+      const data = await res.json();
+      if (!res.ok) return showMsg(errorText(data.error), 'error');
+      showMsg('נשלח אימייל לאימות — אנא בדוק את תיבת הדואר שלך', 'success');
+      document.getElementById('reg-name').value = '';
+      document.getElementById('reg-email').value = '';
+      document.getElementById('reg-password').value = '';
+    } catch {
+      showMsg('שגיאת תקשורת, אנא נסה שנית', 'error');
+    }
+  }
+
+  const ERRORS = {
+    invalid_credentials: 'אימייל או סיסמה שגויים',
+    email_not_verified: 'יש לאמת את האימייל לפני הכניסה',
+    account_disabled: 'החשבון הושבת',
+    email_taken: 'כתובת האימייל כבר רשומה',
+    password_too_short: 'הסיסמה חייבת להכיל לפחות 8 תווים',
+    not_allowed: 'כתובת האימייל אינה ברשימת הגישה המורשית',
+  };
+  function errorText(code) { return ERRORS[code] || 'אירעה שגיאה, אנא נסה שנית'; }
+</script>
 
 <!-- FOOTER -->
 <footer>
