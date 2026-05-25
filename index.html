@@ -529,7 +529,7 @@
   <div class="nav-links">
     <a href="#features">תכונות</a>
     <a href="#how">איך זה עובד</a>
-    <a class="nav-cta" href="https://reminder-git-master-pavel-arshavskys-projects.vercel.app/">כניסה למערכת →</a>
+    <a class="nav-cta" href="https://reminder-eosin.vercel.app">כניסה למערכת →</a>
   </div>
 </nav>
 
@@ -546,7 +546,7 @@
         ייבא מסמכים, חלץ נתונים אוטומטית עם AI, נהל לקוחות וקבל תזכורות לפני שכל חוזה או תסקיר פג תוקף.
       </p>
       <div class="hero-actions">
-        <a href="https://reminder-git-master-pavel-arshavskys-projects.vercel.app/#/login?tab=register" class="btn-primary">🚀 התחל בחינם</a>
+        <a class="btn-primary" href="https://reminder-eosin.vercel.app#/login?tab=register">🚀 התחל בחינם</a>
         <a href="#features" class="btn-secondary">למד עוד ↓</a>
       </div>
     </div>
@@ -694,7 +694,7 @@
 </div>
 
 <script>
-  const API = 'https://reminder-server-production-a76c.up.railway.app';
+  const API = 'https://reminder-eosin.vercel.app';
 
   function switchTab(tab) {
     document.querySelectorAll('.auth-tab').forEach((t, i) => {
@@ -729,7 +729,7 @@
       });
       const data = await res.json();
       if (!res.ok) return showMsg(errorText(data.error), 'error');
-      window.location.href = 'https://reminder-git-master-pavel-arshavskys-projects.vercel.app/';
+      window.location.href = 'https://reminder-eosin.vercel.app';
     } catch {
       showMsg('שגיאת תקשורת, אנא נסה שנית', 'error');
     }
