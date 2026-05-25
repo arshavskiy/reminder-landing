@@ -53,14 +53,23 @@
       text-decoration: none;
     }
     .nav-brand__icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
       background: linear-gradient(135deg, var(--brand), var(--brand-dark));
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
+      color: #fff;
+    }
+    .nav-brand__icon svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 32;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
     .nav-brand__text {
       font-weight: 700;
@@ -507,7 +516,14 @@
 <!-- NAV -->
 <nav>
   <a class="nav-brand" href="#">
-    <div class="nav-brand__icon">💼</div>
+    <div class="nav-brand__icon">
+      <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <rect height="304" rx="48" ry="48" width="448" x="32" y="160"/>
+        <path d="M160 160v-32a32 32 0 0132-32h128a32 32 0 0132 32v32"/>
+        <line x1="256" x2="256" y1="304" y2="304"/>
+        <path d="M480 240a96 96 0 01-96 96H128a96 96 0 01-96-96"/>
+      </svg>
+    </div>
     <span class="nav-brand__text"> ReminderOCR </span>
   </a>
   <div class="nav-links">
