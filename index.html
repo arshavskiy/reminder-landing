@@ -29,6 +29,7 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     /* ── NAV ─────────────────────────────── */
@@ -184,6 +185,10 @@
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
     }
     .hero-visual__bar {
       background: linear-gradient(135deg, var(--brand), var(--brand-dark));
@@ -497,17 +502,103 @@
 
     /* ── RESPONSIVE ─────────────────────────────── */
     @media (max-width: 768px) {
-      nav { padding: 0 20px; }
+      nav {
+        height: auto;
+        min-height: 58px;
+        padding: 10px 16px;
+        gap: 12px;
+      }
+      .nav-brand__text { font-size: 15px; }
+      .nav-brand__icon {
+        width: 34px;
+        height: 34px;
+      }
+      .nav-links { gap: 0; }
       .nav-links a:not(.nav-cta) { display: none; }
-      .hero { grid-template-columns: 1fr; padding: 48px 24px; gap: 40px; }
+      .nav-links,
+      .nav-brand {
+        min-width: 0;
+      }
+      .nav-cta {
+        padding: 9px 14px !important;
+        font-size: 13px !important;
+        white-space: nowrap;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 44px 20px 40px;
+        gap: 28px;
+        text-align: center;
+      }
+      .hero-badge { margin-bottom: 16px; }
+      .hero h1 { margin-bottom: 16px; }
+      .hero-desc {
+        font-size: 16px;
+        margin-bottom: 28px;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-primary,
+      .btn-secondary,
+      .btn-white {
+        justify-content: center;
+        width: 100%;
+        max-width: 360px;
+        margin-inline: auto;
+      }
+      .hero-visual { display: none; }
       .auth-card { max-width: 100%; }
-      .stats-inner { grid-template-columns: repeat(2, 1fr); padding: 0; }
-      section { padding: 48px 24px; }
+      .stats { padding: 36px 20px; }
+      .stats-inner {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 16px;
+        padding: 0;
+      }
+      .stat-num { font-size: 34px; }
+      section { padding: 48px 20px; }
+      .section-header { margin-bottom: 32px; }
       .features-grid { grid-template-columns: 1fr; }
-      .steps { flex-direction: column; gap: 32px; }
+      .feature-card { padding: 22px; }
+      .steps {
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
+      }
+      .step {
+        max-width: 420px;
+        padding: 0;
+        width: 100%;
+      }
       .step::after { display: none; }
-      .cta-section { padding: 48px 24px; }
-      footer { padding: 32px 24px; }
+      .step__num { margin-bottom: 14px; }
+      .step h3 { margin-bottom: 8px; }
+      .step p {
+        margin: 0 auto;
+        max-width: 340px;
+      }
+      .cta-section { padding: 48px 20px; }
+      footer { padding: 32px 20px; }
+    }
+
+    @media (max-width: 420px) {
+      nav {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        padding-inline: 12px;
+      }
+      .nav-brand { gap: 8px; }
+      .nav-brand__text { font-size: 14px; }
+      .nav-cta {
+        padding: 8px 10px !important;
+        font-size: 12px !important;
+      }
+      .hero { padding: 36px 16px 34px; }
+      .hero h1 { font-size: 30px; }
+      .hero-desc { font-size: 15px; }
+      .stats-inner { grid-template-columns: 1fr; }
+      section { padding: 42px 16px; }
     }
   </style>
 </head>
@@ -529,7 +620,7 @@
   <div class="nav-links">
     <a href="#features">תכונות</a>
     <a href="#how">איך זה עובד</a>
-    <a class="nav-cta" href="https://app.handcoded.tech">כניסה למערכת →</a>
+    <a class="nav-cta" href="https://app.handcoded.tech">כניסה למערכת</a>
   </div>
 </nav>
 
@@ -547,7 +638,7 @@
       </p>
       <div class="hero-actions">
         <a class="btn-primary" href="https://app.handcoded.tech#/login?tab=register">🚀 התחל בחינם</a>
-        <a href="#features" class="btn-secondary">למד עוד ↓</a>
+        <a href="#features" class="btn-secondary">למד עוד</a>
       </div>
     </div>
 
