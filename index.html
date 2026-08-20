@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> ReminderOCR  — מערכת ניהול תסקירים ותזכורות</title>
-  <meta name="description" content="מערכת ניהול תסקירים, חוזים ותזכורות אוטומטיות — מותאמת לעסקים ישראלים" />
+  <title>RemindOCR — מערכת ניהול תסקירים ותזכורות</title>
+  <meta name="description" content="RemindOCR היא מערכת לניהול תסקירי בדיקה, מסמכים, לקוחות ותזכורות, עם חילוץ נתונים אוטומטי וייבוא PDF אופציונלי מ-Gmail." />
+  <link rel="icon" type="image/png" media="(prefers-color-scheme: dark)" href="remindocr-logo-dark.png" />
+  <link rel="icon" type="image/png" media="(prefers-color-scheme: light)" href="remindocr-logo.png" />
+  <link rel="icon" type="image/png" href="remindocr-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
@@ -76,6 +79,16 @@
       font-weight: 700;
       font-size: 17px;
       color: var(--text);
+    }
+    .nav-brand__logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 1px 8px rgba(15, 23, 42, 0.14);
+    }
+    .nav-brand picture {
+      display: flex;
     }
 
     .nav-links {
@@ -509,7 +522,8 @@
         gap: 12px;
       }
       .nav-brand__text { font-size: 15px; }
-      .nav-brand__icon {
+      .nav-brand__icon,
+      .nav-brand__logo {
         width: 34px;
         height: 34px;
       }
@@ -607,15 +621,11 @@
 <!-- NAV -->
 <nav>
   <a class="nav-brand" href="#">
-    <div class="nav-brand__icon">
-      <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-        <rect height="304" rx="48" ry="48" width="448" x="32" y="160"/>
-        <path d="M160 160v-32a32 32 0 0132-32h128a32 32 0 0132 32v32"/>
-        <line x1="256" x2="256" y1="304" y2="304"/>
-        <path d="M480 240a96 96 0 01-96 96H128a96 96 0 01-96-96"/>
-      </svg>
-    </div>
-    <span class="nav-brand__text"> ReminderOCR </span>
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="remindocr-logo-dark.png" />
+      <img class="nav-brand__logo" src="remindocr-logo.png" alt="" />
+    </picture>
+    <span class="nav-brand__text">RemindOCR</span>
   </a>
   <div class="nav-links">
     <a href="#features">תכונות</a>
@@ -634,7 +644,11 @@
       </div>
       <h1>ניהול תסקירים ותזכורות <span>בלי כאב ראש</span></h1>
       <p class="hero-desc">
-        ייבא מסמכים, חלץ נתונים אוטומטית עם AI, נהל לקוחות וקבל תזכורות לפני שכל חוזה או תסקיר פג תוקף.
+        RemindOCR היא מערכת לניהול תסקירי בדיקה, מסמכים, לקוחות וחוזים. המערכת מאפשרת להעלות או לייבא מסמכים,
+        לחלץ מהם תאריכים ופרטי לקוח בעזרת OCR ו-AI, ולעקוב אחרי תוקף מסמכים באמצעות תזכורות אוטומטיות.
+      </p>
+      <p class="hero-desc" style="font-size: 15px; background: #fff; border: 1px solid #dbe8df; border-radius: 8px; padding: 14px 16px; color: #335144;">
+        חיבור Gmail הוא אופציונלי ומשמש רק להצגת הודעות עם קבצים מצורפים ולייבוא קובצי PDF שהמשתמש בוחר להכניס למערכת.
       </p>
       <div class="hero-actions">
         <a class="btn-primary" href="https://app.handcoded.tech#/login?tab=register">🚀 התחל בחינם</a>
@@ -723,6 +737,11 @@
       <div class="feature-icon">📄</div>
       <h3>ייבוא מסמכים חכם</h3>
       <p>גרור ושחרר PDF, Word, Excel ועוד. AI יחלץ אוטומטית את שם הלקוח, תאריכים, סכומים ועוד.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">✉️</div>
+      <h3>ייבוא PDF מ-Gmail</h3>
+      <p>חיבור Gmail הוא אופציונלי, לקריאה בלבד, ומשמש להצגת הודעות עם קבצים מצורפים ולייבוא קובצי PDF שהמשתמש בוחר.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">⏰</div>
@@ -866,7 +885,7 @@
 <!-- FOOTER -->
 <footer>
   <p>
-    <strong> ReminderOCR </strong> — מערכת ניהול תסקירים ותזכורות לעסקים ישראלים<br />
+    <strong>RemindOCR</strong> — מערכת ניהול תסקירים ותזכורות לעסקים ישראלים<br />
     <span style="margin-top: 8px; display: block;">
       פותח עם ❤️ | <a href="https://app.handcoded.tech" style="color: rgba(255,255,255,0.7); text-decoration: none;">כניסה למערכת</a>
     </span>
