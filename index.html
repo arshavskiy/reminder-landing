@@ -222,16 +222,19 @@
       flex-direction: column;
       gap: 10px;
       opacity: 0;
-      animation: demo-step 12s infinite;
+      animation: demo-step 16s infinite;
     }
     .demo__step--1 { animation-delay: 0s; }
     .demo__step--2 { animation-delay: 4s; }
     .demo__step--3 { animation-delay: 8s; }
+    .demo__step--4 { animation-delay: 12s; }
 
+    /* 4 steps x 4s = 16s. Each is visible for a quarter of the loop, with a
+       short fade at each end — hence 2%/23% rather than 0%/25%. */
     @keyframes demo-step {
       0%        { opacity: 0; transform: translateY(8px); }
-      3%, 30%   { opacity: 1; transform: translateY(0); }
-      33%, 100% { opacity: 0; transform: translateY(-8px); }
+      2%, 23%   { opacity: 1; transform: translateY(0); }
+      25%, 100% { opacity: 0; transform: translateY(-8px); }
     }
 
     .demo__label {
@@ -289,6 +292,83 @@
 
     .demo__alert { background: var(--brand-light); border-color: rgba(24,160,88,0.25); }
 
+    /* Month view — mirrors the dashboard's reminder calendar, where each day
+       cell carries a chip per reminder: solid for sent, tinted for scheduled. */
+    .demo__cal {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--white);
+    }
+    .demo__cal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .demo__cal-count {
+      font-weight: 600;
+      font-size: 10px;
+      color: var(--brand-dark);
+      background: var(--brand-light);
+      border-radius: 999px;
+      padding: 2px 8px;
+    }
+    .demo__cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+    .demo__cal-dow {
+      background: var(--bg);
+      text-align: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-2);
+      padding: 4px 0;
+    }
+    .demo__cal-cell {
+      background: var(--white);
+      min-height: 40px;
+      padding: 3px 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .demo__cal-cell b {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-2);
+    }
+    .demo__chip {
+      display: block;
+      height: 5px;
+      border-radius: 2px;
+      background: var(--brand-light);
+      border: 1px solid rgba(24,160,88,0.35);
+    }
+    .demo__chip--sent { background: var(--brand); border-color: var(--brand); }
+
+    .demo__legend {
+      display: flex;
+      gap: 14px;
+      font-size: 11px;
+      color: var(--text-2);
+    }
+    .demo__legend span { display: inline-flex; align-items: center; gap: 5px; }
+    .demo__swatch {
+      width: 9px; height: 9px;
+      border-radius: 2px;
+      display: inline-block;
+    }
+    .demo__swatch--rem { background: var(--brand-light); border: 1px solid rgba(24,160,88,0.35); }
+    .demo__swatch--sent { background: var(--brand); }
+
     .demo__steps-nav {
       display: flex;
       justify-content: center;
@@ -299,22 +379,45 @@
       width: 22px; height: 4px;
       border-radius: 999px;
       background: var(--border);
-      animation: demo-pip 12s infinite;
+      animation: demo-pip 16s infinite;
     }
     .demo__pip--1 { animation-delay: 0s; }
     .demo__pip--2 { animation-delay: 4s; }
     .demo__pip--3 { animation-delay: 8s; }
+    .demo__pip--4 { animation-delay: 12s; }
 
     @keyframes demo-pip {
-      0%, 2%    { background: var(--border); }
-      3%, 30%   { background: var(--brand); }
-      33%, 100% { background: var(--border); }
+      0%, 1%    { background: var(--border); }
+      2%, 23%   { background: var(--brand); }
+      25%, 100% { background: var(--border); }
     }
 
-    /* Honour a reduced-motion preference: hold the first step, no cycling. */
+    /* Manual paging. Setting data-step on .demo pins one step and its pip,
+       overriding the animation, so the demo is still explorable when motion is
+       suppressed or a visitor wants to read a step at their own pace. */
+    .demo[data-step] .demo__step { animation: none; opacity: 0; transform: none; }
+    .demo[data-step] .demo__pip { animation: none; background: var(--border); }
+    .demo[data-step="1"] .demo__step--1,
+    .demo[data-step="2"] .demo__step--2,
+    .demo[data-step="3"] .demo__step--3,
+    .demo[data-step="4"] .demo__step--4 { opacity: 1; }
+    .demo[data-step="1"] .demo__pip--1,
+    .demo[data-step="2"] .demo__pip--2,
+    .demo[data-step="3"] .demo__pip--3,
+    .demo[data-step="4"] .demo__pip--4 { background: var(--brand); }
+
+    .demo__pip { border: none; padding: 0; cursor: pointer; }
+
+    /* Honour a reduced-motion preference: no cycling, hold the first step.
+       Every delay is cleared too — leaving them set while animations are off
+       let a later pip stay highlighted over the first step's content. */
     @media (prefers-reduced-motion: reduce) {
-      .demo__step, .demo__pip { animation: none; }
+      .demo__step, .demo__pip {
+        animation: none;
+        animation-delay: 0s;
+      }
       .demo__step { opacity: 0; transform: none; }
+      .demo__pip { background: var(--border); }
       .demo__step--1 { opacity: 1; }
       .demo__pip--1 { background: var(--brand); }
     }
@@ -825,7 +928,9 @@
          authentication belongs on the app, so a marketing page is better spent
          showing what the product does. Built in CSS rather than as a video or
          GIF so it stays sharp at any size and costs no extra download. -->
-    <div class="demo" role="img"
+    <!-- Not role="img": the step pips below are real buttons, and an img role
+         would hide them from assistive technology. -->
+    <div class="demo" role="group"
          aria-label="הדגמה: מסמך מיובא, הנתונים מחולצים אוטומטית, ותזכורת נשלחת לפני פקיעת התוקף">
       <div class="demo__bar">
         <span class="demo__dot"></span>
@@ -876,14 +981,129 @@
           <div class="demo__field"><span>60 יום מראש</span><strong>מתוזמן</strong></div>
           <div class="demo__field"><span>30 יום מראש</span><strong>מתוזמן</strong></div>
         </div>
+
+        <!-- Step 4 — the dashboard's reminder/inspection month view -->
+        <div class="demo__step demo__step--4">
+          <div class="demo__label">לוח תזכורות ותסקירים</div>
+          <div class="demo__cal">
+            <div class="demo__cal-head">
+              <span>ספטמבר 2026</span>
+              <span class="demo__cal-count">50 תזכורות</span>
+            </div>
+            <div class="demo__cal-grid">
+              <span class="demo__cal-dow">א</span>
+              <span class="demo__cal-dow">ב</span>
+              <span class="demo__cal-dow">ג</span>
+              <span class="demo__cal-dow">ד</span>
+              <span class="demo__cal-dow">ה</span>
+              <span class="demo__cal-dow">ו</span>
+              <span class="demo__cal-dow">ש</span>
+
+              <span class="demo__cal-cell"><b>6</b></span>
+              <span class="demo__cal-cell">
+                <b>7</b>
+                <i class="demo__chip"></i>
+                <i class="demo__chip"></i>
+              </span>
+              <span class="demo__cal-cell"><b>8</b></span>
+              <span class="demo__cal-cell">
+                <b>9</b>
+                <i class="demo__chip"></i>
+              </span>
+              <span class="demo__cal-cell"><b>10</b></span>
+              <span class="demo__cal-cell">
+                <b>11</b>
+                <i class="demo__chip"></i>
+              </span>
+              <span class="demo__cal-cell"><b>12</b></span>
+
+              <span class="demo__cal-cell">
+                <b>13</b>
+                <i class="demo__chip demo__chip--sent"></i>
+              </span>
+              <span class="demo__cal-cell">
+                <b>14</b>
+                <i class="demo__chip"></i>
+                <i class="demo__chip"></i>
+              </span>
+              <span class="demo__cal-cell"><b>15</b></span>
+              <span class="demo__cal-cell"><b>16</b></span>
+              <span class="demo__cal-cell">
+                <b>17</b>
+                <i class="demo__chip demo__chip--sent"></i>
+              </span>
+              <span class="demo__cal-cell"><b>18</b></span>
+              <span class="demo__cal-cell"><b>19</b></span>
+            </div>
+          </div>
+          <div class="demo__legend">
+            <span><i class="demo__swatch demo__swatch--rem"></i>תזכורות</span>
+            <span><i class="demo__swatch demo__swatch--sent"></i>נשלחה</span>
+          </div>
+        </div>
       </div>
 
-      <div class="demo__steps-nav" aria-hidden="true">
-        <span class="demo__pip demo__pip--1"></span>
-        <span class="demo__pip demo__pip--2"></span>
-        <span class="demo__pip demo__pip--3"></span>
+      <div class="demo__steps-nav">
+        <button class="demo__pip demo__pip--1" type="button" data-goto="1" aria-label="ייבוא מסמכים"></button>
+        <button class="demo__pip demo__pip--2" type="button" data-goto="2" aria-label="חילוץ נתונים"></button>
+        <button class="demo__pip demo__pip--3" type="button" data-goto="3" aria-label="תזכורת אוטומטית"></button>
+        <button class="demo__pip demo__pip--4" type="button" data-goto="4" aria-label="לוח פקיעת תוקף"></button>
       </div>
     </div>
+
+    <script>
+      (function () {
+        var demo = document.querySelector('.demo');
+        if (!demo) return;
+
+        var STEPS = 4;
+        var INTERVAL = 4000;
+        var current = 1;
+        var timer = null;
+
+        function show(step) {
+          current = step;
+          demo.dataset.step = String(step);
+        }
+
+        function advance() {
+          show(current % STEPS + 1);
+        }
+
+        function start() {
+          stop();
+          timer = setInterval(advance, INTERVAL);
+        }
+
+        function stop() {
+          if (timer) { clearInterval(timer); timer = null; }
+        }
+
+        // Driving the rotation from JS rather than leaving it to the CSS
+        // animation, because that animation is disabled under reduced motion —
+        // which would otherwise freeze the demo on step 1 forever. A fade is
+        // motion; a slideshow that swaps content is not, so this still respects
+        // the preference while keeping every step reachable.
+        document.querySelectorAll('.demo__pip').forEach(function (pip) {
+          pip.addEventListener('click', function () {
+            show(Number(pip.dataset.goto));
+            start(); // restart the clock so the chosen step gets a full turn
+          });
+        });
+
+        // Pause while the pointer is over the demo, so a step can be read.
+        demo.addEventListener('mouseenter', stop);
+        demo.addEventListener('mouseleave', start);
+
+        // Do not animate a demo nobody is looking at.
+        document.addEventListener('visibilitychange', function () {
+          if (document.hidden) stop(); else start();
+        });
+
+        show(1);
+        start();
+      })();
+    </script>
 
     <!-- Auth card -->
 <!--    <div class="auth-card" id="register-card">-->
