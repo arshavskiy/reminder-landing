@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>מחירים — RemindOCR</title>
+  <meta name="description" content="מסלולי RemindOCR לניהול תסקירי בדיקה, חשבוניות, מסמכים ותזכורות אוטומטיות לפי נפח העבודה של העסק." />
+  <link rel="canonical" href="https://remindocr.com/pricing" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="RemindOCR" />
+  <meta property="og:locale" content="he_IL" />
+  <meta property="og:url" content="https://remindocr.com/pricing" />
+  <meta property="og:title" content="מחירים — RemindOCR" />
+  <meta property="og:description" content="מסלולי RemindOCR לניהול תסקירי בדיקה, חשבוניות, מסמכים ותזכורות אוטומטיות." />
+
+  <meta name="theme-color" content="#18a058" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32-v2.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192-v2.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-512-v2.png" />
+  <link rel="icon" type="image/svg+xml" href="favicon-v2.svg" />
+  <link rel="apple-touch-icon" href="apple-touch-icon-v2.png" />
+  <meta property="og:image" content="https://remindocr.com/og-image.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand: #18a058;
+      --brand-dark: #0c7a43;
+      --brand-light: rgba(24,160,88,0.1);
+      --text: #1a1a2e;
+      --text-2: #4a5568;
+      --bg: #f8fafb;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Rubik', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; right: 0; left: 0;
+      z-index: 20;
+      height: 64px;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-brand__logo { width: 40px; height: 40px; border-radius: 10px; object-fit: cover; }
+    .nav-brand__text { font-size: 17px; font-weight: 700; }
+
+    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-links a {
+      padding: 8px 16px;
+      border-radius: 8px;
+      color: var(--text-2);
+      font-size: 14px;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-links a:hover { background: var(--brand-light); color: var(--brand); }
+    .nav-cta {
+      padding: 10px 20px !important;
+      background: var(--brand);
+      color: #fff !important;
+      font-weight: 700;
+    }
+    .nav-cta:hover { background: var(--brand-dark); color: #fff !important; }
+
+    .page { padding-top: 64px; }
+
+    .plans-hero {
+      background: linear-gradient(180deg, #f0fdf4 0%, var(--bg) 100%);
+      padding: 72px 48px 48px;
+      text-align: center;
+    }
+    .plans-hero h1 {
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .plans-hero p {
+      max-width: 620px;
+      margin: 0 auto;
+      color: var(--text-2);
+      font-size: 17px;
+    }
+
+    section { width: min(1100px, 100%); margin: 0 auto; padding: 56px 48px 80px; }
+
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+
+    .plan {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .plan--highlighted {
+      border-color: var(--brand);
+      box-shadow: 0 12px 40px rgba(24,160,88,0.12);
+      position: relative;
+    }
+    .plan__badge {
+      position: absolute;
+      top: -13px;
+      right: 28px;
+      background: var(--brand);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 999px;
+    }
+    .plan__name { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+    .plan__blurb { color: var(--text-2); font-size: 14px; min-height: 44px; margin-bottom: 18px; }
+
+    .plan__price { display: flex; align-items: baseline; gap: 8px; margin-bottom: 22px; }
+    .plan__price strong { font-size: 40px; font-weight: 800; line-height: 1; }
+    .plan__price-old {
+      color: var(--text-2);
+      text-decoration: line-through;
+      font-size: 17px;
+      opacity: 0.75;
+    }
+    .plan__price-period { color: var(--text-2); font-size: 14px; }
+
+    .plan__features { list-style: none; margin-bottom: 26px; flex: 1; }
+    .plan__features li {
+      position: relative;
+      padding-right: 26px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: var(--text-2);
+    }
+    .plan__features li::before {
+      content: "✓";
+      position: absolute;
+      right: 0;
+      color: var(--brand);
+      font-weight: 700;
+    }
+
+    .plan__cta {
+      display: block;
+      text-align: center;
+      padding: 13px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .plan__cta--primary { background: var(--brand); color: #fff; }
+    .plan__cta--primary:hover { background: var(--brand-dark); transform: translateY(-1px); }
+    .plan__cta--ghost { background: var(--white); border: 1px solid var(--border); color: var(--text); }
+    .plan__cta--ghost:hover { background: var(--bg); transform: translateY(-1px); }
+
+    .plans-note {
+      margin-top: 32px;
+      text-align: center;
+      color: var(--text-2);
+      font-size: 14px;
+    }
+
+    footer {
+      background: #17212b;
+      color: rgba(255,255,255,0.75);
+      padding: 40px 48px;
+      text-align: center;
+      font-size: 14px;
+    }
+    footer strong { color: #fff; }
+    footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      nav { height: auto; min-height: 58px; padding: 10px 16px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .plans-hero { padding: 48px 20px 32px; }
+      section { padding: 40px 20px 56px; }
+      .plans-grid { grid-template-columns: 1fr; }
+      footer { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="remindocr-logo-dark.png" />
+      <img class="nav-brand__logo" src="remindocr-logo.png" alt="" />
+    </picture>
+    <span class="nav-brand__text">RemindOCR</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#features">תכונות</a>
+    <a href="index.html#how">איך זה עובד</a>
+    <a href="pricing.html">מחירים</a>
+    <a class="nav-cta" href="https://app.remindocr.com/login">כניסה למערכת</a>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="plans-hero">
+    <h1>מסלולים ומחירים</h1>
+    <p>בחר את המסלול שמתאים לנפח העבודה שלך. אפשר להתחיל בחינם ולשדרג בכל שלב.</p>
+  </div>
+
+  <section>
+    <div class="plans-grid">
+
+      <div class="plan">
+        <div class="plan__name">חינמי</div>
+        <p class="plan__blurb">להתחלה מהירה ובדיקת התהליך עם כמות מסמכים מוגבלת.</p>
+        <div class="plan__price">
+          <strong>₪0</strong>
+          <span class="plan__price-period">חד פעמי</span>
+        </div>
+        <ul class="plan__features">
+          <li>משתמש אחד</li>
+          <li>30 מסמכים חד פעמי</li>
+          <li>25 תזכורות אימייל</li>
+          <li>OCR מתקדם</li>
+          <li>תצוגה מקדימה וחילוץ נתונים</li>
+          <li>דוח חודשי ידני</li>
+        </ul>
+        <a class="plan__cta plan__cta--ghost" href="https://app.remindocr.com/login?tab=register">התחל בחינם</a>
+      </div>
+
+      <div class="plan">
+        <div class="plan__name">בסיסי</div>
+        <p class="plan__blurb">מתאים לעסק קטן שמייבא מסמכים בכל חודש.</p>
+        <div class="plan__price">
+          <span class="plan__price-old">₪86</span>
+          <strong>₪69</strong>
+          <span class="plan__price-period">/ חודש</span>
+        </div>
+        <ul class="plan__features">
+          <li>2 משתמשים</li>
+          <li>חיבור 2 חשבונות דוא"ל</li>
+          <li>50 מסמכי חשבוניות/קבלות בחודש</li>
+          <li>40 מסמכי תסקירים/חוזים בחודש</li>
+          <li>OCR מתקדם</li>
+          <li>המרת קבלות לקובץ אקסל</li>
+          <li>ייבוא חשבוניות מ-Gmail עד 12 חודשים אחורה</li>
+          <li>תזכורות אימייל אוטומטיות</li>
+          <li>דוחות חודשיים אוטומטיים</li>
+          <li>סנכרון Google Drive אוטומטי</li>
+        </ul>
+        <a class="plan__cta plan__cta--ghost" href="https://app.remindocr.com/login?tab=register">בחר מסלול בסיסי</a>
+      </div>
+
+      <div class="plan plan--highlighted">
+        <span class="plan__badge">הכי פופולרי</span>
+        <div class="plan__name">עסקי</div>
+        <p class="plan__blurb">למי שמייבא מסמכים באופן שוטף ורוצה יותר נפח עבודה.</p>
+        <div class="plan__price">
+          <span class="plan__price-old">₪224</span>
+          <strong>₪179</strong>
+          <span class="plan__price-period">/ חודש</span>
+        </div>
+        <ul class="plan__features">
+          <li>משתמשים ללא הגבלה</li>
+          <li>חשבונות אימייל ללא הגבלה</li>
+          <li>חשבוניות וקבלות ללא הגבלה</li>
+          <li>תסקירים וחוזים ללא הגבלה</li>
+          <li>סנכרון היסטורי של 4 שנים</li>
+          <li>מסמכים ללא הגבלה לניהול ידני</li>
+          <li>תזכורות אימייל ללא הגבלה</li>
+          <li>דוחות חודשיים אוטומטיים לכל הלקוחות</li>
+          <li>סנכרון Google Drive אוטומטי + ייצוא מלא</li>
+        </ul>
+        <a class="plan__cta plan__cta--primary" href="https://app.remindocr.com/login?tab=register">בחר מסלול עסקי</a>
+      </div>
+
+    </div>
+
+    <p class="plans-note">
+      המסלול החינמי מיועד לבדיקה, ואפשר לעבור לבסיסי או עסקי בכל שלב מהפרופיל או מעמוד המנויים.
+    </p>
+  </section>
+</div>
+
+<footer>
+  <p>
+    <strong>RemindOCR</strong> — מערכת ניהול תסקירים ותזכורות לעסקים ישראלים<br />
+    <span style="margin-top: 8px; display: block;">
+      פותח עם ❤️ | <a href="https://app.remindocr.com/login" style="color: rgba(255,255,255,0.7);">כניסה למערכת</a>
+    </span>
+    <span style="margin-top: 8px; display: block; font-size: 0.85em; color: rgba(255,255,255,0.5);">
+      © 2026 HandCoded. All rights reserved. |
+      <a href="pricing.html" style="color: rgba(255,255,255,0.5);">Pricing</a> |
+      <a href="privacy.html" style="color: rgba(255,255,255,0.5);">Privacy Policy</a> |
+      <a href="terms.html" style="color: rgba(255,255,255,0.5);">Terms of Service</a>
+    </span>
+  </p>
+</footer>
+
+</body>
+</html>
