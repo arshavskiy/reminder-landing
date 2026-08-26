@@ -630,7 +630,7 @@
   <div class="nav-links">
     <a href="#features">תכונות</a>
     <a href="#how">איך זה עובד</a>
-    <a class="nav-cta" href="https://app.handcoded.tech">כניסה למערכת</a>
+    <a class="nav-cta" href="https://app.remindocr.com/login">כניסה למערכת</a>
   </div>
 </nav>
 
@@ -651,7 +651,7 @@
         חיבור Gmail הוא אופציונלי ומשמש רק להצגת הודעות עם קבצים מצורפים ולייבוא קובצי PDF שהמשתמש בוחר להכניס למערכת.
       </p>
       <div class="hero-actions">
-        <a class="btn-primary" href="https://app.handcoded.tech#/login?tab=register">🚀 התחל בחינם</a>
+        <a class="btn-primary" href="https://app.remindocr.com/login?tab=register">🚀 התחל בחינם</a>
         <a href="#features" class="btn-secondary">למד עוד</a>
       </div>
     </div>
@@ -802,11 +802,15 @@
 <div class="cta-section">
   <h2>מוכן להתחיל?</h2>
 <!--  <p>כניסה עם Google — מוכן תוך דקה</p>-->
-  <a class="btn-white" href="https://app.handcoded.tech/">🚀 כנס למערכת</a>
+  <a class="btn-white" href="https://app.remindocr.com/login">🚀 כנס למערכת</a>
 </div>
 
 <script>
-  const API = 'https://api.handcoded.tech';
+  // Backs the inline auth form, which is currently commented out — sign-in
+  // happens on the app itself. Kept in sync so it cannot resurface pointing at
+  // the retired handcoded.tech domain.
+  const API = 'https://api.remindocr.com';
+  const APP_URL = 'https://app.remindocr.com';
 
   function switchTab(tab) {
     document.querySelectorAll('.auth-tab').forEach((t, i) => {
@@ -841,7 +845,7 @@
       });
       const data = await res.json();
       if (!res.ok) return showMsg(errorText(data.error), 'error');
-      window.location.href = 'https://scanner.handcoded.tech';
+      window.location.href = APP_URL;
     } catch {
       showMsg('שגיאת תקשורת, אנא נסה שנית', 'error');
     }
@@ -887,7 +891,7 @@
   <p>
     <strong>RemindOCR</strong> — מערכת ניהול תסקירים ותזכורות לעסקים ישראלים<br />
     <span style="margin-top: 8px; display: block;">
-      פותח עם ❤️ | <a href="https://app.handcoded.tech" style="color: rgba(255,255,255,0.7); text-decoration: none;">כניסה למערכת</a>
+      פותח עם ❤️ | <a href="https://app.remindocr.com/login" style="color: rgba(255,255,255,0.7); text-decoration: none;">כניסה למערכת</a>
     </span>
     <span style="margin-top: 8px; display: block; font-size: 0.85em; color: rgba(255,255,255,0.5);">
       © 2026 HandCoded. All rights reserved. |
