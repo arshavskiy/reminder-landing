@@ -131,9 +131,10 @@
     .hero {
       max-width: 1300px;
       margin: 0 auto;
-      padding: 96px 48px 80px;
+      padding: 84px 48px 76px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      /* Same proportions as the app's hero: fluid copy, fixed-width card. */
+      grid-template-columns: minmax(0, 1fr) 420px;
       gap: 64px;
       align-items: center;
     }
@@ -174,6 +175,99 @@
       letter-spacing: 1px;
       color: var(--brand, #16a06a);
       margin: 0 0 18px;
+    }
+
+    /* Sign-in card — mirrors .login-card in the app's LoginPage.vue */
+    .login-card {
+      width: 100%;
+      max-width: 420px;
+      justify-self: end;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 32px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    }
+    .login-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .login-brand__logo {
+      width: 88px;
+      height: 88px;
+      border-radius: 20px;
+      object-fit: contain;
+      box-shadow: 0 8px 20px rgba(26,26,46,0.1);
+    }
+    .login-brand__title { font-size: 24px; font-weight: 700; }
+    .login-brand__sub { font-size: 14px; color: var(--text-2); text-align: center; }
+
+    .login-card__cta {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 10px;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .login-card__cta:hover { background: var(--brand-dark); transform: translateY(-1px); }
+    .login-card__cta--ghost {
+      margin-top: 10px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .login-card__cta--ghost:hover { background: var(--bg); }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      margin: 16px 0;
+      color: var(--text-2);
+      font-size: 13px;
+    }
+    .divider::before, .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .login-card__google {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 11px 18px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--white);
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .login-card__google:hover { background: var(--bg); }
+
+    .login-card__footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--text-2);
+      text-align: center;
     }
 
     .hero-actions {
@@ -572,6 +666,7 @@
       }
       .hero-badge { margin-bottom: 16px; }
       .hero h1 { margin-bottom: 16px; }
+      .login-card { justify-self: center; max-width: 440px; }
       .hero-desc {
         font-size: 16px;
         margin-bottom: 28px;
@@ -665,23 +760,39 @@
 <div style="background: linear-gradient(180deg, #f0fdf4 0%, var(--bg) 100%);">
   <div class="hero">
     <div class="hero-content">
-      <div class="hero-badge">
-        <span>✨</span>
-        <span>מותאם לעסקים ישראלים</span>
-      </div>
       <h1>ניהול תסקירים, מסמכים ותזכורות</h1>
       <p class="hero-tagline">EXTRACT • TRACK • AUTOMATE</p>
       <p class="hero-desc">
         RemindOCR היא מערכת לניהול תסקירי בדיקה, מסמכים, לקוחות וחוזים. המערכת מאפשרת להעלות או לייבא מסמכים,
         לחלץ מהם תאריכים ופרטי לקוח בעזרת OCR ו-AI, ולעקוב אחרי תוקף מסמכים באמצעות תזכורות אוטומטיות.
       </p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="https://app.remindocr.com/login?tab=register">🚀 התחל בחינם</a>
-        <a href="#features" class="btn-secondary">למד עוד</a>
-      </div>
     </div>
 
-    <img alt="עמודי המערכת" class="hero-visual" src="ezgif-2fc721acc88765d1.gif" width="750" />
+    <!-- Mirrors the app's login card so the two pages read as one product.
+         Sign-in itself happens on the app, so this links out rather than
+         posting credentials from the marketing site. -->
+    <div class="login-card">
+      <div class="login-brand">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="remindocr-logo-dark.png" />
+          <img class="login-brand__logo" src="remindocr-logo-light.png" alt="" />
+        </picture>
+        <h2 class="login-brand__title">RemindOCR</h2>
+        <p class="login-brand__sub">מערכת ניהול תסקירים ותזכורות</p>
+      </div>
+
+      <a class="login-card__cta" href="https://app.remindocr.com/login">כניסה</a>
+      <a class="login-card__cta login-card__cta--ghost" href="https://app.remindocr.com/login?tab=register">הרשמה</a>
+
+      <div class="divider"><span>או</span></div>
+
+      <a class="login-card__google" href="https://app.remindocr.com/login">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="" width="20" height="20" />
+        <span>התחבר עם Google</span>
+      </a>
+
+      <p class="login-card__footer">גישה מוגבלת למשתמשים מורשים בלבד</p>
+    </div>
 
     <!-- Auth card -->
 <!--    <div class="auth-card" id="register-card">-->
