@@ -1,0 +1,31 @@
+User-agent: *
+Allow: /
+Allow: /pricing
+Allow: /privacy
+Allow: /terms
+
+# Application routes live on app.remindocr.com and are redirected there; there
+# is nothing at these paths for a crawler to index.
+Disallow: /dashboard
+Disallow: /documents
+Disallow: /invoices
+Disallow: /clients
+Disallow: /contracts
+Disallow: /reminders
+Disallow: /equipment
+Disallow: /reports
+Disallow: /search
+Disallow: /profile
+Disallow: /settings
+Disallow: /admin
+Disallow: /gmail-inbox
+Disallow: /compose
+Disallow: /doc-templates
+Disallow: /email-templates
+Disallow: /field
+Disallow: /print-templates
+Disallow: /login
+Disallow: /reset-password
+Disallow: /auth
+
+Sitemap: https://remindocr.com/sitemap.xml
