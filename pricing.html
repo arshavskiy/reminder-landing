@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>מחירים — RemindOCR</title>
-  <meta name="description" content="מסלולי RemindOCR לניהול תסקירי בדיקה, חשבוניות, מסמכים, תזכורות אוטומטיות וסנכרון Google Calendar לפי נפח העבודה של העסק." />
+  <meta name="description" content="מסלולי RemindOCR לניהול תסקירי בדיקה, חשבוניות, מסמכים, תזכורות אוטומטיות, סנכרון Google Calendar וסנכרון Google Drive לפי נפח העבודה של העסק." />
   <link rel="canonical" href="https://remindocr.com/pricing" />
   <meta name="robots" content="index,follow" />
 
@@ -13,7 +13,7 @@
   <meta property="og:locale" content="he_IL" />
   <meta property="og:url" content="https://remindocr.com/pricing" />
   <meta property="og:title" content="מחירים — RemindOCR" />
-  <meta property="og:description" content="מסלולי RemindOCR לניהול תסקירי בדיקה, חשבוניות, מסמכים, תזכורות אוטומטיות וסנכרון Google Calendar." />
+  <meta property="og:description" content="מסלולי RemindOCR לניהול תסקירי בדיקה, חשבוניות, מסמכים, תזכורות אוטומטיות, סנכרון Google Calendar וסנכרון Google Drive." />
 
   <meta name="theme-color" content="#18a058" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32-v2.png" />
@@ -172,6 +172,12 @@
       color: var(--brand);
       font-weight: 700;
     }
+    .plan__features li.plan__feature--struck {
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      color: var(--text-2);
+      opacity: 0.65;
+    }
 
     .plan__cta {
       display: block;
@@ -255,7 +261,7 @@
           <li>25 תזכורות אימייל</li>
           <li>OCR מתקדם</li>
           <li>תצוגה מקדימה וחילוץ נתונים</li>
-          <li>דוח חודשי ידני</li>
+          <li class="plan__feature--struck">דוח חודשי ידני</li>
         </ul>
         <a class="plan__cta plan__cta--ghost" href="https://app.remindocr.com/login?tab=register">התחל בחינם</a>
       </div>
@@ -297,7 +303,7 @@
           <li>חשבונות אימייל ללא הגבלה</li>
           <li>חשבוניות וקבלות ללא הגבלה</li>
           <li>תסקירים וחוזים ללא הגבלה</li>
-          <li>סנכרון היסטורי של 4 שנים</li>
+          <li class="plan__feature--struck">סנכרון היסטורי של 4 שנים</li>
           <li>מסמכים ללא הגבלה לניהול ידני</li>
           <li>תזכורות אימייל ללא הגבלה</li>
           <li>סנכרון Google Calendar לתסקירים עתידיים</li>

@@ -74,13 +74,15 @@
 <div class="doc-body">
 <section class="hebrew-section" lang="he" dir="rtl">
 <h1>מדיניות פרטיות</h1>
-<p class="updated">עודכן לאחרונה: 19 באוגוסט 2026</p>
+<p class="updated">עודכן לאחרונה: 27 באוגוסט 2026</p>
 
 <div class="hebrew-note">
-  <p>RemindOCR מופעלת על ידי HandCoded. אנו משתמשים במידע שלך רק כדי להפעיל את המערכת, לאמת משתמשים, לייבא מסמכים לפי בחירתך, להפיק תזכורות ולשמור על אבטחת השירות.</p>
+  <p>RemindOCR מופעלת על ידי HandCoded. אנו משתמשים במידע שלך רק כדי להפעיל את המערכת, לאמת משתמשים, לייבא ולסנכרן מסמכים לפי בחירתך, להפיק תזכורות, לסנכרן אירועים ליומן, ולשמור על אבטחת השירות.</p>
   <ul>
     <li>כניסה עם Google משמשת לאימות זהות והצגת פרטי המשתמש באפליקציה.</li>
     <li>גישה ל-Gmail היא אופציונלית, לקריאה בלבד, ומשמשת להצגת הודעות עם קבצים מצורפים ולייבוא קבצים שבחרת.</li>
+    <li>סנכרון Google Calendar הוא אופציונלי ומשמש ליצירת ועדכון אירועי תזכורות/תסקירים ביומן שנוצר עבור האפליקציה.</li>
+    <li>סנכרון Google Drive הוא אופציונלי ומשמש לשמירה וייצוא של מסמכי RemindOCR לתיקיות/קבצים שהאפליקציה יוצרת או פותחת (בהיקף <code>drive.file</code>).</li>
     <li>מסמכים שהועלו נשמרים ומעובדים לצורך OCR, חילוץ נתונים וניהול תזכורות.</li>
     <li>ניתן לבקש מחיקה, תיקון או גישה למידע באמצעות פנייה אלינו.</li>
   </ul>
@@ -90,7 +92,7 @@
 
 <section class="english-section" lang="en" dir="ltr">
 <h1>Privacy Policy</h1>
-<p class="updated">Last updated: August 19, 2026</p>
+<p class="updated">Last updated: August 27, 2026</p>
 
 <p>RemindOCR ("the App") is operated by HandCoded ("we", "us"). This policy describes how we collect, use, and protect your information.</p>
 
@@ -98,6 +100,8 @@
 <ul>
   <li><strong>Google Account Info:</strong> When you sign in with Google, we receive your name, email address, and profile picture from Google. We use this solely for authentication and displaying your identity within the App.</li>
   <li><strong>Gmail Data:</strong> If you connect your Gmail account, we access your inbox in read-only mode to list emails with attachments. We only read email metadata (sender, subject, date) and download attachments you explicitly choose to import. We do not read email body content.</li>
+  <li><strong>Google Calendar Data:</strong> If you connect Google Calendar, we create and update calendar events for reminders and inspection due dates in an app-created calendar (using the <code>calendar.app.created</code> scope). We do not access unrelated calendars or events outside that app-managed calendar.</li>
+  <li><strong>Google Drive Data:</strong> If you connect Google Drive, we create and manage folders/files that the App opens or creates for document backup and export (using the <code>drive.file</code> scope). We do not browse or access your broader Drive contents beyond those app-managed files.</li>
   <li><strong>Uploaded Documents:</strong> Documents you upload or import are stored securely and processed using OCR and AI extraction to identify key data (dates, names, contract terms).</li>
   <li><strong>Usage Data:</strong> We log basic request information (IP address, user agent, timestamps) for security and debugging purposes.</li>
 </ul>
@@ -108,6 +112,8 @@
   <li>Display and manage your documents, clients, contracts, and reminders</li>
   <li>Send reminder emails on your behalf when contracts or inspections are due</li>
   <li>Import PDF attachments from your Gmail when you request it</li>
+  <li>Sync reminder and inspection dates to Google Calendar when you connect Calendar</li>
+  <li>Back up and export documents to Google Drive when you connect Drive</li>
 </ul>
 
 <h2>3. Data Storage and Security</h2>
@@ -116,13 +122,13 @@
   <li>Document files are stored in cloud object storage (DigitalOcean Spaces) with server-side encryption.</li>
   <li>All connections use HTTPS/TLS encryption in transit.</li>
   <li>Session cookies are signed, HTTP-only, and secure.</li>
-  <li>Gmail OAuth tokens are stored encrypted in the database and are used only to access your Gmail on your behalf.</li>
+  <li>Google OAuth tokens (Gmail, Calendar, and/or Drive, depending on what you connect) are stored encrypted in the database and are used only to access those Google services on your behalf.</li>
 </ul>
 
 <h2>4. Data Sharing</h2>
 <p>We do not sell, trade, or share your personal data with third parties. Your data is shared only with:</p>
 <ul>
-  <li><strong>Google APIs:</strong> To authenticate you and access your Gmail (with your explicit consent).</li>
+  <li><strong>Google APIs:</strong> To authenticate you and, with your explicit consent, access Gmail (read-only import), Google Calendar (app-created events), and/or Google Drive (app-managed files).</li>
   <li><strong>OpenAI API:</strong> Document text may be sent to OpenAI for AI-powered data extraction. No personal identifiers are included beyond what appears in the document text.</li>
   <li><strong>Email provider (Resend):</strong> To send reminder emails on your behalf.</li>
 </ul>
@@ -137,7 +143,7 @@
 
 <h2>6. Your Rights</h2>
 <ul>
-  <li>You can disconnect your Gmail at any time from the Gmail Inbox page.</li>
+  <li>You can disconnect Gmail, Google Calendar, and Google Drive at any time from the App (Profile / settings).</li>
   <li>You can request access to, correction of, or deletion of your personal data.</li>
   <li>You can revoke the App's access to your Google account at <a href="https://myaccount.google.com/permissions">Google Account Permissions</a>.</li>
 </ul>

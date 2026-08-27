@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RemindOCR — מערכת ניהול תסקירים ותזכורות</title>
-  <meta name="description" content="RemindOCR היא מערכת לניהול תסקירי בדיקה, מסמכים, לקוחות ותזכורות, עם חילוץ נתונים אוטומטי, ייבוא PDF מ-Gmail וסנכרון תזכורות ל-Google Calendar." />
+  <meta name="description" content="RemindOCR היא מערכת לניהול תסקירי בדיקה, מסמכים, לקוחות ותזכורות, עם חילוץ נתונים אוטומטי, ייבוא PDF מ-Gmail, סנכרון Google Calendar וסנכרון Google Drive." />
   <link rel="canonical" href="https://remindocr.com/" />
   <meta name="theme-color" content="#18a058" />
   <!-- Same icon set the app serves, so the tab icon does not change between
@@ -19,8 +19,10 @@
   <meta property="og:locale" content="he_IL" />
   <meta property="og:url" content="https://remindocr.com/" />
   <meta property="og:title" content="RemindOCR — מערכת ניהול תסקירים ותזכורות" />
+  <meta property="og:description" content="ניהול תסקירי בדיקה, מסמכים ותזכורות — עם OCR, ייבוא מ-Gmail, סנכרון Google Calendar וסנכרון Google Drive." />
   <meta property="og:image" content="https://remindocr.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:description" content="ניהול תסקירי בדיקה, מסמכים ותזכורות — עם OCR, ייבוא מ-Gmail, סנכרון Google Calendar וסנכרון Google Drive." />
   <meta name="twitter:image" content="https://remindocr.com/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -893,7 +895,7 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-brand" href="#">
+  <a class="nav-brand" href="/">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="remindocr-logo-dark.png" />
       <img class="nav-brand__logo" src="remindocr-logo-light.png" alt="" />
@@ -1105,73 +1107,8 @@
       })();
     </script>
 
-    <!-- Auth card -->
-<!--    <div class="auth-card" id="register-card">-->
-<!--      &lt;!&ndash; Tabs &ndash;&gt;-->
-<!--      <div class="auth-tabs">-->
-<!--        <button class="auth-tab active" onclick="switchTab('login')">כניסה</button>-->
-<!--        <button class="auth-tab" onclick="switchTab('register')">הרשמה</button>-->
-<!--      </div>-->
-
-<!--      &lt;!&ndash; Messages &ndash;&gt;-->
-<!--      <div id="auth-msg" class="auth-msg"></div>-->
-
-<!--      &lt;!&ndash; Login pane &ndash;&gt;-->
-<!--      <div class="auth-pane active" id="pane-login">-->
-<!--        <div class="auth-field">-->
-<!--          <label>אימייל</label>-->
-<!--          <input id="login-email" type="email" placeholder="you@example.com" autocomplete="email" />-->
-<!--        </div>-->
-<!--        <div class="auth-field">-->
-<!--          <label>סיסמה</label>-->
-<!--          <input id="login-password" type="password" placeholder="••••••••" autocomplete="current-password" />-->
-<!--        </div>-->
-<!--        <button class="auth-btn" onclick="handleLogin()">כניסה</button>-->
-<!--      </div>-->
-
-<!--      &lt;!&ndash; Register pane &ndash;&gt;-->
-<!--      <div class="auth-pane" id="pane-register">-->
-<!--        <div class="auth-field">-->
-<!--          <label>שם מלא</label>-->
-<!--          <input id="reg-name" type="text" placeholder="ישראל ישראלי" autocomplete="name" />-->
-<!--        </div>-->
-<!--        <div class="auth-field">-->
-<!--          <label>אימייל</label>-->
-<!--          <input id="reg-email" type="email" placeholder="you@example.com" autocomplete="email" />-->
-<!--        </div>-->
-<!--        <div class="auth-field">-->
-<!--          <label>סיסמה</label>-->
-<!--          <input id="reg-password" type="password" placeholder="לפחות 8 תווים" autocomplete="new-password" oninput="checkPwStrength()" />-->
-<!--        </div>-->
-<!--        <p id="pw-hint" style="font-size:12px;color:#b45309;margin:-6px 0 10px;display:none">הסיסמה חייבת להכיל לפחות 8 תווים</p>-->
-<!--        <button class="auth-btn" onclick="handleRegister()">הרשמה</button>-->
-<!--        <p class="auth-hint">לאחר ההרשמה ישלח אימייל לאימות הכתובת</p>-->
-<!--      </div>-->
-<!--    </div>-->
   </div>
 </div>
-
-<!-- STATS -->
-<!--<div class="stats">-->
-<!--  <div class="stats-inner">-->
-<!--    <div>-->
-<!--      <div class="stat-num">100%</div>-->
-<!--      <div class="stat-label">עברית מלאה — ממשק ו-OCR</div>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--      <div class="stat-num">AI</div>-->
-<!--      <div class="stat-label">חילוץ נתונים אוטומטי</div>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--      <div class="stat-num">0₪</div>-->
-<!--      <div class="stat-label">עלות הרצה עצמית</div>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--      <div class="stat-num">∞</div>-->
-<!--      <div class="stat-label">לקוחות ומסמכים</div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
 
 <!-- FEATURES -->
 <section id="features">
@@ -1186,7 +1123,7 @@
     </div>
     <div class="feature-card feature-card--accent">
       <h3>ייבוא חשבוניות לפי מנוי</h3>
-      <p>מסלול חינמי כולל 25 מסמכים חד פעמי, בסיסי כולל 50 מסמכים בחודש, ועסקי ללא הגבלה.</p>
+      <p>מסלול חינמי כולל 30 מסמכים חד פעמי, בסיסי כולל 50 חשבוניות ו-40 תסקירים בחודש, ועסקי ללא הגבלה.</p>
     </div>
     <div class="feature-card">
       <h3>תזכורות אוטומטיות</h3>
@@ -1216,11 +1153,6 @@
       <h3>סנכרון Google Drive</h3>
       <p>במסלולים בסיסי ועסקי — שמירת מסמכים בתיקיית RemindOCR ב-Google Drive, כולל סנכרון אוטומטי וייצוא.</p>
     </div>
-<!--    <div class="feature-card">-->
-<!--      <div class="feature-icon">🔐</div>-->
-<!--      <h3>כניסה עם Google</h3>-->
-<!--      <p>אבטחה ברמה ארגונית — כניסה מאובטחת עם חשבון Google. ניהול הרשאות פשוט.</p>-->
-<!--    </div>-->
   </div>
 </section>
 
