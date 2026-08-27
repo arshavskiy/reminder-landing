@@ -147,7 +147,7 @@
     .plan__name { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
     .plan__blurb { color: var(--text-2); font-size: 14px; min-height: 44px; margin-bottom: 18px; }
 
-    .plan__price { display: flex; align-items: baseline; gap: 8px; margin-bottom: 22px; }
+    .plan__price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; margin-bottom: 6px; }
     .plan__price strong { font-size: 40px; font-weight: 800; line-height: 1; }
     .plan__price-old {
       color: var(--text-2);
@@ -156,6 +156,12 @@
       opacity: 0.75;
     }
     .plan__price-period { color: var(--text-2); font-size: 14px; }
+    .plan__price-year {
+      margin: 0 0 18px;
+      color: var(--text-2);
+      font-size: 13px;
+      font-weight: 500;
+    }
 
     .plan__features { list-style: none; margin-bottom: 26px; flex: 1; }
     .plan__features li {
@@ -282,6 +288,7 @@
           <strong>₪69</strong>
           <span class="plan__price-period">/ חודש</span>
         </div>
+        <p class="plan__price-year">₪828 לשנה · חיוב שנתי</p>
         <ul class="plan__features">
           <li>2 משתמשים</li>
           <li>חיבור 2 חשבונות דוא"ל</li>
@@ -290,7 +297,7 @@
           <li>OCR מתקדם</li>
           <li>המרת קבלות לקובץ אקסל</li>
           <li>ייבוא חשבוניות מ-Gmail עד 12 חודשים אחורה</li>
-          <li>תזכורות אימייל אוטומטיות</li>
+          <li>ניהול תסקירים ושליחת תזכורות ללקוחות</li>
           <li>דוחות חודשיים אוטומטיים</li>
           <li>סנכרון Google Drive אוטומטי</li>
         </ul>
@@ -306,6 +313,7 @@
           <strong>₪179</strong>
           <span class="plan__price-period">/ חודש</span>
         </div>
+        <p class="plan__price-year">₪2,148 לשנה · חיוב שנתי</p>
         <ul class="plan__features">
           <li>משתמשים ללא הגבלה</li>
           <li>חשבונות אימייל ללא הגבלה</li>
@@ -313,7 +321,7 @@
           <li>תסקירים וחוזים ללא הגבלה</li>
           <li class="plan__feature--struck">סנכרון היסטורי של 4 שנים</li>
           <li>מסמכים ללא הגבלה לניהול ידני</li>
-          <li>תזכורות אימייל ללא הגבלה</li>
+          <li>ניהול תסקירים ושליחת תזכורות ללקוחות</li>
           <li>סנכרון Google Calendar לתסקירים עתידיים</li>
           <li>דוחות חודשיים אוטומטיים לכל הלקוחות</li>
           <li>סנכרון Google Drive אוטומטי + ייצוא מלא</li>
