@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>אבטחת מידע — RemindOCR</title>
+  <link rel="canonical" href="https://remindocr.com/security" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <meta name="theme-color" content="#18a058" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32-v2.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192-v2.png" />
+  <link rel="icon" type="image/svg+xml" href="favicon-v2.svg" />
+  <link rel="apple-touch-icon" href="apple-touch-icon-v2.png" />
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; }
+  h1 { font-size: 1.8em; margin-bottom: 0.2em; }
+  h2 { font-size: 1.2em; margin-top: 2em; }
+  .updated { color: #666; font-size: 0.9em; margin-bottom: 2em; }
+  ul { padding-right: 1.5em; }
+  a { color: #2563eb; }
+  body { max-width: none; margin: 0; padding: 0; }
+  .doc-body { max-width: 760px; margin: 0 auto; padding: 96px 20px 40px; direction: rtl; text-align: right; }
+  .site-nav {
+    position: fixed; top: 0; right: 0; left: 0; z-index: 20; height: 64px;
+    padding: 0 48px; display: flex; align-items: center; justify-content: space-between;
+    background: rgba(255,255,255,0.92); border-bottom: 1px solid #e2e8f0;
+    backdrop-filter: blur(12px); font-family: 'Rubik', system-ui, sans-serif;
+  }
+  .nav-brand { display: inline-flex; align-items: center; gap: 10px; color: #1a1a2e; text-decoration: none; }
+  .nav-brand__logo { width: 40px; height: 40px; border-radius: 10px; object-fit: cover; }
+  .nav-brand__text { font-size: 17px; font-weight: 700; }
+  .nav-links { display: flex; align-items: center; gap: 8px; }
+  .nav-links a { padding: 8px 16px; border-radius: 8px; color: #4a5568; font-size: 14px; text-decoration: none; }
+  .nav-links a:hover { background: rgba(24,160,88,0.1); color: #18a058; }
+  .nav-cta { padding: 10px 20px !important; background: #18a058; color: #fff !important; font-weight: 700; }
+  .nav-cta:hover { background: #0c7a43; color: #fff !important; }
+  .site-footer {
+    background: #17212b; color: rgba(255,255,255,0.75); padding: 40px 48px;
+    text-align: center; font-size: 14px; font-family: 'Rubik', system-ui, sans-serif;
+  }
+  .site-footer strong { color: #fff; }
+  .site-footer__legal { margin-top: 8px; font-size: 12px; color: rgba(255,255,255,0.5); }
+  .site-footer__legal a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  @media (max-width: 900px) {
+    .site-nav { height: auto; min-height: 58px; padding: 10px 16px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .doc-body { padding-top: 84px; }
+    .site-footer { padding: 32px 20px; }
+  }
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <a class="nav-brand" href="/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="remindocr-logo-dark.png" />
+      <img class="nav-brand__logo" src="remindocr-logo-light.png" alt="" />
+    </picture>
+    <span class="nav-brand__text">RemindOCR</span>
+  </a>
+  <div class="nav-links">
+    <a href="/#features">תכונות</a>
+    <a href="/pricing">מחירים</a>
+    <a class="nav-cta" href="https://app.remindocr.com/login">כניסה למערכת</a>
+  </div>
+</nav>
+<div class="doc-body">
+<h1>אבטחת מידע</h1>
+<p class="updated">עודכן לאחרונה: 27 באוגוסט 2026</p>
+
+<p>RemindOCR מופעלת על ידי HandCoded. אנו נוקטים באמצעים טכניים וארגוניים סבירים כדי להגן על המידע שלכם ועל גישה לשירות.</p>
+
+<h2>1. הצפנה ותקשורת</h2>
+<ul>
+  <li>התקשורת בין הדפדפן לשרתים מתבצעת ב־HTTPS.</li>
+  <li>סיסמאות נשמרות כ־hash מוצפן (לא בטקסט גלוי).</li>
+  <li>עוגיות סשן מוגדרות כ־httpOnly ו־secure בפרודקשן.</li>
+</ul>
+
+<h2>2. גישה ואימות</h2>
+<ul>
+  <li>גישה למערכת מחייבת חשבון מאומת (אימייל/סיסמה, קישור חד־פעמי, או Google).</li>
+  <li>הרשאות לפי תפקיד ותוכנית מנוי מגבילות פעולות רגישות.</li>
+  <li>חיבורי Google (Gmail / Calendar / Drive) ניתנים רק לאחר הסכמה מפורשת של המשתמש, וניתן לנתק אותם בכל עת.</li>
+</ul>
+
+<h2>3. אחסון ונתונים</h2>
+<ul>
+  <li>נתוני אפליקציה מאוחסנים במסד נתונים מאובטח בענן.</li>
+  <li>קבצים שהועלו מאוחסנים באחסון אובייקטים עם בקרת גישה.</li>
+  <li>איננו מוכרים או משכירים מידע אישי לצורכי שיווק.</li>
+</ul>
+
+<h2>4. ניטור ותגובה</h2>
+<ul>
+  <li>אנו עוקבים אחר תקלות ושגיאות שרת כדי לזהות בעיות אבטחה ותפעול.</li>
+  <li>במקרה של חשד לאירוע אבטחה נטפל בו בהקדם ונעדכן משתמשים רלוונטיים לפי הצורך.</li>
+</ul>
+
+<h2>5. אחריות המשתמש</h2>
+<ul>
+  <li>שמרו על סיסמה חזקה ואל תשתפו קישורי התחברות חד־פעמיים.</li>
+  <li>נתקו חיבורי Google שאינם בשימוש.</li>
+  <li>העלו רק מסמכים שאתם מורשים לעבד.</li>
+</ul>
+
+<h2>6. יצירת קשר</h2>
+<p>לשאלות על אבטחת מידע: <a href="mailto:arshavsky.pasha@gmail.com">arshavsky.pasha@gmail.com</a></p>
+</div>
+<footer class="site-footer">
+  <strong>RemindOCR</strong> — מערכת ניהול תסקירים ותזכורות לעסקים ישראלים
+  <div class="site-footer__legal">
+    © 2026 HandCoded. כל הזכויות שמורות. |
+    <a href="/terms">תנאי שימוש</a> |
+    <a href="/privacy">מדיניות פרטיות</a> |
+    <a href="/accessibility">נגישות</a> |
+    <a href="/security">אבטחת מידע</a>
+  </div>
+</footer>
+</body>
+</html>
