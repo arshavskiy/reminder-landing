@@ -6,6 +6,25 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    // Consent Mode v2: deny until the visitor chooses. wait_for_update holds the
+    // first hits briefly so a stored "granted" is applied before anything sends.
+    gtag('consent', 'default', {
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+    try {
+      if (localStorage.getItem('ga_consent') === 'granted') {
+        gtag('consent', 'update', {
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'ad_storage': 'granted',
+          'analytics_storage': 'granted'
+        });
+      }
+    } catch (e) {}
     gtag('js', new Date());
     gtag('config', 'G-CV5TGV9V2X');
   </script>
@@ -116,5 +135,65 @@
     <a href="/security">אבטחת מידע</a>
   </div>
 </footer>
+
+<!-- Cookie consent banner -->
+<div id="cookie-consent" class="cookie-consent" hidden>
+  <p class="cookie-consent__text">
+    אנחנו משתמשים בעוגיות לניתוח שימוש ולשיפור האתר.
+    <a href="/privacy">מדיניות פרטיות</a>
+  </p>
+  <div class="cookie-consent__actions">
+    <button type="button" id="cookie-decline" class="cookie-consent__btn">דחה</button>
+    <button type="button" id="cookie-accept" class="cookie-consent__btn cookie-consent__btn--primary">אשר</button>
+  </div>
+</div>
+<style>
+  .cookie-consent {
+    position: fixed; inset-inline: 16px; bottom: 16px; z-index: 9999;
+    max-width: 620px; margin-inline: auto;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+    background: #17212b; color: rgba(255,255,255,0.9);
+    border-radius: 12px; padding: 14px 18px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.28);
+    font-family: 'Rubik', system-ui, sans-serif; font-size: 14px;
+  }
+  .cookie-consent__text { margin: 0; flex: 1 1 260px; line-height: 1.5; }
+  .cookie-consent__text a { color: #63e2b7; text-decoration: none; }
+  .cookie-consent__text a:hover { text-decoration: underline; }
+  .cookie-consent__actions { display: flex; gap: 8px; }
+  .cookie-consent__btn {
+    border: 1px solid rgba(255,255,255,0.25); background: transparent;
+    color: inherit; border-radius: 8px; padding: 8px 18px;
+    font: inherit; font-weight: 600; cursor: pointer;
+  }
+  .cookie-consent__btn:hover { background: rgba(255,255,255,0.08); }
+  .cookie-consent__btn--primary { background: #18a058; border-color: #18a058; color: #fff; }
+  .cookie-consent__btn--primary:hover { background: #36ad6a; }
+</style>
+<script>
+  (function () {
+    var el = document.getElementById('cookie-consent');
+    if (!el) return;
+    var stored = null;
+    try { stored = localStorage.getItem('ga_consent'); } catch (e) {}
+    if (!stored) el.hidden = false;
+
+    function decide(value) {
+      try { localStorage.setItem('ga_consent', value); } catch (e) {}
+      if (typeof gtag === 'function') {
+        var granted = value === 'granted';
+        gtag('consent', 'update', {
+          'ad_user_data': granted ? 'granted' : 'denied',
+          'ad_personalization': granted ? 'granted' : 'denied',
+          'ad_storage': granted ? 'granted' : 'denied',
+          'analytics_storage': granted ? 'granted' : 'denied'
+        });
+      }
+      el.hidden = true;
+    }
+    document.getElementById('cookie-accept').addEventListener('click', function () { decide('granted'); });
+    document.getElementById('cookie-decline').addEventListener('click', function () { decide('denied'); });
+  })();
+</script>
 </body>
 </html>
