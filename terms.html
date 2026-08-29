@@ -308,11 +308,17 @@
   .cookie-consent__text { margin: 0; flex: 1 1 260px; line-height: 1.5; }
   .cookie-consent__text a { color: #63e2b7; text-decoration: none; }
   .cookie-consent__text a:hover { text-decoration: underline; }
-  .cookie-consent__actions { display: flex; gap: 8px; }
+  .cookie-consent__actions { display: flex; gap: 8px; flex: 0 0 auto; }
+  @media (max-width: 460px) {
+    .cookie-consent__actions { width: 100%; }
+    .cookie-consent__btn { flex: 1 1 0; }
+  }
   .cookie-consent__btn {
     border: 1px solid rgba(255,255,255,0.25); background: transparent;
-    color: inherit; border-radius: 8px; padding: 8px 18px;
+    color: inherit; border-radius: 8px; padding: 10px 20px;
     font: inherit; font-weight: 600; cursor: pointer;
+    /* 44px is the minimum comfortable touch target on mobile. */
+    min-height: 44px; min-width: 88px;
   }
   .cookie-consent__btn:hover { background: rgba(255,255,255,0.08); }
   .cookie-consent__btn--primary { background: #18a058; border-color: #18a058; color: #fff; }
