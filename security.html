@@ -170,6 +170,9 @@
   </div>
 </div>
 <style>
+  /* [hidden] only applies display:none via the UA sheet, which a class rule
+     outranks — without this the banner stays on screen after the choice. */
+  .cookie-consent[hidden] { display: none !important; }
   .cookie-consent {
     position: fixed; inset-inline: 16px; bottom: 16px; z-index: 9999;
     max-width: 620px; margin-inline: auto;
