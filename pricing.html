@@ -147,6 +147,11 @@
       align-items: start;
     }
 
+    /* Paid plans are hidden until Green Invoice payment links are live. Delete
+       this rule and the plan--hidden classes to bring them back. */
+    .plan.plan--hidden { display: none; }
+    .plans-grid:has(.plan--hidden) { grid-template-columns: minmax(0, 420px); justify-content: center; }
+
     .plan {
       background: var(--white);
       border: 1px solid var(--border);
@@ -347,11 +352,11 @@
     <div class="plans-grid">
 
       <div class="plan">
-        <div class="plan__name">ניסיון · 14 יום</div>
+        <div class="plan__name">ניסיון · 30 יום</div>
         <p class="plan__blurb">כל היכולות של המסלול הבסיסי, ללא כרטיס אשראי.</p>
         <div class="plan__price">
           <strong>₪0</strong>
-          <span class="plan__price-period">/ 14 יום</span>
+          <span class="plan__price-period">/ 30 יום</span>
         </div>
         <p class="plan__price-year">עד 25 מסמכים — ידני ומאימייל יחד</p>
         <ul class="plan__features">
@@ -365,7 +370,7 @@
         <a class="plan__cta plan__cta--ghost" href="https://app.remindocr.com/login?tab=register">התחל בחינם</a>
       </div>
 
-      <div class="plan">
+      <div class="plan plan--hidden">
         <div class="plan__name">בסיסי</div>
         <p class="plan__blurb">מתאים לעסק קטן שמייבא מסמכים בכל חודש.</p>
         <div class="plan__price">
@@ -394,7 +399,7 @@
         </div>
       </div>
 
-      <div class="plan plan--highlighted">
+      <div class="plan plan--highlighted plan--hidden">
         <span class="plan__badge">הכי פופולרי</span>
         <div class="plan__name">עסקי</div>
         <p class="plan__blurb">לבודקים מוסמכים שמייבאים מסמכים באופן שוטף, עובדים עם כמה מאיילים ורוצים יומן Google
@@ -427,7 +432,7 @@
     </div>
 
     <p class="plans-note">
-      המסלול החינמי מיועד לבדיקה, ואפשר לעבור לבסיסי או עסקי בכל שלב מהפרופיל או מעמוד המנויים.
+      הניסיון כולל את כל יכולות המערכת למשך 30 יום, ללא כרטיס אשראי. מסלולי התשלום ייפתחו בקרוב.
     </p>
   </section>
 </div>
