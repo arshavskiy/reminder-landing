@@ -196,13 +196,36 @@
       font-size: 12px;
       opacity: 0.8;
     }
-    .plan__ctas { display: grid; gap: 8px; }
+    /* One bordered control with two rows, so yearly and monthly read as a billing
+       choice rather than as a live button next to a disabled one. */
+    .plan__ctas {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .plan__ctas--accent { border-color: var(--brand); }
     .plan__cta-note {
       display: block;
       font-size: 12px;
       font-weight: 500;
       opacity: 0.85;
       margin-top: 2px;
+    }
+    .plan__cta-save {
+      display: inline-block;
+      margin-inline-start: 6px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.22);
+      font-size: 11px;
+      font-weight: 700;
+      vertical-align: middle;
+    }
+    .plan__cta--ghost .plan__cta-save {
+      background: var(--brand-light);
+      color: var(--brand-dark);
     }
 
     .plan__features { list-style: none; margin-bottom: 26px; flex: 1; }
@@ -238,9 +261,18 @@
       transition: background 0.15s, transform 0.15s;
     }
     .plan__cta--primary { background: var(--brand); color: #fff; }
-    .plan__cta--primary:hover { background: var(--brand-dark); transform: translateY(-1px); }
-    .plan__cta--ghost { background: var(--white); border: 1px solid var(--border); color: var(--text); }
-    .plan__cta--ghost:hover { background: var(--bg); transform: translateY(-1px); }
+    .plan__cta--primary:hover { background: var(--brand-dark); }
+    .plan__cta--ghost { background: var(--white); color: var(--text); }
+    .plan__cta--ghost:hover { background: var(--bg); color: var(--brand-dark); }
+
+    /* Inside the group the buttons are segments, not standalone pills. */
+    .plan__ctas .plan__cta { border-radius: 0; }
+    .plan__ctas .plan__cta + .plan__cta {
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 11px 20px;
+    }
 
     .plan__additional {
       font-size: 12px;
@@ -355,12 +387,11 @@
           <li>סנכרון Google Drive</li>
         </ul>
         <div class="plan__ctas">
-          <a class="plan__cta plan__cta--ghost" href="https://app.remindocr.com/login?tab=register&plan=basic&billing=yearly">
-            שנתי — ₪950
-            <span class="plan__cta-note">חיסכון של 10%</span>
+          <a class="plan__cta plan__cta--primary" href="https://app.remindocr.com/login?tab=register&plan=basic&billing=yearly">
+            שנתי — ₪950<span class="plan__cta-save">חסכון 10%</span>
           </a>
           <a class="plan__cta plan__cta--ghost" href="https://app.remindocr.com/login?tab=register&plan=basic&billing=monthly">
-            חודשי — ₪88 / חודש
+            או חודשי — ₪88 / חודש
           </a>
         </div>
       </div>
@@ -385,13 +416,12 @@
           <li>ניהול ללקוחות וציוד</li>
           <li>סנכרון Google Calendar לתסקירים עתידיים</li>
         </ul>
-        <div class="plan__ctas">
+        <div class="plan__ctas plan__ctas--accent">
           <a class="plan__cta plan__cta--primary" href="https://app.remindocr.com/login?tab=register&plan=business&billing=yearly">
-            שנתי — ₪1,544
-            <span class="plan__cta-note">חיסכון של 10%</span>
+            שנתי — ₪1,544<span class="plan__cta-save">חסכון 10%</span>
           </a>
           <a class="plan__cta plan__cta--ghost" href="https://app.remindocr.com/login?tab=register&plan=business&billing=monthly">
-            חודשי — ₪143 / חודש
+            או חודשי — ₪143 / חודש
           </a>
         </div>
       </div>
