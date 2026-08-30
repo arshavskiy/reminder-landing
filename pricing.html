@@ -185,10 +185,24 @@
     }
     .plan__price-period { color: var(--text-2); font-size: 14px; }
     .plan__price-year {
-      margin: 0 0 18px;
+      margin: 0 0 6px;
       color: var(--text-2);
       font-size: 13px;
       font-weight: 500;
+    }
+    .plan__vat {
+      margin: 0 0 18px;
+      color: var(--text-2);
+      font-size: 12px;
+      opacity: 0.8;
+    }
+    .plan__ctas { display: grid; gap: 8px; }
+    .plan__cta-note {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      opacity: 0.85;
+      margin-top: 2px;
     }
 
     .plan__features { list-style: none; margin-bottom: 26px; flex: 1; }
@@ -319,11 +333,12 @@
         <div class="plan__name">בסיסי</div>
         <p class="plan__blurb">מתאים לעסק קטן שמייבא מסמכים בכל חודש.</p>
         <div class="plan__price">
-          <span class="plan__price-old">₪165</span>
-          <strong>₪110</strong>
+          <span class="plan__price-old">₪110</span>
+          <strong>₪88</strong>
           <span class="plan__price-period">/ חודש </span>
         </div>
-        <p class="plan__price-year">₪1320 לשנה · חיוב שנתי אחד</p>
+        <p class="plan__price-year">₪950 לשנה בתשלום שנתי · חיסכון של 10%</p>
+        <p class="plan__vat">המחירים אינם כוללים מע״מ (18%)</p>
         <ul class="plan__features">
           <li>יבוא תסקירים של 16 חודשים האחרונים</li>
           <li>50 מסמכי תסקירים בחודש</li>
@@ -336,7 +351,15 @@
           <li>קבלת דוחות אוטומטיים</li>
           <li>סנכרון Google Drive</li>
         </ul>
-        <a class="plan__cta plan__cta--ghost" href="https://app.remindocr.com/login?tab=register">בחר מסלול בסיסי</a>
+        <div class="plan__ctas">
+          <a class="plan__cta plan__cta--ghost" href="https://app.remindocr.com/login?tab=register&plan=basic&billing=yearly">
+            שנתי — ₪950
+            <span class="plan__cta-note">חיסכון של 10%</span>
+          </a>
+          <a class="plan__cta plan__cta--ghost" href="https://app.remindocr.com/login?tab=register&plan=basic&billing=monthly">
+            חודשי — ₪88 / חודש
+          </a>
+        </div>
       </div>
 
       <div class="plan plan--highlighted">
@@ -345,11 +368,12 @@
         <p class="plan__blurb">לבודקים מוסמכים שמייבאים מסמכים באופן שוטף, עובדים עם כמה מאיילים ורוצים יומן Google
           מסונכרן.</p>
         <div class="plan__price">
-          <span class="plan__price-old">₪224</span>
-          <strong>₪179</strong>
+          <span class="plan__price-old">₪179</span>
+          <strong>₪143</strong>
           <span class="plan__price-period">/ חודש</span>
         </div>
-        <p class="plan__price-year">₪2,148 לשנה · חיוב שנתי אחד</p>
+        <p class="plan__price-year">₪1,544 לשנה בתשלום שנתי · חיסכון של 10%</p>
+        <p class="plan__vat">המחירים אינם כוללים מע״מ (18%)</p>
         <p class="plan__additional">כל מה שיש בבסיסי, ובנוסף</p>
         <ul class="plan__features">
           <li>יבוא תסקירים ללא הגבלה</li>
@@ -358,7 +382,15 @@
           <li>ניהול ללקוחות וציוד</li>
           <li>סנכרון Google Calendar לתסקירים עתידיים</li>
         </ul>
-        <a class="plan__cta plan__cta--primary" href="https://app.remindocr.com/login?tab=register">בחר מסלול עסקי</a>
+        <div class="plan__ctas">
+          <a class="plan__cta plan__cta--primary" href="https://app.remindocr.com/login?tab=register&plan=business&billing=yearly">
+            שנתי — ₪1,544
+            <span class="plan__cta-note">חיסכון של 10%</span>
+          </a>
+          <a class="plan__cta plan__cta--ghost" href="https://app.remindocr.com/login?tab=register&plan=business&billing=monthly">
+            חודשי — ₪143 / חודש
+          </a>
+        </div>
       </div>
 
     </div>
