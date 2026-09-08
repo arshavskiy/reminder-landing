@@ -670,6 +670,106 @@
     .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
     .step p { font-size: 14px; color: var(--text-2); }
 
+    /* ── BEFORE / AFTER ─────────────────────────────── */
+    .compare-bg { background: var(--white); }
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .compare-col {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 28px;
+    }
+    .compare-col--bad { background: #fdf5f4; border-color: #f3d9d6; }
+    .compare-col--good { background: var(--brand-light); border-color: rgba(24,160,88,0.25); }
+    .compare-col__head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 17px;
+      margin-bottom: 20px;
+    }
+    .compare-col__icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .compare-col--bad .compare-col__icon { background: #d9534f; }
+    .compare-col--good .compare-col__icon { background: var(--brand); }
+    .compare-list { list-style: none; counter-reset: compare-step; }
+    .compare-list li {
+      counter-increment: compare-step;
+      display: flex;
+      gap: 12px;
+      padding: 10px 0;
+      font-size: 14.5px;
+      color: var(--text-2);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .compare-list li:last-child { border-bottom: none; }
+    .compare-list li::before {
+      content: counter(compare-step);
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.06);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .compare-col--good .compare-list li::before { background: rgba(24,160,88,0.18); color: var(--brand-dark); }
+
+    /* ── FAQ ─────────────────────────────── */
+    .faq { max-width: 780px; margin: 0 auto; }
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      background: var(--white);
+      overflow: hidden;
+    }
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 18px 22px;
+      font-weight: 600;
+      font-size: 15.5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--brand);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item p {
+      padding: 0 22px 20px;
+      font-size: 14.5px;
+      color: var(--text-2);
+      line-height: 1.7;
+    }
+
     /* ── CTA ─────────────────────────────── */
     .cta-section {
       background: linear-gradient(135deg, var(--brand), var(--brand-dark));
@@ -945,6 +1045,7 @@
       }
       .cta-section { padding: 48px 20px; }
       footer { padding: 32px 20px; }
+      .compare { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 420px) {
@@ -981,6 +1082,7 @@
   <div class="nav-links">
     <a href="#features">תכונות</a>
     <a href="#how">איך זה עובד</a>
+    <a href="#faq">שאלות נפוצות</a>
     <a href="/pricing">מחירים</a>
     <a class="nav-cta" href="https://app.remindocr.com/login">כניסה למערכת</a>
   </div>
@@ -1043,7 +1145,6 @@
           <div class="demo__field"><span>לקוח</span><strong>א.דרך רמלה בע״מ</strong></div>
           <div class="demo__field"><span>מספר תסקיר</span><strong>18229.484590</strong></div>
           <div class="demo__field"><span>תאריך פקיעה</span><strong>14.03.2027</strong></div>
-          <div class="demo__field"><span>סכום</span><strong>₪1,868.00</strong></div>
         </div>
 
         <div class="demo__step demo__step--3">
@@ -1186,6 +1287,44 @@
   </div>
 </div>
 
+<!-- BEFORE / AFTER -->
+<div class="compare-bg">
+  <section id="compare">
+    <div class="section-header">
+      <h2>הבודק ממלא, המשרד מקליד שוב — עצרו את העבודה הכפולה</h2>
+      <p>RemindOCR מחליפה תיוק ידני, אקסלים והקלדה חוזרת בתהליך דיגיטלי אחד</p>
+    </div>
+    <div class="compare">
+      <div class="compare-col compare-col--bad">
+        <div class="compare-col__head">
+          <span class="compare-col__icon">✕</span>
+          <span>ניהול מסמכים ותסקירים ללא מערכת</span>
+        </div>
+        <ol class="compare-list">
+          <li>מסמך מגיע במייל, בוואטסאפ או בנייר — ומחכה שמישהו יפתח אותו</li>
+          <li>מקלידים ידנית תאריך תוקף, מספר תסקיר ופרטי לקוח לתוך אקסל</li>
+          <li>קובעים תזכורת ביומן, אם בכלל נזכרים — בלי גיבוי אוטומטי</li>
+          <li>מחפשים ידנית בין תיקיות כשלקוח מתקשר לשאול על תסקיר ישן</li>
+          <li>שולחים תזכורת חודש אחרי שהתוקף כבר פג</li>
+        </ol>
+      </div>
+      <div class="compare-col compare-col--good">
+        <div class="compare-col__head">
+          <span class="compare-col__icon">✓</span>
+          <span>ניהול מסמכים ותסקירים עם RemindOCR</span>
+        </div>
+        <ol class="compare-list">
+          <li>מייבאים את המסמך — גרירה, העלאה או ישירות מ-Gmail</li>
+          <li>AI קורא את המסמך ומחלץ לקוח, תאריך תוקף ומספר תסקיר אוטומטית</li>
+          <li>המערכת מתזמנת תזכורות אימייל 90, 60 ו-30 יום מראש</li>
+          <li>כל מסמכי הלקוח מאורגנים וזמינים לחיפוש מיידי</li>
+          <li>הלקוח מקבל תזכורת עוד לפני שהתוקף פג — לא אחרי</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+</div>
+
 <!-- FEATURES -->
 <section id="features">
   <div class="section-header">
@@ -1270,6 +1409,40 @@
     </div>
   </section>
 </div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-header">
+    <h2>שאלות נפוצות</h2>
+    <p>עוד לא מצאתם תשובה? כתבו לנו בוואטסאפ או במייל</p>
+  </div>
+  <div class="faq">
+    <details class="faq-item">
+      <summary>איך מתחילים?</summary>
+      <p>נרשמים ל-30 יום ניסיון חינם ללא כרטיס אשראי, מייבאים את המסמכים הראשונים ומגדירים תזכורות. אפשר להתחיל תוך דקות.</p>
+    </details>
+    <details class="faq-item">
+      <summary>אילו סוגי תסקירים ומסמכים המערכת תומכת בהם?</summary>
+      <p>תסקירי מכונות הרמה, מעליות, מנופים, פיגומים, במות הרמה, דרגנועים, קולטי אוויר וקיטור, דודי קיטור, כלי לחץ ועוד — לצד חוזים, חשבוניות ומסמכים כלליים.</p>
+    </details>
+    <details class="faq-item">
+      <summary>איך המערכת מייבאת את הנתונים?</summary>
+      <p>ניתן לגרור קובץ, להעלות ידנית או לחבר תיבת Gmail ולייבא ממנה אוטומטית. בכל מקרה, ה-AI קורא את המסמך ומחלץ ממנו את הנתונים הרלוונטיים.</p>
+    </details>
+    <details class="faq-item">
+      <summary>מה קורה כשתוקף מסמך מתקרב לפוג?</summary>
+      <p>המערכת שולחת תזכורות אימייל אוטומטיות 90, 60 ו-30 יום מראש, לפי תבנית שניתן להתאים אישית לכל לקוח.</p>
+    </details>
+    <details class="faq-item">
+      <summary>האם המסמכים שלי מגובים ומאובטחים?</summary>
+      <p>כל המסמכים נשמרים באחסון S3 מוצפן, עם אפשרות לסנכרון נוסף ל-Google Drive לגיבוי כפול.</p>
+    </details>
+    <details class="faq-item">
+      <summary>אפשר לבטל בכל שלב?</summary>
+      <p>כן, ניתן לבטל את המנוי בכל עת ללא התחייבות. הניסיון הראשוני הוא 30 יום חינם וללא כרטיס אשראי.</p>
+    </details>
+  </div>
+</section>
 
 <!-- CTA -->
 <div class="cta-section">
