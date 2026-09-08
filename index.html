@@ -252,19 +252,20 @@
       flex-direction: column;
       gap: 10px;
       opacity: 0;
-      animation: demo-step 16s infinite;
+      animation: demo-step 20s infinite;
     }
     .demo__step--1 { animation-delay: 0s; }
     .demo__step--2 { animation-delay: 4s; }
     .demo__step--3 { animation-delay: 8s; }
     .demo__step--4 { animation-delay: 12s; }
+    .demo__step--5 { animation-delay: 16s; }
 
-    /* 4 steps x 4s = 16s. Each is visible for a quarter of the loop, with a
-       short fade at each end — hence 2%/23% rather than 0%/25%. */
+    /* 5 steps x 4s = 20s. Each is visible for a fifth of the loop, with a
+       short fade at each end — hence 1.6%/18.4% rather than 0%/20%. */
     @keyframes demo-step {
-      0%        { opacity: 0; transform: translateY(8px); }
-      2%, 23%   { opacity: 1; transform: translateY(0); }
-      25%, 100% { opacity: 0; transform: translateY(-8px); }
+      0%          { opacity: 0; transform: translateY(8px); }
+      1.6%, 18.4% { opacity: 1; transform: translateY(0); }
+      20%, 100%   { opacity: 0; transform: translateY(-8px); }
     }
 
     .demo__label {
@@ -409,17 +410,18 @@
       width: 22px; height: 4px;
       border-radius: 999px;
       background: var(--border);
-      animation: demo-pip 16s infinite;
+      animation: demo-pip 20s infinite;
     }
     .demo__pip--1 { animation-delay: 0s; }
     .demo__pip--2 { animation-delay: 4s; }
     .demo__pip--3 { animation-delay: 8s; }
     .demo__pip--4 { animation-delay: 12s; }
+    .demo__pip--5 { animation-delay: 16s; }
 
     @keyframes demo-pip {
-      0%, 1%    { background: var(--border); }
-      2%, 23%   { background: var(--brand); }
-      25%, 100% { background: var(--border); }
+      0%, 0.8%    { background: var(--border); }
+      1.6%, 18.4% { background: var(--brand); }
+      20%, 100%   { background: var(--border); }
     }
 
     /* Manual paging. Setting data-step on .demo pins one step and its pip,
@@ -430,11 +432,13 @@
     .demo[data-step="1"] .demo__step--1,
     .demo[data-step="2"] .demo__step--2,
     .demo[data-step="3"] .demo__step--3,
-    .demo[data-step="4"] .demo__step--4 { opacity: 1; }
+    .demo[data-step="4"] .demo__step--4,
+    .demo[data-step="5"] .demo__step--5 { opacity: 1; }
     .demo[data-step="1"] .demo__pip--1,
     .demo[data-step="2"] .demo__pip--2,
     .demo[data-step="3"] .demo__pip--3,
-    .demo[data-step="4"] .demo__pip--4 { background: var(--brand); }
+    .demo[data-step="4"] .demo__pip--4,
+    .demo[data-step="5"] .demo__pip--5 { background: var(--brand); }
 
     .demo__pip { border: none; padding: 0; cursor: pointer; }
 
@@ -1111,7 +1115,7 @@
     <!-- Not role="img": the step pips below are real buttons, and an img role
          would hide them from assistive technology. -->
     <div class="demo" role="group"
-         aria-label="הדגמה: לוח תזכורות ותסקירים, חילוץ נתונים אוטומטי, שליחת תזכורות לפני פקיעת תוקף, וייבוא מסמכים">
+         aria-label="הדגמה: לוח תזכורות ותסקירים, חילוץ נתונים אוטומטי, שליחת תזכורות לפני פקיעת תוקף, ייבוא מסמכים, וארכיון מסמכים">
       <div class="demo__bar">
         <span class="demo__dot"></span>
         <span class="demo__dot"></span>
@@ -1220,6 +1224,35 @@
             <span><i class="demo__swatch demo__swatch--sent"></i>נשלחה</span>
           </div>
         </div>
+
+        <!-- Step 5 — the documents archive, organized and searchable -->
+        <div class="demo__step demo__step--5">
+          <div class="demo__label">ארכיון מסמכים</div>
+          <div class="demo__row">
+            <span class="demo__file">📄</span>
+            <div class="demo__meta">
+              <span class="demo__name">תסקיר בדיקה 18229.pdf</span>
+              <span class="demo__sub">א.דרך רמלה בע״מ · 14.03.2027</span>
+            </div>
+            <span class="demo__tag demo__tag--ok">בתוקף</span>
+          </div>
+          <div class="demo__row">
+            <span class="demo__file">📄</span>
+            <div class="demo__meta">
+              <span class="demo__name">תסקיר מכונת הרמה 20114.pdf</span>
+              <span class="demo__sub">חברת בניין ק.ר. · 02.11.2026</span>
+            </div>
+            <span class="demo__tag demo__tag--wait">פג בקרוב</span>
+          </div>
+          <div class="demo__row">
+            <span class="demo__file">🧾</span>
+            <div class="demo__meta">
+              <span class="demo__name">חשבונית מס 40710.pdf</span>
+              <span class="demo__sub">א.דרך רמלה בע״מ · 04.09.2026</span>
+            </div>
+            <span class="demo__tag demo__tag--ok">שולם</span>
+          </div>
+        </div>
       </div>
 
       <div class="demo__steps-nav">
@@ -1227,6 +1260,7 @@
         <button class="demo__pip demo__pip--2" type="button" data-goto="2" aria-label="חילוץ נתונים"></button>
         <button class="demo__pip demo__pip--3" type="button" data-goto="3" aria-label="תזכורת אוטומטית"></button>
         <button class="demo__pip demo__pip--4" type="button" data-goto="4" aria-label="ייבוא מסמכים"></button>
+        <button class="demo__pip demo__pip--5" type="button" data-goto="5" aria-label="ארכיון מסמכים"></button>
       </div>
     </div>
 
@@ -1235,7 +1269,7 @@
         var demo = document.querySelector('.demo');
         if (!demo) return;
 
-        var STEPS = 4;
+        var STEPS = 5;
         var INTERVAL = 4000;
         var current = 1;
         var timer = null;
