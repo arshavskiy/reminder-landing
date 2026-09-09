@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CV5TGV9V2X"></script>
+  <!-- Google tag (gtag.js) — skipped on localhost/local previews -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    // Consent Mode v2: deny until the visitor chooses. wait_for_update holds the
-    // first hits briefly so a stored "granted" is applied before anything sends.
-    gtag('consent', 'default', {
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'ad_storage': 'denied',
-      'analytics_storage': 'denied',
-      'wait_for_update': 500
-    });
-    try {
-      if (localStorage.getItem('ga_consent') === 'granted') {
-        gtag('consent', 'update', {
-          'ad_user_data': 'granted',
-          'ad_personalization': 'granted',
-          'ad_storage': 'granted',
-          'analytics_storage': 'granted'
-        });
-      }
-    } catch (e) {}
-    gtag('js', new Date());
-    gtag('config', 'G-CV5TGV9V2X');
+    if (!["localhost", "127.0.0.1"].includes(window.location.hostname)) {
+      var gaScript = document.createElement("script");
+      gaScript.async = true;
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-CV5TGV9V2X";
+      document.head.appendChild(gaScript);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      // Consent Mode v2: deny until the visitor chooses. wait_for_update holds the
+      // first hits briefly so a stored "granted" is applied before anything sends.
+      gtag('consent', 'default', {
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'wait_for_update': 500
+      });
+      try {
+        if (localStorage.getItem('ga_consent') === 'granted') {
+          gtag('consent', 'update', {
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted',
+            'ad_storage': 'granted',
+            'analytics_storage': 'granted'
+          });
+        }
+      } catch (e) {}
+      gtag('js', new Date());
+      gtag('config', 'G-CV5TGV9V2X');
+    }
   </script>
 
 <meta charset="utf-8">
