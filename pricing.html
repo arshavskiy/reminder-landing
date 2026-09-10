@@ -145,11 +145,15 @@
       font-size: 17px;
     }
 
-    section { width: min(1100px, 100%); margin: 0 auto; padding: 56px 48px 80px; }
+    section { width: min(1320px, 100%); margin: 0 auto; padding: 56px 48px 80px; }
 
     .plans-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      /* auto-fit rather than a fixed count: with four plans a fixed 3 would
+         orphan the last card on a row of its own. The 230px floor keeps all
+         four on one row at the section's full width and drops to 2, then 1, as
+         the viewport narrows. */
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 24px;
       align-items: start;
     }
@@ -355,6 +359,13 @@
       text-decoration: underline;
     }
 
+    /* Between the four-across and the single-column layouts, auto-fit would
+       settle on three and leave the fourth plan alone on its own row. Force two
+       even columns across that band instead. */
+    @media (max-width: 1080px) and (min-width: 901px) {
+      .plans-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
     @media (max-width: 900px) {
       nav { height: auto; min-height: 58px; padding: 10px 16px; }
       .nav-links a:not(.nav-cta) { display: none; }
@@ -408,6 +419,29 @@
           <li>סנכרון Google Drive</li>
         </ul>
         <a class="plan__cta plan__cta--ghost" href="https://app.remindocr.com/login?tab=register">התחל בחינם</a>
+      </div>
+
+      <div class="plan plan--soon">
+        <div class="plan__name">דיגיטלי</div>
+        <p class="plan__blurb">לניהול תסקירים ותזכורות בהזנה ידנית, ללא שמירת קבצים בענן.</p>
+        <div class="plan__price">
+          <strong>₪50</strong>
+          <span class="plan__price-period">/ חודש</span>
+        </div>
+        <p class="plan__price-year">תסקירים ותזכורות ללא הגבלה</p>
+        <p class="plan__vat">המחירים אינם כוללים מע״מ (18%)</p>
+        <ul class="plan__features">
+          <li>הזנת נתונים ידנית — ללא העלאת קבצים</li>
+          <li>ניהול לקוחות וציוד</li>
+          <li>הפקת תסקירים לחתימה ושליחה</li>
+          <li>תזכורות אימייל אוטומטיות ללקוחות</li>
+          <li>יצוא לאקסל ודוחות חודשיים</li>
+        </ul>
+        <a class="plan__cta plan__cta--wa" href="https://wa.me/972554605328?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A8%D7%9B%D7%95%D7%A9%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20%D7%94%D7%93%D7%99%D7%92%D7%99%D7%98%D7%9C%D7%99%20%D7%A9%D7%9C%20RemindOCR%20%28%E2%82%AA50%20%D7%9C%D7%97%D7%95%D7%93%D7%A9%29." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1s-.7 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2A10 10 0 0 0 3.5 17.2L2 22l4.9-1.5A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-2.9.9.9-2.8-.2-.3a8.2 8.2 0 1 1 6.9 3.6z"/></svg>
+          לרכישה ב-WhatsApp
+        </a>
+        <p class="plan__soon-note">תשלום בהעברה בנקאית או ב-Bit · חשבונית מס נשלחת במייל</p>
       </div>
 
       <div class="plan plan--soon">
