@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- Google tag (gtag.js) — skipped on localhost/local previews -->
+  <script>
+    if (!["localhost", "127.0.0.1"].includes(window.location.hostname)) {
+      var gaScript = document.createElement("script");
+      gaScript.async = true;
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-CV5TGV9V2X";
+      document.head.appendChild(gaScript);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      // Consent Mode v2: deny until the visitor chooses. wait_for_update holds the
+      // first hits briefly so a stored "granted" is applied before anything sends.
+      gtag('consent', 'default', {
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'wait_for_update': 500
+      });
+      try {
+        if (localStorage.getItem('ga_consent') === 'granted') {
+          gtag('consent', 'update', {
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted',
+            'ad_storage': 'granted',
+            'analytics_storage': 'granted'
+          });
+        }
+      } catch (e) {}
+      gtag('js', new Date());
+      gtag('config', 'G-CV5TGV9V2X');
+    }
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RemindOCR — Inspection reports, documents, and reminders</title>
+  <meta name="description" content="RemindOCR manages inspection reports, documents, clients, and reminders, with automatic data extraction, Gmail PDF import, Google Calendar sync, and Google Drive sync." />
+  <link rel="canonical" href="https://remindocr.com/en" />
+  <link rel="alternate" hreflang="he" href="https://remindocr.com/" />
+  <link rel="alternate" hreflang="en" href="https://remindocr.com/en" />
+  <link rel="alternate" hreflang="x-default" href="https://remindocr.com/" />
+  <meta property="og:locale:alternate" content="he_IL" />
+  <meta name="theme-color" content="#18a058" />
+  <!-- Same icon set the app serves, so the tab icon does not change between
+       the marketing site and the app. -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32-v2.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192-v2.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/icon-512-v2.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon-v2.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon-v2.png" />
+  <meta property="fb:app_id" content="935630732930743" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="RemindOCR" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="https://remindocr.com/en" />
+  <meta property="og:title" content="RemindOCR — Inspection reports, documents, and reminders" />
+  <meta property="og:description" content="Manage inspection reports, documents, and reminders — with OCR, Gmail import, Google Calendar, and Google Drive." />
+  <meta property="og:image" content="https://remindocr.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:description" content="Manage inspection reports, documents, and reminders — with OCR, Gmail import, Google Calendar, and Google Drive." />
+  <meta name="twitter:image" content="https://remindocr.com/og-image.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand: #18a058;
+      --brand-dark: #0c7a43;
+      --brand-light: rgba(24,160,88,0.1);
+      --text: #1a1a2e;
+      --text-2: #4a5568;
+      --bg: #f8fafb;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Rubik', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ─────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 48px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-brand__icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+    .nav-brand__icon svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 32;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .nav-brand__text {
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--text);
+    }
+    .nav-brand__logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 1px 8px rgba(15, 23, 42, 0.14);
+    }
+    .nav-brand picture {
+      display: flex;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-links a {
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--text-2);
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-links a:hover { background: var(--brand-light); color: var(--brand); }
+    .nav-cta {
+      background: var(--brand) !important;
+      color: #fff !important;
+      font-weight: 600 !important;
+      padding: 10px 20px !important;
+    }
+    .nav-cta:hover { background: var(--brand-dark) !important; }
+
+    .nav-lang {
+      padding: 8px 12px !important;
+      font-size: 13px !important;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: transparent !important;
+      color: var(--text-2) !important;
+    }
+    .nav-lang:hover {
+      background: var(--brand-light) !important;
+      color: var(--brand) !important;
+    }
+
+
+    /* ── HERO ─────────────────────────────── */
+    .hero {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 84px 48px 76px;
+      display: grid;
+      /* Same proportions as the app's hero: fluid copy, fixed-width card. */
+      grid-template-columns: minmax(0, 1fr) 420px;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--brand-light);
+      color: var(--brand);
+      border: 1px solid rgba(24,160,88,0.2);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--brand); }
+
+    .hero-desc {
+      font-size: 18px;
+      color: var(--text-2);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .hero-tagline {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--brand, #16a06a);
+      margin: 0 0 18px;
+    }
+
+    /* ── Animated product demo ──────────────────────────────
+       Three steps cross-fade on a 12s loop (4s each). Everything is CSS so it
+       stays crisp at any size; the whole widget is one labelled role="img" for
+       screen readers, and the animation stops under prefers-reduced-motion. */
+    .demo {
+      width: 100%;
+      max-width: 420px;
+      justify-self: end;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    }
+
+    .demo__bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 16px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+    }
+    .demo__dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.45);
+    }
+    .demo__dot:first-child { background: rgba(255,255,255,0.85); }
+    .demo__title {
+      margin-inline-start: auto;
+      color: rgba(255,255,255,0.95);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .demo__body { position: relative; height: 300px; padding: 20px; }
+
+    .demo__step {
+      position: absolute;
+      inset: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      opacity: 0;
+      animation: demo-step 20s infinite;
+    }
+    .demo__step--1 { animation-delay: 0s; }
+    .demo__step--2 { animation-delay: 4s; }
+    .demo__step--3 { animation-delay: 8s; }
+    .demo__step--4 { animation-delay: 12s; }
+    .demo__step--5 { animation-delay: 16s; }
+
+    /* 5 steps x 4s = 20s. Each is visible for a fifth of the loop, with a
+       short fade at each end — hence 1.6%/18.4% rather than 0%/20%. */
+    @keyframes demo-step {
+      0%          { opacity: 0; transform: translateY(8px); }
+      1.6%, 18.4% { opacity: 1; transform: translateY(0); }
+      20%, 100%   { opacity: 0; transform: translateY(-8px); }
+    }
+
+    .demo__label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--brand);
+      letter-spacing: 0.3px;
+    }
+
+    .demo__row, .demo__alert {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .demo__file, .demo__alert-icon { font-size: 20px; flex-shrink: 0; }
+    .demo__meta { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+    .demo__name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .demo__sub { font-size: 11px; color: var(--text-2); }
+
+    .demo__tag {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      flex-shrink: 0;
+    }
+    .demo__tag--wait { background: #fef3c7; color: #92400e; }
+    .demo__tag--ok { background: var(--brand-light); color: var(--brand-dark); }
+
+    .demo__field {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 9px 14px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13px;
+    }
+    .demo__field span { color: var(--text-2); }
+    .demo__field strong { color: var(--text); font-weight: 600; }
+    .demo__sent { color: var(--brand) !important; }
+
+    .demo__alert { background: var(--brand-light); border-color: rgba(24,160,88,0.25); }
+
+    /* Month view — mirrors the dashboard's reminder calendar, where each day
+       cell carries a chip per reminder: solid for sent, tinted for scheduled. */
+    .demo__cal {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--white);
+    }
+    .demo__cal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .demo__cal-count {
+      font-weight: 600;
+      font-size: 10px;
+      color: var(--brand-dark);
+      background: var(--brand-light);
+      border-radius: 999px;
+      padding: 2px 8px;
+    }
+    .demo__cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+    .demo__cal-dow {
+      background: var(--bg);
+      text-align: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-2);
+      padding: 4px 0;
+    }
+    .demo__cal-cell {
+      background: var(--white);
+      min-height: 40px;
+      padding: 3px 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .demo__cal-cell b {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-2);
+    }
+    .demo__chip {
+      display: block;
+      height: 5px;
+      border-radius: 2px;
+      background: var(--brand-light);
+      border: 1px solid rgba(24,160,88,0.35);
+    }
+    .demo__chip--sent { background: var(--brand); border-color: var(--brand); }
+
+    .demo__legend {
+      display: flex;
+      gap: 14px;
+      font-size: 11px;
+      color: var(--text-2);
+    }
+    .demo__legend span { display: inline-flex; align-items: center; gap: 5px; }
+    .demo__swatch {
+      width: 9px; height: 9px;
+      border-radius: 2px;
+      display: inline-block;
+    }
+    .demo__swatch--rem { background: var(--brand-light); border: 1px solid rgba(24,160,88,0.35); }
+    .demo__swatch--sent { background: var(--brand); }
+
+    .demo__steps-nav {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      padding: 0 0 16px;
+    }
+    .demo__pip {
+      width: 22px; height: 4px;
+      border-radius: 999px;
+      background: var(--border);
+      animation: demo-pip 20s infinite;
+    }
+    .demo__pip--1 { animation-delay: 0s; }
+    .demo__pip--2 { animation-delay: 4s; }
+    .demo__pip--3 { animation-delay: 8s; }
+    .demo__pip--4 { animation-delay: 12s; }
+    .demo__pip--5 { animation-delay: 16s; }
+
+    @keyframes demo-pip {
+      0%, 0.8%    { background: var(--border); }
+      1.6%, 18.4% { background: var(--brand); }
+      20%, 100%   { background: var(--border); }
+    }
+
+    /* Manual paging. Setting data-step on .demo pins one step and its pip,
+       overriding the animation, so the demo is still explorable when motion is
+       suppressed or a visitor wants to read a step at their own pace. */
+    .demo[data-step] .demo__step { animation: none; opacity: 0; transform: none; }
+    .demo[data-step] .demo__pip { animation: none; background: var(--border); }
+    .demo[data-step="1"] .demo__step--1,
+    .demo[data-step="2"] .demo__step--2,
+    .demo[data-step="3"] .demo__step--3,
+    .demo[data-step="4"] .demo__step--4,
+    .demo[data-step="5"] .demo__step--5 { opacity: 1; }
+    .demo[data-step="1"] .demo__pip--1,
+    .demo[data-step="2"] .demo__pip--2,
+    .demo[data-step="3"] .demo__pip--3,
+    .demo[data-step="4"] .demo__pip--4,
+    .demo[data-step="5"] .demo__pip--5 { background: var(--brand); }
+
+    .demo__pip { border: none; padding: 0; cursor: pointer; }
+
+    /* Honour a reduced-motion preference: no cycling, hold the first step.
+       Every delay is cleared too — leaving them set while animations are off
+       let a later pip stay highlighted over the first step's content. */
+    @media (prefers-reduced-motion: reduce) {
+      .demo__step, .demo__pip {
+        animation: none;
+        animation-delay: 0s;
+      }
+      .demo__step { opacity: 0; transform: none; }
+      .demo__pip { background: var(--border); }
+      .demo__step--1 { opacity: 1; }
+      .demo__pip--1 { background: var(--brand); }
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--brand-dark); transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: background 0.15s, transform 0.15s;
+    }
+    .btn-secondary:hover { background: var(--bg); transform: translateY(-1px); }
+
+    /* Hero visual */
+    .hero-visual {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+    .hero-visual__bar {
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-visual__dots { display: flex; gap: 6px; }
+    .hero-visual__dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+    }
+    .hero-visual__dot:first-child { background: rgba(255,255,255,0.8); }
+    .hero-visual__title { color: rgba(255,255,255,0.9); font-size: 13px; font-weight: 600; }
+
+    .hero-visual__body { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+    .mock-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .mock-card__left { display: flex; flex-direction: column; gap: 4px; }
+    .mock-card__title { font-weight: 600; font-size: 13px; color: var(--text); }
+    .mock-card__sub { font-size: 12px; color: var(--text-2); }
+    .mock-badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .mock-badge--green { background: rgba(24,160,88,0.12); color: var(--brand); }
+    .mock-badge--yellow { background: rgba(234,179,8,0.12); color: #b45309; }
+    .mock-badge--red { background: rgba(239,68,68,0.12); color: #dc2626; }
+
+    /* ── STATS ─────────────────────────────── */
+    .stats {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 48px;
+    }
+    .stats-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--brand);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 14px;
+      color: var(--text-2);
+      font-weight: 500;
+    }
+
+    /* ── FEATURES ─────────────────────────────── */
+    section { max-width: 1100px; margin: 0 auto; padding: 80px 48px; }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .section-header h2 {
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .section-header p {
+      font-size: 17px;
+      color: var(--text-2);
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .feature-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.07);
+      transform: translateY(-2px);
+    }
+    .feature-card--accent {
+      border-color: color-mix(in srgb, var(--brand, #16a06a) 22%, var(--border));
+      background: color-mix(in srgb, var(--brand, #16a06a) 7%, var(--white));
+    }
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--brand-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+    .feature-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .feature-card p {
+      font-size: 14px;
+      color: var(--text-2);
+      line-height: 1.6;
+    }
+
+    /* ── HOW IT WORKS ─────────────────────────────── */
+    .how-bg { background: var(--white); }
+    .steps {
+      display: flex;
+      gap: 0;
+      align-items: flex-start;
+    }
+    .step {
+      flex: 1;
+      text-align: center;
+      padding: 0 24px;
+      position: relative;
+    }
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 24px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--border);
+      z-index: 0;
+    }
+    .step__num {
+      position: relative;
+      z-index: 1;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .step p { font-size: 14px; color: var(--text-2); }
+
+    /* ── BEFORE / AFTER ─────────────────────────────── */
+    .compare-bg { background: var(--white); }
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .compare-col {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 28px;
+    }
+    .compare-col--bad { background: #fdf5f4; border-color: #f3d9d6; }
+    .compare-col--good { background: var(--brand-light); border-color: rgba(24,160,88,0.25); }
+    .compare-col__head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 17px;
+      margin-bottom: 20px;
+    }
+    .compare-col__icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .compare-col--bad .compare-col__icon { background: #d9534f; }
+    .compare-col--good .compare-col__icon { background: var(--brand); }
+    .compare-list { list-style: none; counter-reset: compare-step; }
+    .compare-list li {
+      counter-increment: compare-step;
+      display: flex;
+      gap: 12px;
+      padding: 10px 0;
+      font-size: 14.5px;
+      color: var(--text-2);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .compare-list li:last-child { border-bottom: none; }
+    .compare-list li::before {
+      content: counter(compare-step);
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.06);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .compare-col--good .compare-list li::before { background: rgba(24,160,88,0.18); color: var(--brand-dark); }
+
+    /* ── FAQ ─────────────────────────────── */
+    .faq { max-width: 780px; margin: 0 auto; }
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      background: var(--white);
+      overflow: hidden;
+    }
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 18px 22px;
+      font-weight: 600;
+      font-size: 15.5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--brand);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item p {
+      padding: 0 22px 20px;
+      font-size: 14.5px;
+      color: var(--text-2);
+      line-height: 1.7;
+    }
+
+    /* ── CTA ─────────────────────────────── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      padding: 80px 48px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(24px, 3vw, 40px);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .cta-section p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 36px;
+    }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--brand-dark);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+    /* ── FOOTER ─────────────────────────────── */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.6);
+      padding: 40px 48px;
+      text-align: center;
+      font-size: 14px;
+    }
+    footer strong { color: #fff; }
+
+    footer .site-footer__contact {
+      margin-top: 8px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 13px;
+    }
+
+    footer .site-footer__contact a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer .site-footer__contact a:hover {
+      color: #8fecd0;
+      text-decoration: underline;
+    }
+
+    footer .site-footer__wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: #25d366;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+
+    footer .site-footer__wa:hover { background: #1da851; }
+    footer .site-footer__wa svg { width: 18px; height: 18px; fill: currentColor; flex: none; }
+    footer .site-footer__legal {
+      margin-top: 8px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+    }
+    footer .site-footer__legal a {
+      color: #63e2b7;
+      text-decoration: none;
+    }
+    footer .site-footer__legal a:hover {
+      color: #8fecd0;
+      text-decoration: underline;
+    }
+
+    /* ── AUTH CARD ─────────────────────────────── */
+    .auth-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 32px 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .auth-tabs {
+      display: flex;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 24px;
+      gap: 0;
+    }
+    .auth-tab {
+      flex: 1;
+      background: none;
+      border: none;
+      padding: 10px 0;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-2);
+      cursor: pointer;
+      position: relative;
+      transition: color 0.15s;
+    }
+    .auth-tab::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      right: 0;
+      left: 0;
+      height: 2px;
+      background: var(--brand);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+    .auth-tab.active { color: var(--brand); }
+    .auth-tab.active::after { transform: scaleX(1); }
+
+    .auth-pane { display: none; }
+    .auth-pane.active { display: block; }
+
+    .auth-field { margin-bottom: 14px; }
+    .auth-field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-2);
+      margin-bottom: 6px;
+    }
+    .auth-field input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color 0.15s;
+      outline: none;
+    }
+    .auth-field input:focus { border-color: var(--brand); background: var(--white); }
+
+    .auth-btn {
+      width: 100%;
+      margin-top: 6px;
+      padding: 12px;
+      background: var(--brand);
+      color: #fff;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .auth-btn:hover { background: var(--brand-dark); }
+    .auth-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .auth-msg {
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      display: none;
+    }
+    .auth-msg.success { background: rgba(24,160,88,0.1); color: var(--brand); display: block; }
+    .auth-msg.error { background: rgba(239,68,68,0.1); color: #dc2626; display: block; }
+
+    .auth-hint {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-2);
+      text-align: center;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────── */
+    @media (max-width: 768px) {
+      nav {
+        height: auto;
+        min-height: 58px;
+        padding: 10px 16px;
+        gap: 12px;
+      }
+      .nav-brand__text { font-size: 15px; }
+      .nav-brand__icon,
+      .nav-brand__logo {
+        width: 34px;
+        height: 34px;
+      }
+      .nav-links { gap: 0; }
+      .nav-links a:not(.nav-cta):not(.nav-lang) { display: none; }
+      .nav-links,
+      .nav-brand {
+        min-width: 0;
+      }
+      .nav-cta {
+        padding: 9px 14px !important;
+        font-size: 13px !important;
+        white-space: nowrap;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 44px 20px 40px;
+        gap: 28px;
+        text-align: center;
+      }
+      .hero-badge { margin-bottom: 16px; }
+      .hero h1 { margin-bottom: 16px; }
+      .demo { justify-self: center; max-width: 440px; }
+      .hero-desc {
+        font-size: 16px;
+        margin-bottom: 28px;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-primary,
+      .btn-secondary,
+      .btn-white {
+        justify-content: center;
+        width: 100%;
+        max-width: 360px;
+        margin-inline: auto;
+      }
+      .hero-visual { display: none; }
+      .auth-card { max-width: 100%; }
+      .stats { padding: 36px 20px; }
+      .stats-inner {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 16px;
+        padding: 0;
+      }
+      .stat-num { font-size: 34px; }
+      section { padding: 48px 20px; }
+      .section-header { margin-bottom: 32px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .feature-card { padding: 22px; }
+      .steps {
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
+      }
+      .step {
+        max-width: 420px;
+        padding: 0;
+        width: 100%;
+      }
+      .step::after { display: none; }
+      .step__num { margin-bottom: 14px; }
+      .step h3 { margin-bottom: 8px; }
+      .step p {
+        margin: 0 auto;
+        max-width: 340px;
+      }
+      .cta-section { padding: 48px 20px; }
+      footer { padding: 32px 20px; }
+      .compare { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 420px) {
+      nav {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        padding-inline: 12px;
+      }
+      .nav-brand { gap: 8px; }
+      .nav-brand__text { font-size: 14px; }
+      .nav-cta {
+        padding: 8px 10px !important;
+        font-size: 12px !important;
+      }
+      .hero { padding: 36px 16px 34px; }
+      .hero h1 { font-size: 30px; }
+      .hero-desc { font-size: 15px; }
+      .stats-inner { grid-template-columns: 1fr; }
+      section { padding: 42px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="/en">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="/remindocr-logo-dark.png" />
+      <img class="nav-brand__logo" src="/remindocr-logo-light.png" alt="" />
+    </picture>
+    <span class="nav-brand__text">RemindOCR</span>
+  </a>
+  <div class="nav-links">
+    <a class="nav-lang" href="/" hreflang="he" lang="he">עברית</a>
+    <a href="#features">Features</a>
+    <a href="#how">How it works</a>
+    <a href="#faq">FAQ</a>
+    <a href="/en/pricing">Pricing</a>
+    <a class="nav-cta" href="https://app.remindocr.com/en/login">Sign in</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div style="background: linear-gradient(180deg, #f0fdf4 0%, var(--bg) 100%); padding: 60px 0;">
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Inspections, documents, and reminders</h1>
+      <p class="hero-tagline">EXTRACT • TRACK • AUTOMATE</p>
+      <p class="hero-desc">
+        RemindOCR manages inspection reports, documents, clients, and contracts. Upload or import files, extract dates and client details with OCR and AI, and track expiry with automatic reminders and Google Calendar sync.
+      </p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="https://app.remindocr.com/en/login?tab=register">Start a 30-day free trial</a>
+        <a class="btn-secondary" href="https://app.remindocr.com/en/login">Go to the app</a>
+      </div>
+    </div>
+
+    <!-- Animated product demo. Replaces the sign-in card that used to sit here:
+         authentication belongs on the app, so a marketing page is better spent
+         showing what the product does. Built in CSS rather than as a video or
+         GIF so it stays sharp at any size and costs no extra download. -->
+    <!-- Not role="img": the step pips below are real buttons, and an img role
+         would hide them from assistive technology. -->
+    <div class="demo" role="group"
+         aria-label="Demo: reminder calendar, automatic extraction, expiry reminders, document import, and archive">
+      <div class="demo__bar">
+        <span class="demo__dot"></span>
+        <span class="demo__dot"></span>
+        <span class="demo__dot"></span>
+        <span class="demo__title">RemindOCR</span>
+      </div>
+
+      <div class="demo__body">
+        <div class="demo__step demo__step--4">
+          <div class="demo__label">Document import</div>
+          <div class="demo__row">
+            <span class="demo__file">📄</span>
+            <div class="demo__meta">
+              <span class="demo__name">Inspection report 18229.pdf</span>
+              <span class="demo__sub">From Gmail · 1.2MB</span>
+            </div>
+            <span class="demo__tag demo__tag--wait">Importing…</span>
+          </div>
+          <div class="demo__row">
+            <span class="demo__file">🧾</span>
+            <div class="demo__meta">
+              <span class="demo__name">Tax invoice 40710.pdf</span>
+              <span class="demo__sub">Manual upload · 0.4MB</span>
+            </div>
+            <span class="demo__tag demo__tag--ok">Done</span>
+          </div>
+        </div>
+
+        <div class="demo__step demo__step--2">
+          <div class="demo__label">Automatic extraction</div>
+          <div class="demo__field"><span>Client</span><strong>Acme Lifts Ltd</strong></div>
+          <div class="demo__field"><span>Report no.</span><strong>18229.484590</strong></div>
+          <div class="demo__field"><span>Expiry date</span><strong>14 Mar 2027</strong></div>
+        </div>
+
+        <div class="demo__step demo__step--3">
+          <div class="demo__label">Automatic reminder</div>
+          <div class="demo__alert">
+            <span class="demo__alert-icon">⏰</span>
+            <div class="demo__meta">
+              <span class="demo__name">Report expires in 90 days</span>
+              <span class="demo__sub">Email sent to Acme Lifts Ltd</span>
+            </div>
+          </div>
+          <div class="demo__field"><span>90 days ahead</span><strong class="demo__sent">Sent ✓</strong></div>
+          <div class="demo__field"><span>60 days ahead</span><strong>Scheduled</strong></div>
+          <div class="demo__field"><span>30 days ahead</span><strong>Scheduled</strong></div>
+        </div>
+
+        <!-- Step 4 — the dashboard's reminder/inspection month view -->
+        <div class="demo__step demo__step--1">
+          <div class="demo__label">Reminders and inspections</div>
+          <div class="demo__cal">
+            <div class="demo__cal-head">
+              <span>September 2026</span>
+              <span class="demo__cal-count">50 reminders</span>
+            </div>
+            <div class="demo__cal-grid">
+              <span class="demo__cal-dow">S</span>
+              <span class="demo__cal-dow">M</span>
+              <span class="demo__cal-dow">T</span>
+              <span class="demo__cal-dow">W</span>
+              <span class="demo__cal-dow">T</span>
+              <span class="demo__cal-dow">F</span>
+              <span class="demo__cal-dow">S</span>
+
+              <span class="demo__cal-cell"><b>6</b></span>
+              <span class="demo__cal-cell">
+                <b>7</b>
+                <i class="demo__chip"></i>
+                <i class="demo__chip"></i>
+              </span>
+              <span class="demo__cal-cell"><b>8</b></span>
+              <span class="demo__cal-cell">
+                <b>9</b>
+                <i class="demo__chip"></i>
+              </span>
+              <span class="demo__cal-cell"><b>10</b></span>
+              <span class="demo__cal-cell">
+                <b>11</b>
+                <i class="demo__chip"></i>
+              </span>
+              <span class="demo__cal-cell"><b>12</b></span>
+
+              <span class="demo__cal-cell">
+                <b>13</b>
+                <i class="demo__chip demo__chip--sent"></i>
+              </span>
+              <span class="demo__cal-cell">
+                <b>14</b>
+                <i class="demo__chip"></i>
+                <i class="demo__chip"></i>
+              </span>
+              <span class="demo__cal-cell"><b>15</b></span>
+              <span class="demo__cal-cell"><b>16</b></span>
+              <span class="demo__cal-cell">
+                <b>17</b>
+                <i class="demo__chip demo__chip--sent"></i>
+              </span>
+              <span class="demo__cal-cell"><b>18</b></span>
+              <span class="demo__cal-cell"><b>19</b></span>
+            </div>
+          </div>
+          <div class="demo__legend">
+            <span><i class="demo__swatch demo__swatch--rem"></i>Reminders</span>
+            <span><i class="demo__swatch demo__swatch--sent"></i>Sent</span>
+          </div>
+        </div>
+
+        <!-- Step 5 — the documents archive, organized and searchable -->
+        <div class="demo__step demo__step--5">
+          <div class="demo__label">Document archive</div>
+          <div class="demo__row">
+            <span class="demo__file">📄</span>
+            <div class="demo__meta">
+              <span class="demo__name">Inspection report 18229.pdf</span>
+              <span class="demo__sub">Acme Lifts Ltd · 14 Mar 2027</span>
+            </div>
+            <span class="demo__tag demo__tag--ok">Valid</span>
+          </div>
+          <div class="demo__row">
+            <span class="demo__file">📄</span>
+            <div class="demo__meta">
+              <span class="demo__name">Lifting equipment report 20114.pdf</span>
+              <span class="demo__sub">KR Construction · 2 Nov 2026</span>
+            </div>
+            <span class="demo__tag demo__tag--wait">Expiring soon</span>
+          </div>
+          <div class="demo__row">
+            <span class="demo__file">🧾</span>
+            <div class="demo__meta">
+              <span class="demo__name">Tax invoice 40710.pdf</span>
+              <span class="demo__sub">Acme Lifts Ltd · 4 Sep 2026</span>
+            </div>
+            <span class="demo__tag demo__tag--ok">Paid</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo__steps-nav">
+        <button class="demo__pip demo__pip--1" type="button" data-goto="1" aria-label="Reminders and inspections"></button>
+        <button class="demo__pip demo__pip--2" type="button" data-goto="2" aria-label="Data extraction"></button>
+        <button class="demo__pip demo__pip--3" type="button" data-goto="3" aria-label="Automatic reminder"></button>
+        <button class="demo__pip demo__pip--4" type="button" data-goto="4" aria-label="Document import"></button>
+        <button class="demo__pip demo__pip--5" type="button" data-goto="5" aria-label="Document archive"></button>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var demo = document.querySelector('.demo');
+        if (!demo) return;
+
+        var STEPS = 5;
+        var INTERVAL = 4000;
+        var current = 1;
+        var timer = null;
+
+        function show(step) {
+          current = step;
+          demo.dataset.step = String(step);
+        }
+
+        function advance() {
+          show(current % STEPS + 1);
+        }
+
+        function start() {
+          stop();
+          timer = setInterval(advance, INTERVAL);
+        }
+
+        function stop() {
+          if (timer) { clearInterval(timer); timer = null; }
+        }
+
+        // Driving the rotation from JS rather than leaving it to the CSS
+        // animation, because that animation is disabled under reduced motion —
+        // which would otherwise freeze the demo on step 1 forever. A fade is
+        // motion; a slideshow that swaps content is not, so this still respects
+        // the preference while keeping every step reachable.
+        document.querySelectorAll('.demo__pip').forEach(function (pip) {
+          pip.addEventListener('click', function () {
+            show(Number(pip.dataset.goto));
+            start(); // restart the clock so the chosen step gets a full turn
+          });
+        });
+
+        // Pause while the pointer is over the demo, so a step can be read.
+        demo.addEventListener('mouseenter', stop);
+        demo.addEventListener('mouseleave', start);
+
+        // Do not animate a demo nobody is looking at.
+        document.addEventListener('visibilitychange', function () {
+          if (document.hidden) stop(); else start();
+        });
+
+        show(1);
+        start();
+      })();
+    </script>
+
+  </div>
+</div>
+
+<!-- BEFORE / AFTER -->
+<div class="compare-bg">
+  <section id="compare">
+    <div class="section-header">
+      <h2>The inspector fills it in. The office types it again. Stop the double work.</h2>
+      <p>RemindOCR replaces paper files, spreadsheets, and retyping with one digital flow</p>
+    </div>
+    <div class="compare">
+      <div class="compare-col compare-col--bad">
+        <div class="compare-col__head">
+          <span class="compare-col__icon">✕</span>
+          <span>Documents and inspections without a system</span>
+        </div>
+        <ol class="compare-list">
+          <li>A document arrives by email, WhatsApp, or paper — and waits for someone to open it</li>
+          <li>Expiry dates, report numbers, and client details are typed into a spreadsheet</li>
+          <li>A calendar reminder is set if anyone remembers — with no automatic backup</li>
+          <li>Folders are searched by hand when a client asks about an old report</li>
+          <li>The reminder goes out a month after the certificate already expired</li>
+        </ol>
+      </div>
+      <div class="compare-col compare-col--good">
+        <div class="compare-col__head">
+          <span class="compare-col__icon">✓</span>
+          <span>Documents and inspections with RemindOCR</span>
+        </div>
+        <ol class="compare-list">
+          <li>Import the document — drag and drop, upload, or straight from Gmail</li>
+          <li>AI reads the document and extracts the client, expiry date, and report number</li>
+          <li>The system schedules an email reminder 30 days ahead</li>
+          <li>Every client document is searchable, backed up in the cloud and Google Drive</li>
+          <li>The client is reminded before expiry — not after</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="section-header">
+    <h2>Everything in one place</h2>
+    <p>Built for businesses that need to track documents, contracts, and inspections in real time</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <h3>Smart document import</h3>
+      <p>Upload PDF, Word, Excel, and images, or import attachments from Gmail after you explicitly approve them.</p>
+    </div>
+    <div class="feature-card feature-card--accent">
+      <h3>AI data extraction</h3>
+      <p>The system reads the document and extracts client name, expiry date, report number, equipment, and amounts.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Automatic reminders</h3>
+      <p>Get email 90, 60, and 30 days before a contract or inspection expires, with editable templates.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Client management</h3>
+      <p>A full client card with contracts, inspections, reminders, and contacts. Fast search and filters included.</p>
+    </div>
+    <div class="feature-card feature-card--accent">
+      <h3>Equipment catalog</h3>
+      <p>Track lifting equipment, scaffolding, elevators, and more — linked to inspection reports and expiry dates.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Search and filters</h3>
+      <p>Filter by client, equipment, document type, date, or status. Full-text search inside the document too.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Automatic monthly reports</h3>
+      <p>Build per-client reports with saved columns, and email them automatically each month.</p>
+    </div>
+    <div class="feature-card feature-card--accent">
+      <h3>Email reports</h3>
+      <p>Reports go out as Excel attachments, to the addresses you set per client.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Branded PDFs</h3>
+      <p>Generate inspection PDFs from printable templates, including your logo and company details.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Google Drive sync</h3>
+      <p>Store documents in a RemindOCR folder on Google Drive, with automatic sync and backup.</p>
+    </div>
+    <div class="feature-card feature-card--accent">
+      <h3>Cloud backup</h3>
+      <p>Every document is stored in encrypted S3 storage so files stay available and backed up.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Google Calendar sync</h3>
+      <p>Connect Google Calendar and get upcoming inspections in a dedicated calendar, with client, contact, and equipment in the event.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<div class="how-bg">
+  <section id="how" style="background: var(--white);">
+    <div class="section-header">
+      <h2>How it works</h2>
+      <p>Three simple steps</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step__num">1</div>
+        <h3>Import a document</h3>
+        <p>Drop files in. PDF, Word, Excel, and images are supported.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">2</div>
+        <h3>AI extracts the data</h3>
+        <p>The system reads the document and extracts client name, expiry date, amounts, and more.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">3</div>
+        <h3>Sync and remind</h3>
+        <p>Email alerts are scheduled, and inspections sync to Google Calendar with client and equipment details.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-header">
+    <h2>Frequently asked questions</h2>
+    <p>Still looking for an answer? Write to us on WhatsApp or email</p>
+  </div>
+  <div class="faq">
+    <details class="faq-item">
+      <summary>How do I start?</summary>
+      <p>Sign up for a 30-day free trial with no credit card, import your first documents, and set reminders. You can start in minutes.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What kinds of reports and documents are supported?</summary>
+      <p>Lifting equipment, elevators, cranes, scaffolding, MEWPs, escalators, air and steam receivers, boilers, pressure vessels, and more — plus contracts, invoices, and general documents.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How does import work?</summary>
+      <p>Drag a file, upload it, or connect Gmail and import from there. In every case, AI reads the document and extracts the relevant fields.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What happens as expiry approaches?</summary>
+      <p>Automatic emails go out 90, 60, and 30 days ahead, using a template you can customize per client.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Are my documents backed up and secure?</summary>
+      <p>Documents are stored in encrypted S3 storage, with optional Google Drive sync for a second backup.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can I cancel at any time?</summary>
+      <p>Yes. Cancel at any time. The trial is 30 days free, with no credit card.</p>
+    </details>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Ready to start?</h2>
+  <p>30-day trial with the full product, no credit card</p>
+  <a class="btn-white" href="https://app.remindocr.com/en/login?tab=register">Start free</a>
+</div>
+
+<script>
+  // Backs the inline auth form, which is currently commented out — sign-in
+  // happens on the app itself. Kept in sync so it cannot resurface pointing at
+  // the retired handcoded.tech domain.
+  const API = 'https://api.remindocr.com';
+  const APP_URL = 'https://app.remindocr.com';
+
+  function switchTab(tab) {
+    document.querySelectorAll('.auth-tab').forEach((t, i) => {
+      t.classList.toggle('active', (i === 0 && tab === 'login') || (i === 1 && tab === 'register'));
+    });
+    document.getElementById('pane-login').classList.toggle('active', tab === 'login');
+    document.getElementById('pane-register').classList.toggle('active', tab === 'register');
+    showMsg('', '');
+  }
+
+  function showMsg(text, type) {
+    const el = document.getElementById('auth-msg');
+    el.textContent = text;
+    el.className = 'auth-msg' + (type ? ' ' + type : '');
+  }
+
+  function checkPwStrength() {
+    const pw = document.getElementById('reg-password').value;
+    document.getElementById('pw-hint').style.display = (pw && pw.length < 8) ? 'block' : 'none';
+  }
+
+  async function handleLogin() {
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value;
+    if (!email || !password) return showMsg('יש למלא את כל השדות', 'error');
+    try {
+      const res = await fetch(`${API}/api/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await res.json();
+      if (!res.ok) return showMsg(errorText(data.error), 'error');
+      window.location.href = APP_URL;
+    } catch {
+      showMsg('שגיאת תקשורת, אנא נסה שנית', 'error');
+    }
+  }
+
+  async function handleRegister() {
+    const name = document.getElementById('reg-name').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    const password = document.getElementById('reg-password').value;
+    if (!name || !email || !password) return showMsg('יש למלא את כל השדות', 'error');
+    if (password.length < 8) return showMsg('הסיסמה חייבת להכיל לפחות 8 תווים', 'error');
+    try {
+      const res = await fetch(`${API}/api/auth/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ name, email, password }),
+      });
+      const data = await res.json();
+      if (!res.ok) return showMsg(errorText(data.error), 'error');
+      showMsg('נשלח אימייל לאימות — אנא בדוק את תיבת הדואר שלך', 'success');
+      document.getElementById('reg-name').value = '';
+      document.getElementById('reg-email').value = '';
+      document.getElementById('reg-password').value = '';
+    } catch {
+      showMsg('שגיאת תקשורת, אנא נסה שנית', 'error');
+    }
+  }
+
+  const ERRORS = {
+    invalid_credentials: 'אימייל או סיסמה שגויים',
+    email_not_verified: 'יש לאמת את האימייל לפני הכניסה',
+    account_disabled: 'החשבון הושבת',
+    email_taken: 'כתובת האימייל כבר רשומה',
+    password_too_short: 'הסיסמה חייבת להכיל לפחות 8 תווים',
+    not_allowed: 'כתובת האימייל אינה ברשימת הגישה המורשית',
+  };
+  function errorText(code) { return ERRORS[code] || 'אירעה שגיאה, אנא נסה שנית'; }
+</script>
+
+<!-- FOOTER -->
+<footer>
+  <strong>RemindOCR</strong> — Inspection and reminder management
+  <div class="site-footer__contact">
+    Phone: <a href="tel:+972554605328">+972 55-460-5328</a> · Email: <a href="mailto:contact@remindocr.com">contact@remindocr.com</a>
+  </div>
+  <a class="site-footer__wa" href="https://wa.me/972554605328?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20RemindOCR." target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1s-.7 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2A10 10 0 0 0 3.5 17.2L2 22l4.9-1.5A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-2.9.9.9-2.8-.2-.3a8.2 8.2 0 1 1 6.9 3.6z"/></svg>
+    Message us on WhatsApp
+  </a>
+  <div class="site-footer__legal">
+    © 2026 HandCoded. All rights reserved. |
+    <a href="/terms">Terms</a> |
+    <a href="/privacy">Privacy</a> |
+    <a href="/accessibility">Accessibility</a> |
+    <a href="/security">Security</a>
+  </div>
+</footer>
+
+
+<!-- Cookie consent banner -->
+<div id="cookie-consent" class="cookie-consent" hidden>
+  <p class="cookie-consent__text">
+    We use cookies to understand usage and improve the site.
+    <a href="/privacy">Privacy</a>
+  </p>
+  <div class="cookie-consent__actions">
+    <button type="button" id="cookie-decline" class="cookie-consent__btn">Decline</button>
+    <button type="button" id="cookie-accept" class="cookie-consent__btn cookie-consent__btn--primary">Accept</button>
+  </div>
+</div>
+<style>
+  /* [hidden] only applies display:none via the UA sheet, which a class rule
+     outranks — without this the banner stays on screen after the choice. */
+  .cookie-consent[hidden] { display: none !important; }
+  .cookie-consent {
+    position: fixed; inset-inline: 16px; bottom: 16px; z-index: 9999;
+    max-width: 620px; margin-inline: auto;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+    background: #17212b; color: rgba(255,255,255,0.9);
+    border-radius: 12px; padding: 14px 18px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.28);
+    font-family: 'Rubik', system-ui, sans-serif; font-size: 14px;
+  }
+  .cookie-consent__text { margin: 0; flex: 1 1 260px; line-height: 1.5; }
+  .cookie-consent__text a { color: #63e2b7; text-decoration: none; }
+  .cookie-consent__text a:hover { text-decoration: underline; }
+  .cookie-consent__actions { display: flex; gap: 8px; flex: 0 0 auto; }
+  @media (max-width: 460px) {
+    .cookie-consent__actions { width: 100%; }
+    .cookie-consent__btn { flex: 1 1 0; }
+  }
+  .cookie-consent__btn {
+    border: 1px solid rgba(255,255,255,0.25); background: transparent;
+    color: inherit; border-radius: 8px; padding: 10px 20px;
+    font: inherit; font-weight: 600; cursor: pointer;
+    /* 44px is the minimum comfortable touch target on mobile. */
+    min-height: 44px; min-width: 88px;
+  }
+  .cookie-consent__btn:hover { background: rgba(255,255,255,0.08); }
+  .cookie-consent__btn--primary { background: #18a058; border-color: #18a058; color: #fff; }
+  .cookie-consent__btn--primary:hover { background: #36ad6a; }
+</style>
+<script>
+  (function () {
+    var el = document.getElementById('cookie-consent');
+    if (!el) return;
+    var stored = null;
+    try { stored = localStorage.getItem('ga_consent'); } catch (e) {}
+    if (!stored) el.hidden = false;
+
+    function decide(value) {
+      try { localStorage.setItem('ga_consent', value); } catch (e) {}
+      if (typeof gtag === 'function') {
+        var granted = value === 'granted';
+        gtag('consent', 'update', {
+          'ad_user_data': granted ? 'granted' : 'denied',
+          'ad_personalization': granted ? 'granted' : 'denied',
+          'ad_storage': granted ? 'granted' : 'denied',
+          'analytics_storage': granted ? 'granted' : 'denied'
+        });
+      }
+      el.hidden = true;
+    }
+    document.getElementById('cookie-accept').addEventListener('click', function () { decide('granted'); });
+    document.getElementById('cookie-decline').addEventListener('click', function () { decide('denied'); });
+  })();
+</script>
+</body>
+</html>

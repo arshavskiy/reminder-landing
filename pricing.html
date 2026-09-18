@@ -40,6 +40,8 @@
   <title>מחירים — RemindOCR</title>
   <meta name="description" content="מסלולי RemindOCR לניהול תסקירי בדיקה, חשבוניות, מסמכים, תזכורות אוטומטיות, סנכרון Google Calendar וסנכרון Google Drive לפי נפח העבודה של העסק." />
   <link rel="canonical" href="https://remindocr.com/pricing" />
+  <link rel="alternate" hreflang="he" href="https://remindocr.com/pricing" />
+  <link rel="alternate" hreflang="en" href="https://remindocr.com/en/pricing" />
   <meta name="robots" content="index,follow" />
 
   <meta property="fb:app_id" content="935630732930743" />
@@ -125,6 +127,18 @@
       font-weight: 700;
     }
     .nav-cta:hover { background: var(--brand-dark); color: #fff !important; }
+    .nav-lang {
+      padding: 8px 12px !important;
+      font-size: 13px !important;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: transparent !important;
+      color: var(--text-2) !important;
+    }
+    .nav-lang:hover {
+      background: var(--brand-light) !important;
+      color: var(--brand) !important;
+    }
 
     .page { padding-top: 64px; }
 
@@ -368,7 +382,7 @@
 
     @media (max-width: 900px) {
       nav { height: auto; min-height: 58px; padding: 10px 16px; }
-      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-links a:not(.nav-cta):not(.nav-lang) { display: none; }
       .plans-hero { padding: 48px 20px 32px; }
       section { padding: 40px 20px 56px; }
       .plans-grid { grid-template-columns: 1fr; }
@@ -387,6 +401,7 @@
     <span class="nav-brand__text">RemindOCR</span>
   </a>
   <div class="nav-links">
+    <a class="nav-lang" href="/en/pricing" hreflang="en" lang="en">English</a>
     <a href="/#features">תכונות</a>
     <a href="/#how">איך זה עובד</a>
     <a href="/pricing">מחירים</a>

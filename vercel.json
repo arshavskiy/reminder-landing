@@ -204,6 +204,181 @@
       "source": "/email-templates",
       "destination": "https://app.remindocr.com/email-templates",
       "permanent": false
+    },
+    {
+      "source": "/en/dashboard/:path*",
+      "destination": "https://app.remindocr.com/en/dashboard/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/en/dashboard",
+      "destination": "https://app.remindocr.com/en/dashboard",
+      "permanent": false
+    },
+    {
+      "source": "/en/documents/:path*",
+      "destination": "https://app.remindocr.com/en/documents/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/en/documents",
+      "destination": "https://app.remindocr.com/en/documents",
+      "permanent": false
+    },
+    {
+      "source": "/en/invoices/:path*",
+      "destination": "https://app.remindocr.com/en/invoices/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/en/invoices",
+      "destination": "https://app.remindocr.com/en/invoices",
+      "permanent": false
+    },
+    {
+      "source": "/en/clients/:path*",
+      "destination": "https://app.remindocr.com/en/clients/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/en/clients",
+      "destination": "https://app.remindocr.com/en/clients",
+      "permanent": false
+    },
+    {
+      "source": "/en/contracts/:path*",
+      "destination": "https://app.remindocr.com/en/contracts/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/en/contracts",
+      "destination": "https://app.remindocr.com/en/contracts",
+      "permanent": false
+    },
+    {
+      "source": "/en/reminders/:path*",
+      "destination": "https://app.remindocr.com/en/reminders/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/en/reminders",
+      "destination": "https://app.remindocr.com/en/reminders",
+      "permanent": false
+    },
+    {
+      "source": "/en/equipment/:path*",
+      "destination": "https://app.remindocr.com/en/equipment/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/en/equipment",
+      "destination": "https://app.remindocr.com/en/equipment",
+      "permanent": false
+    },
+    {
+      "source": "/en/reports/:path*",
+      "destination": "https://app.remindocr.com/en/reports/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/en/reports",
+      "destination": "https://app.remindocr.com/en/reports",
+      "permanent": false
+    },
+    {
+      "source": "/en/search",
+      "destination": "https://app.remindocr.com/en/search",
+      "permanent": false
+    },
+    {
+      "source": "/en/profile",
+      "destination": "https://app.remindocr.com/en/profile",
+      "permanent": false
+    },
+    {
+      "source": "/en/settings",
+      "destination": "https://app.remindocr.com/en/settings",
+      "permanent": false
+    },
+    {
+      "source": "/en/admin/:path*",
+      "destination": "https://app.remindocr.com/en/admin/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/en/admin",
+      "destination": "https://app.remindocr.com/en/admin",
+      "permanent": false
+    },
+    {
+      "source": "/en/field/:path*",
+      "destination": "https://app.remindocr.com/en/field/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/en/field",
+      "destination": "https://app.remindocr.com/en/field",
+      "permanent": false
+    },
+    {
+      "source": "/en/print-templates/:path*",
+      "destination": "https://app.remindocr.com/en/print-templates/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/en/print-templates",
+      "destination": "https://app.remindocr.com/en/print-templates",
+      "permanent": false
+    },
+    {
+      "source": "/en/login",
+      "destination": "https://app.remindocr.com/en/login",
+      "permanent": false
+    },
+    {
+      "source": "/en/reset-password",
+      "destination": "https://app.remindocr.com/en/reset-password",
+      "permanent": false
+    },
+    {
+      "source": "/en/gmail-inbox/:path*",
+      "destination": "https://app.remindocr.com/en/gmail-inbox/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/en/gmail-inbox",
+      "destination": "https://app.remindocr.com/en/gmail-inbox",
+      "permanent": false
+    },
+    {
+      "source": "/en/compose/:path*",
+      "destination": "https://app.remindocr.com/en/compose/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/en/compose",
+      "destination": "https://app.remindocr.com/en/compose",
+      "permanent": false
+    },
+    {
+      "source": "/en/doc-templates/:path*",
+      "destination": "https://app.remindocr.com/en/doc-templates/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/en/doc-templates",
+      "destination": "https://app.remindocr.com/en/doc-templates",
+      "permanent": false
+    },
+    {
+      "source": "/en/email-templates/:path*",
+      "destination": "https://app.remindocr.com/en/email-templates/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/en/email-templates",
+      "destination": "https://app.remindocr.com/en/email-templates",
+      "permanent": false
     }
   ],
   "headers": [

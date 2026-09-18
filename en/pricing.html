@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- Google tag (gtag.js) — skipped on localhost/local previews -->
+  <script>
+    if (!["localhost", "127.0.0.1"].includes(window.location.hostname)) {
+      var gaScript = document.createElement("script");
+      gaScript.async = true;
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-CV5TGV9V2X";
+      document.head.appendChild(gaScript);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      // Consent Mode v2: deny until the visitor chooses. wait_for_update holds the
+      // first hits briefly so a stored "granted" is applied before anything sends.
+      gtag('consent', 'default', {
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'wait_for_update': 500
+      });
+      try {
+        if (localStorage.getItem('ga_consent') === 'granted') {
+          gtag('consent', 'update', {
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted',
+            'ad_storage': 'granted',
+            'analytics_storage': 'granted'
+          });
+        }
+      } catch (e) {}
+      gtag('js', new Date());
+      gtag('config', 'G-CV5TGV9V2X');
+    }
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — RemindOCR</title>
+  <meta name="description" content="RemindOCR plans for inspection reports, invoices, documents, automatic reminders, Google Calendar sync, and Google Drive sync." />
+  <link rel="canonical" href="https://remindocr.com/en/pricing" />
+  <link rel="alternate" hreflang="he" href="https://remindocr.com/pricing" />
+  <link rel="alternate" hreflang="en" href="https://remindocr.com/en/pricing" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="fb:app_id" content="935630732930743" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="RemindOCR" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="https://remindocr.com/en/pricing" />
+  <meta property="og:title" content="Pricing — RemindOCR" />
+  <meta property="og:description" content="RemindOCR plans for inspection reports, invoices, documents, automatic reminders, Google Calendar sync, and Google Drive sync." />
+
+  <meta name="theme-color" content="#18a058" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32-v2.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../icon-192-v2.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="../icon-512-v2.png" />
+  <link rel="icon" type="image/svg+xml" href="../favicon-v2.svg" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon-v2.png" />
+  <meta property="og:image" content="https://remindocr.com/og-image.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand: #18a058;
+      --brand-dark: #0c7a43;
+      --brand-light: rgba(24,160,88,0.1);
+      --text: #1a1a2e;
+      --text-2: #4a5568;
+      --bg: #f8fafb;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; right: 0; left: 0;
+      z-index: 20;
+      height: 64px;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-brand__logo { width: 40px; height: 40px; border-radius: 10px; object-fit: cover; }
+    .nav-brand__text { font-size: 17px; font-weight: 700; }
+
+    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-links a {
+      padding: 8px 16px;
+      border-radius: 8px;
+      color: var(--text-2);
+      font-size: 14px;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-links a:hover { background: var(--brand-light); color: var(--brand); }
+    .nav-cta {
+      padding: 10px 20px !important;
+      background: var(--brand);
+      color: #fff !important;
+      font-weight: 700;
+    }
+    .nav-cta:hover { background: var(--brand-dark); color: #fff !important; }
+    .nav-lang {
+      padding: 8px 12px !important;
+      font-size: 13px !important;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: transparent !important;
+      color: var(--text-2) !important;
+    }
+    .nav-lang:hover {
+      background: var(--brand-light) !important;
+      color: var(--brand) !important;
+    }
+
+    .page { padding-top: 64px; }
+
+    .plans-hero {
+      background: linear-gradient(180deg, #f0fdf4 0%, var(--bg) 100%);
+      padding: 72px 48px 48px;
+      text-align: center;
+    }
+    .plans-hero h1 {
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .plans-hero p {
+      max-width: 620px;
+      margin: 0 auto;
+      color: var(--text-2);
+      font-size: 17px;
+    }
+
+    section { width: min(1320px, 100%); margin: 0 auto; padding: 56px 48px 80px; }
+
+    .plans-grid {
+      display: grid;
+      /* auto-fit rather than a fixed count: with four plans a fixed 3 would
+         orphan the last card on a row of its own. The 230px floor keeps all
+         four on one row at the section's full width and drops to 2, then 1, as
+         the viewport narrows. */
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* Self-serve checkout is not live yet, so the yearly/monthly buttons are
+       hidden rather than removed — unhide them and drop the WhatsApp block to
+       switch over once Green Invoice payment links exist. */
+    .plan--soon .plan__ctas { display: none; }
+    .plan__cta--wa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #25d366;
+      color: #fff;
+    }
+    .plan__cta--wa:hover { background: #1da851; }
+    .plan__cta--wa svg { width: 18px; height: 18px; fill: currentColor; flex: none; }
+    .plan__soon-note {
+      margin: 10px 0 0;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-2);
+    }
+
+    .plan {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .plan--highlighted {
+      border-color: var(--brand);
+      box-shadow: 0 12px 40px rgba(24,160,88,0.12);
+      position: relative;
+    }
+    .plan__badge {
+      position: absolute;
+      top: -13px;
+      left: 28px;
+      background: var(--brand);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 999px;
+    }
+    .plan__name { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+    .plan__blurb { color: var(--text-2); font-size: 14px; min-height: 44px; margin-bottom: 18px; }
+
+    .plan__price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+    .plan__price strong { font-size: 40px; font-weight: 800; line-height: 1; }
+    .plan__price-old {
+      color: var(--text-2);
+      text-decoration: line-through;
+      font-size: 17px;
+      opacity: 0.75;
+    }
+    .plan__price-period { color: var(--text-2); font-size: 14px; }
+    .plan__price-year {
+      margin: 0 0 6px;
+      color: var(--text-2);
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .plan__vat {
+      margin: 0 0 18px;
+      color: var(--text-2);
+      font-size: 12px;
+      opacity: 0.8;
+    }
+    /* One bordered control with two rows, so yearly and monthly read as a billing
+       choice rather than as a live button next to a disabled one. */
+    .plan__ctas {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .plan__ctas--accent { border-color: var(--brand); }
+    .plan__cta-note {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      opacity: 0.85;
+      margin-top: 2px;
+    }
+    .plan__cta-save {
+      display: inline-block;
+      margin-inline-start: 6px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.22);
+      font-size: 11px;
+      font-weight: 700;
+      vertical-align: middle;
+    }
+    .plan__cta--ghost .plan__cta-save {
+      background: var(--brand-light);
+      color: var(--brand-dark);
+    }
+
+    .plan__features { list-style: none; margin-bottom: 26px; flex: 1; }
+    .plan__features li {
+      position: relative;
+      padding-left: 26px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: var(--text-2);
+    }
+    .plan__features li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--brand);
+      font-weight: 700;
+    }
+    .plan__features li.plan__feature--struck {
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      color: var(--text-2);
+      opacity: 0.65;
+    }
+
+    .plan__cta {
+      display: block;
+      text-align: center;
+      padding: 13px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .plan__cta--primary { background: var(--brand); color: #fff; }
+    .plan__cta--primary:hover { background: var(--brand-dark); }
+    .plan__cta--ghost { background: var(--white); color: var(--text); }
+    .plan__cta--ghost:hover { background: var(--bg); color: var(--brand-dark); }
+
+    /* Inside the group the buttons are segments, not standalone pills. */
+    .plan__ctas .plan__cta { border-radius: 0; }
+    .plan__ctas .plan__cta + .plan__cta {
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 11px 20px;
+    }
+
+    .plan__additional {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--brand-dark);
+    }
+    .plans-note {
+      margin-top: 32px;
+      text-align: center;
+      color: var(--text-2);
+      font-size: 14px;
+    }
+
+    .plans-legal-note {
+      max-width: 780px;
+      margin: 14px auto 0;
+      text-align: center;
+      color: var(--text-2);
+      font-size: 13px;
+    }
+
+    .plans-legal-note a {
+      color: var(--brand-dark);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .plans-legal-note a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: #17212b;
+      color: rgba(255,255,255,0.75);
+      padding: 40px 48px;
+      text-align: center;
+      font-size: 14px;
+    }
+    footer strong { color: #fff; }
+    footer .site-footer__legal {
+      margin-top: 8px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+    }
+    footer .site-footer__legal a {
+      color: #63e2b7;
+      text-decoration: none;
+    }
+    footer .site-footer__legal a:hover {
+      color: #8fecd0;
+      text-decoration: underline;
+    }
+
+    /* Between the four-across and the single-column layouts, auto-fit would
+       settle on three and leave the fourth plan alone on its own row. Force two
+       even columns across that band instead. */
+    @media (max-width: 1080px) and (min-width: 901px) {
+      .plans-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 900px) {
+      nav { height: auto; min-height: 58px; padding: 10px 16px; }
+      .nav-links a:not(.nav-cta):not(.nav-lang) { display: none; }
+      .plans-hero { padding: 48px 20px 32px; }
+      section { padding: 40px 20px 56px; }
+      .plans-grid { grid-template-columns: 1fr; }
+      footer { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="/en">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="../remindocr-logo-dark.png" />
+      <img class="nav-brand__logo" src="../remindocr-logo-light.png" alt="" />
+    </picture>
+    <span class="nav-brand__text">RemindOCR</span>
+  </a>
+  <div class="nav-links">
+    <a class="nav-lang" href="/pricing" hreflang="he" lang="he">עברית</a>
+    <a href="/en#features">Features</a>
+    <a href="/en#how">How it works</a>
+    <a href="/en/pricing">Pricing</a>
+    <a class="nav-cta" href="https://app.remindocr.com/en/login">Sign in</a>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="plans-hero">
+    <h1>Plans and pricing</h1>
+    <p>Choose the plan that matches your workload. Start free and upgrade at any time.</p>
+  </div>
+
+  <section>
+    <div class="plans-grid">
+
+      <div class="plan">
+        <div class="plan__name">Trial · 30 days</div>
+        <p class="plan__blurb">All Basic-plan capabilities, no credit card required.</p>
+        <div class="plan__price">
+          <strong>₪0</strong>
+          <span class="plan__price-period">/ 30 days</span>
+        </div>
+        <p class="plan__price-year">Up to 50 documents — manual and email combined</p>
+        <ul class="plan__features">
+          <li>Preview and AI data extraction</li>
+          <li>Automatic email reminders to clients</li>
+          <li>Import up to 20 invoices and receipts</li>
+          <li>Excel export and monthly reports</li>
+          <li>Google Drive sync</li>
+        </ul>
+        <a class="plan__cta plan__cta--ghost" href="https://app.remindocr.com/en/login?tab=register">Start free</a>
+      </div>
+
+      <div class="plan plan--soon">
+        <div class="plan__name">Digital</div>
+        <p class="plan__blurb">Manage inspections and reminders with manual entry, without storing files in the cloud.</p>
+        <div class="plan__price">
+          <strong>₪47</strong>
+          <span class="plan__price-period">/ month</span>
+        </div>
+        <p class="plan__price-year">Unlimited inspections and reminders</p>
+        <ul class="plan__features">
+          <li>Manual data entry — no file uploads</li>
+          <li>Client and equipment management</li>
+          <li>Generate inspections for signing and sending</li>
+          <li>Automatic email reminders to clients</li>
+          <li>Excel export and monthly reports</li>
+        </ul>
+        <a class="plan__cta plan__cta--wa" href="https://wa.me/972554605328?text=Hi%2C%20I%20would%20like%20to%20purchase%20the%20RemindOCR%20Digital%20plan%20(%E2%82%AA47%20per%20month)." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1s-.7 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2A10 10 0 0 0 3.5 17.2L2 22l4.9-1.5A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-2.9.9.9-2.8-.2-.3a8.2 8.2 0 1 1 6.9 3.6z"/></svg>
+          Buy on WhatsApp
+        </a>
+        <p class="plan__soon-note">Pay by bank transfer · tax invoice sent by email</p>
+      </div>
+
+      <div class="plan plan--soon">
+        <div class="plan__name">Basic</div>
+        <p class="plan__blurb">For a small business that imports documents every month.</p>
+        <div class="plan__price">
+          <span class="plan__price-old">₪88</span>
+          <strong>₪79</strong>
+          <span class="plan__price-period">/ month </span>
+        </div>
+        <p class="plan__price-year">Billed yearly — ₪948 per year · or ₪88 billed monthly</p>
+        <ul class="plan__features">
+          <li>50 documents per month — inspections and receipts combined</li>
+          <li>Import inspections from the last 16 months</li>
+          <li>Client and equipment management</li>
+          <li>Inspection management and client reminders</li>
+          <li>Export receipts to Excel</li>
+          <li>Automatic monthly reports</li>
+          <li>Google Drive sync</li>
+        </ul>
+        <div class="plan__ctas">
+          <a class="plan__cta plan__cta--primary" role="link" aria-disabled="true" tabindex="-1">
+            Yearly — ₪79 / month<span class="plan__cta-save">Save 10%</span>
+          </a>
+          <a class="plan__cta plan__cta--ghost" role="link" aria-disabled="true" tabindex="-1">
+            Or monthly — ₪88 / month
+          </a>
+        </div>
+        <a class="plan__cta plan__cta--wa" href="https://wa.me/972554605328?text=Hi%2C%20I%20would%20like%20to%20purchase%20the%20RemindOCR%20Basic%20plan%20(%E2%82%AA79%20per%20month%20billed%20yearly%20or%20%E2%82%AA88%20billed%20monthly)." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1s-.7 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2A10 10 0 0 0 3.5 17.2L2 22l4.9-1.5A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-2.9.9.9-2.8-.2-.3a8.2 8.2 0 1 1 6.9 3.6z"/></svg>
+          Buy on WhatsApp
+        </a>
+        <p class="plan__soon-note">Pay by bank transfer · tax invoice sent by email</p>
+      </div>
+
+      <div class="plan plan--highlighted plan--soon">
+        <span class="plan__badge">Most popular</span>
+        <div class="plan__name">Business</div>
+        <p class="plan__blurb">For certified inspectors who import documents regularly, work with several mailboxes, and want a synced Google Calendar.</p>
+        <div class="plan__price">
+          <span class="plan__price-old">₪143</span>
+          <strong>₪128</strong>
+          <span class="plan__price-period">/ month</span>
+        </div>
+        <p class="plan__price-year">Billed yearly — ₪1,536 per year · or ₪143 billed monthly</p>
+        <p class="plan__additional">Everything in Basic, plus</p>
+        <ul class="plan__features">
+          <li>Unlimited inspection and invoice import</li>
+          <li>Import inspections from Gmail up to 24 months back</li>
+          <li>Import invoices and receipts from Gmail up to 36 months back</li>
+          <li>Client and equipment management</li>
+          <li>Google Calendar sync for upcoming inspections</li>
+        </ul>
+        <div class="plan__ctas plan__ctas--accent">
+          <a class="plan__cta plan__cta--primary" role="link" aria-disabled="true" tabindex="-1">
+            Yearly — ₪128 / month<span class="plan__cta-save">Save 10%</span>
+          </a>
+          <a class="plan__cta plan__cta--ghost" role="link" aria-disabled="true" tabindex="-1">
+            Or monthly — ₪143 / month
+          </a>
+        </div>
+        <a class="plan__cta plan__cta--wa" href="https://wa.me/972554605328?text=Hi%2C%20I%20would%20like%20to%20purchase%20the%20RemindOCR%20Business%20plan%20(%E2%82%AA128%20per%20month%20billed%20yearly%20or%20%E2%82%AA143%20billed%20monthly)." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1s-.7 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2A10 10 0 0 0 3.5 17.2L2 22l4.9-1.5A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-2.9.9.9-2.8-.2-.3a8.2 8.2 0 1 1 6.9 3.6z"/></svg>
+          Buy on WhatsApp
+        </a>
+        <p class="plan__soon-note">Pay by bank transfer · tax invoice sent by email</p>
+      </div>
+
+    </div>
+
+    <p class="plans-note">
+      The trial includes all system capabilities for 30 days, with no credit card. Paid plans will open for purchase soon.
+    </p>
+    <p class="plans-legal-note">
+      Buying a subscription requires agreeing to the <a href="/en/terms">Terms of Use</a> and <a href="/en/privacy">Privacy Policy</a>.
+      On a self-serve checkout page, when enabled, an explicit confirmation will appear before payment.
+    </p>
+  </section>
+</div>
+
+<footer>
+  <strong>RemindOCR</strong> — Inspection and reminder management for businesses
+  <div class="site-footer__legal">
+    © 2026 HandCoded. All rights reserved. |
+    <a href="/en/terms">Terms of Use</a> |
+    <a href="/en/privacy">Privacy Policy</a> |
+    <a href="/en/accessibility">Accessibility</a> |
+    <a href="/en/security">Security</a>
+  </div>
+</footer>
+
+
+<!-- Cookie consent banner -->
+<div id="cookie-consent" class="cookie-consent" hidden>
+  <p class="cookie-consent__text">
+    We use cookies to analyze usage and improve the site.
+    <a href="/en/privacy">Privacy Policy</a>
+  </p>
+  <div class="cookie-consent__actions">
+    <button type="button" id="cookie-decline" class="cookie-consent__btn">Decline</button>
+    <button type="button" id="cookie-accept" class="cookie-consent__btn cookie-consent__btn--primary">Accept</button>
+  </div>
+</div>
+<style>
+  /* [hidden] only applies display:none via the UA sheet, which a class rule
+     outranks — without this the banner stays on screen after the choice. */
+  .cookie-consent[hidden] { display: none !important; }
+  .cookie-consent {
+    position: fixed; inset-inline: 16px; bottom: 16px; z-index: 9999;
+    max-width: 620px; margin-inline: auto;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+    background: #17212b; color: rgba(255,255,255,0.9);
+    border-radius: 12px; padding: 14px 18px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.28);
+    font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px;
+  }
+  .cookie-consent__text { margin: 0; flex: 1 1 260px; line-height: 1.5; }
+  .cookie-consent__text a { color: #63e2b7; text-decoration: none; }
+  .cookie-consent__text a:hover { text-decoration: underline; }
+  .cookie-consent__actions { display: flex; gap: 8px; flex: 0 0 auto; }
+  @media (max-width: 460px) {
+    .cookie-consent__actions { width: 100%; }
+    .cookie-consent__btn { flex: 1 1 0; }
+  }
+  .cookie-consent__btn {
+    border: 1px solid rgba(255,255,255,0.25); background: transparent;
+    color: inherit; border-radius: 8px; padding: 10px 20px;
+    font: inherit; font-weight: 600; cursor: pointer;
+    /* 44px is the minimum comfortable touch target on mobile. */
+    min-height: 44px; min-width: 88px;
+  }
+  .cookie-consent__btn:hover { background: rgba(255,255,255,0.08); }
+  .cookie-consent__btn--primary { background: #18a058; border-color: #18a058; color: #fff; }
+  .cookie-consent__btn--primary:hover { background: #36ad6a; }
+</style>
+<script>
+  (function () {
+    var el = document.getElementById('cookie-consent');
+    if (!el) return;
+    var stored = null;
+    try { stored = localStorage.getItem('ga_consent'); } catch (e) {}
+    if (!stored) el.hidden = false;
+
+    function decide(value) {
+      try { localStorage.setItem('ga_consent', value); } catch (e) {}
+      if (typeof gtag === 'function') {
+        var granted = value === 'granted';
+        gtag('consent', 'update', {
+          'ad_user_data': granted ? 'granted' : 'denied',
+          'ad_personalization': granted ? 'granted' : 'denied',
+          'ad_storage': granted ? 'granted' : 'denied',
+          'analytics_storage': granted ? 'granted' : 'denied'
+        });
+      }
+      el.hidden = true;
+    }
+    document.getElementById('cookie-accept').addEventListener('click', function () { decide('granted'); });
+    document.getElementById('cookie-decline').addEventListener('click', function () { decide('denied'); });
+  })();
+</script>
+</body>
+</html>

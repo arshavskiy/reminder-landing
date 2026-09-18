@@ -40,6 +40,10 @@
   <title>RemindOCR — מערכת ניהול תסקירים ותזכורות</title>
   <meta name="description" content="RemindOCR היא מערכת לניהול תסקירי בדיקה, מסמכים, לקוחות ותזכורות, עם חילוץ נתונים אוטומטי, ייבוא PDF מ-Gmail, סנכרון Google Calendar וסנכרון Google Drive." />
   <link rel="canonical" href="https://remindocr.com/" />
+  <link rel="alternate" hreflang="he" href="https://remindocr.com/" />
+  <link rel="alternate" hreflang="en" href="https://remindocr.com/en" />
+  <link rel="alternate" hreflang="x-default" href="https://remindocr.com/" />
+  <meta property="og:locale:alternate" content="en_US" />
   <meta name="theme-color" content="#18a058" />
   <!-- Same icon set the app serves, so the tab icon does not change between
        the marketing site and the app. -->
@@ -163,6 +167,20 @@
       padding: 10px 20px !important;
     }
     .nav-cta:hover { background: var(--brand-dark) !important; }
+
+    .nav-lang {
+      padding: 8px 12px !important;
+      font-size: 13px !important;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: transparent !important;
+      color: var(--text-2) !important;
+    }
+    .nav-lang:hover {
+      background: var(--brand-light) !important;
+      color: var(--brand) !important;
+    }
+
 
     /* ── HERO ─────────────────────────────── */
     .hero {
@@ -989,7 +1007,7 @@
         height: 34px;
       }
       .nav-links { gap: 0; }
-      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-links a:not(.nav-cta):not(.nav-lang) { display: none; }
       .nav-links,
       .nav-brand {
         min-width: 0;
@@ -1091,6 +1109,7 @@
     <span class="nav-brand__text">RemindOCR</span>
   </a>
   <div class="nav-links">
+    <a class="nav-lang" href="/en" hreflang="en" lang="en">English</a>
     <a href="#features">תכונות</a>
     <a href="#how">איך זה עובד</a>
     <a href="#faq">שאלות נפוצות</a>
