@@ -37,8 +37,8 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RemindOCR — Inspection reports, documents, and reminders</title>
-  <meta name="description" content="RemindOCR manages inspection reports, documents, clients, and reminders, with automatic data extraction, Gmail PDF import, Google Calendar sync, and Google Drive sync." />
+  <title>Inspection & Document Expiration Tracking | RemindOCR</title>
+  <meta name="description" content="Turn inspection reports and business documents into organized records and email reminders. Track expiration dates with RemindOCR. Try it free for 30 days." />
   <link rel="canonical" href="https://remindocr.com/en" />
   <link rel="alternate" hreflang="he" href="https://remindocr.com/" />
   <link rel="alternate" hreflang="en" href="https://remindocr.com/en" />
@@ -57,11 +57,11 @@
   <meta property="og:site_name" content="RemindOCR" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:url" content="https://remindocr.com/en" />
-  <meta property="og:title" content="RemindOCR — Inspection reports, documents, and reminders" />
-  <meta property="og:description" content="Manage inspection reports, documents, and reminders — with OCR, Gmail import, Google Calendar, and Google Drive." />
+  <meta property="og:title" content="Inspection & Document Expiration Tracking | RemindOCR" />
+  <meta property="og:description" content="Less retyping. Earlier follow-up. Extract document details, track inspection dates, and send automatic email reminders with RemindOCR." />
   <meta property="og:image" content="https://remindocr.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:description" content="Manage inspection reports, documents, and reminders — with OCR, Gmail import, Google Calendar, and Google Drive." />
+  <meta name="twitter:description" content="Less retyping. Earlier follow-up. Extract document details, track inspection dates, and send automatic email reminders with RemindOCR." />
   <meta name="twitter:image" content="https://remindocr.com/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -83,7 +83,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Rubik', system-ui, sans-serif;
+      font-family: 'Segoe UI', 'Rubik', system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -1122,15 +1122,17 @@
 <div style="background: linear-gradient(180deg, #f0fdf4 0%, var(--bg) 100%); padding: 60px 0;">
   <div class="hero">
     <div class="hero-content">
-      <h1>Inspections, documents, and reminders</h1>
-      <p class="hero-tagline">EXTRACT • TRACK • AUTOMATE</p>
+      <p class="hero-badge">For inspection and service businesses</p>
+      <h1>Your next inspection.<br /><span>Already on your radar.</span></h1>
+      <p class="hero-tagline">Document expiration tracking, built around your clients.</p>
       <p class="hero-desc">
-        RemindOCR manages inspection reports, documents, clients, and contracts. Upload or import files, extract dates and client details with OCR and AI, and track expiry with automatic reminders and Google Calendar sync.
+        Turn reports, certificates, and contracts into records you can act on. RemindOCR extracts key details, keeps clients and equipment connected, and sends email reminders before important dates arrive.
       </p>
       <div class="hero-actions">
         <a class="btn-primary" href="https://app.remindocr.com/en/login?tab=register">Start a 30-day free trial</a>
-        <a class="btn-secondary" href="https://app.remindocr.com/en/login">Go to the app</a>
+        <a class="btn-secondary" href="#how">See how it works</a>
       </div>
+      <p style="margin-top: 14px; color: var(--text-2); font-size: 14px;">30 days free · No credit card required</p>
     </div>
 
     <!-- Animated product demo. Replaces the sign-in card that used to sit here:
@@ -1145,7 +1147,7 @@
         <span class="demo__dot"></span>
         <span class="demo__dot"></span>
         <span class="demo__dot"></span>
-        <span class="demo__title">RemindOCR</span>
+        <span class="demo__title">Example workflow</span>
       </div>
 
       <div class="demo__body">
@@ -1162,7 +1164,7 @@
           <div class="demo__row">
             <span class="demo__file">🧾</span>
             <div class="demo__meta">
-              <span class="demo__name">Tax invoice 40710.pdf</span>
+              <span class="demo__name">Invoice 40710.pdf</span>
               <span class="demo__sub">Manual upload · 0.4MB</span>
             </div>
             <span class="demo__tag demo__tag--ok">Done</span>
@@ -1171,9 +1173,9 @@
 
         <div class="demo__step demo__step--2">
           <div class="demo__label">Automatic extraction</div>
-          <div class="demo__field"><span>Client</span><strong>Acme Lifts Ltd</strong></div>
+          <div class="demo__field"><span>Client</span><strong>Acme Elevator Services</strong></div>
           <div class="demo__field"><span>Report no.</span><strong>18229.484590</strong></div>
-          <div class="demo__field"><span>Expiry date</span><strong>14 Mar 2027</strong></div>
+          <div class="demo__field"><span>Expiration date</span><strong>Mar 14, 2027</strong></div>
         </div>
 
         <div class="demo__step demo__step--3">
@@ -1182,7 +1184,7 @@
             <span class="demo__alert-icon">⏰</span>
             <div class="demo__meta">
               <span class="demo__name">Report expires in 90 days</span>
-              <span class="demo__sub">Email sent to Acme Lifts Ltd</span>
+              <span class="demo__sub">Email sent to Acme Elevator Services</span>
             </div>
           </div>
           <div class="demo__field"><span>90 days ahead</span><strong class="demo__sent">Sent ✓</strong></div>
@@ -1257,7 +1259,7 @@
             <span class="demo__file">📄</span>
             <div class="demo__meta">
               <span class="demo__name">Inspection report 18229.pdf</span>
-              <span class="demo__sub">Acme Lifts Ltd · 14 Mar 2027</span>
+              <span class="demo__sub">Acme Elevator Services · Mar 14, 2027</span>
             </div>
             <span class="demo__tag demo__tag--ok">Valid</span>
           </div>
@@ -1265,15 +1267,15 @@
             <span class="demo__file">📄</span>
             <div class="demo__meta">
               <span class="demo__name">Lifting equipment report 20114.pdf</span>
-              <span class="demo__sub">KR Construction · 2 Nov 2026</span>
+              <span class="demo__sub">KR Construction · Nov 2, 2026</span>
             </div>
             <span class="demo__tag demo__tag--wait">Expiring soon</span>
           </div>
           <div class="demo__row">
             <span class="demo__file">🧾</span>
             <div class="demo__meta">
-              <span class="demo__name">Tax invoice 40710.pdf</span>
-              <span class="demo__sub">Acme Lifts Ltd · 4 Sep 2026</span>
+              <span class="demo__name">Invoice 40710.pdf</span>
+              <span class="demo__sub">Acme Elevator Services · Sep 4, 2026</span>
             </div>
             <span class="demo__tag demo__tag--ok">Paid</span>
           </div>
@@ -1350,34 +1352,34 @@
 <div class="compare-bg">
   <section id="compare">
     <div class="section-header">
-      <h2>The inspector fills it in. The office types it again. Stop the double work.</h2>
-      <p>RemindOCR replaces paper files, spreadsheets, and retyping with one digital flow</p>
+      <h2>The report is finished. The follow-up shouldn’t be another job.</h2>
+      <p>Keep the document, the due date, and the client together from the start.</p>
     </div>
     <div class="compare">
       <div class="compare-col compare-col--bad">
         <div class="compare-col__head">
           <span class="compare-col__icon">✕</span>
-          <span>Documents and inspections without a system</span>
+          <span>When follow-up lives in spreadsheets</span>
         </div>
         <ol class="compare-list">
-          <li>A document arrives by email, WhatsApp, or paper — and waits for someone to open it</li>
-          <li>Expiry dates, report numbers, and client details are typed into a spreadsheet</li>
-          <li>A calendar reminder is set if anyone remembers — with no automatic backup</li>
+          <li>Reports arrive in inboxes and folders, separate from the schedule</li>
+          <li>Expiration dates, report numbers, and client details are typed into a spreadsheet</li>
+          <li>Calendar entries need their own manual updates</li>
           <li>Folders are searched by hand when a client asks about an old report</li>
-          <li>The reminder goes out a month after the certificate already expired</li>
+          <li>Follow-up depends on someone checking the spreadsheet</li>
         </ol>
       </div>
       <div class="compare-col compare-col--good">
         <div class="compare-col__head">
           <span class="compare-col__icon">✓</span>
-          <span>Documents and inspections with RemindOCR</span>
+          <span>A connected follow-up workflow</span>
         </div>
         <ol class="compare-list">
           <li>Import the document — drag and drop, upload, or straight from Gmail</li>
-          <li>AI reads the document and extracts the client, expiry date, and report number</li>
-          <li>The system schedules an email reminder 30 days ahead</li>
-          <li>Every client document is searchable, backed up in the cloud and Google Drive</li>
-          <li>The client is reminded before expiry — not after</li>
+          <li>Review the client, date, and report details extracted by AI</li>
+          <li>Set email reminders ahead of the next inspection or expiration</li>
+          <li>Find the source document alongside the client’s records</li>
+          <li>See upcoming dates and sent reminders in one place</li>
         </ol>
       </div>
     </div>
@@ -1387,83 +1389,42 @@
 <!-- FEATURES -->
 <section id="features">
   <div class="section-header">
-    <h2>Everything in one place</h2>
-    <p>Built for businesses that need to track documents, contracts, and inspections in real time</p>
+    <h2>From a filed report to a scheduled follow-up</h2>
+    <p>Less time maintaining records. More time serving the clients behind them.</p>
   </div>
   <div class="features-grid">
-    <div class="feature-card">
-      <h3>Smart document import</h3>
-      <p>Upload PDF, Word, Excel, and images, or import attachments from Gmail after you explicitly approve them.</p>
-    </div>
-    <div class="feature-card feature-card--accent">
-      <h3>AI data extraction</h3>
-      <p>The system reads the document and extracts client name, expiry date, report number, equipment, and amounts.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Automatic reminders</h3>
-      <p>Get email 90, 60, and 30 days before a contract or inspection expires, with editable templates.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Client management</h3>
-      <p>A full client card with contracts, inspections, reminders, and contacts. Fast search and filters included.</p>
-    </div>
-    <div class="feature-card feature-card--accent">
-      <h3>Equipment catalog</h3>
-      <p>Track lifting equipment, scaffolding, elevators, and more — linked to inspection reports and expiry dates.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Search and filters</h3>
-      <p>Filter by client, equipment, document type, date, or status. Full-text search inside the document too.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Automatic monthly reports</h3>
-      <p>Build per-client reports with saved columns, and email them automatically each month.</p>
-    </div>
-    <div class="feature-card feature-card--accent">
-      <h3>Email reports</h3>
-      <p>Reports go out as Excel attachments, to the addresses you set per client.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Branded PDFs</h3>
-      <p>Generate inspection PDFs from printable templates, including your logo and company details.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Google Drive sync</h3>
-      <p>Store documents in a RemindOCR folder on Google Drive, with automatic sync and backup.</p>
-    </div>
-    <div class="feature-card feature-card--accent">
-      <h3>Cloud backup</h3>
-      <p>Every document is stored in encrypted S3 storage so files stay available and backed up.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Google Calendar sync</h3>
-      <p>Connect Google Calendar and get upcoming inspections in a dedicated calendar, with client, contact, and equipment in the event.</p>
-    </div>
+    <div class="feature-card"><h3>Less retyping after every inspection</h3><p>OCR and AI help extract client details, report numbers, equipment, and dates. Review the results against the source document and correct them as needed.</p></div>
+    <div class="feature-card"><h3>Give clients time to plan</h3><p>Send automatic email reminders ahead of inspection and expiration dates. Customize email templates so clients know what needs attention.</p></div>
+    <div class="feature-card"><h3>Keep equipment and reports connected</h3><p>Link equipment records with inspection reports and due dates. Find the history behind a crane, elevator, or other asset when a client calls.</p></div>
+    <div class="feature-card"><h3>Find the record behind the reminder</h3><p>Search and filter documents by client, equipment, type, date, or status. Keep contracts, certificates, and inspection records together.</p></div>
+    <div class="feature-card"><h3>Work with your Google tools</h3><p>Import PDF attachments from Gmail, sync upcoming inspections to Google Calendar, and enable Google Drive sync for your documents.</p></div>
+    <div class="feature-card"><h3>Make routine client updates easier</h3><p>Schedule monthly reports with saved columns and send Excel attachments to client contacts. Create inspection PDFs with your logo and company details.</p></div>
   </div>
+  <p style="margin-top: 24px; text-align: center; color: var(--text-2);">Features and limits vary by plan. <a href="/en/pricing">Compare plans</a>.</p>
 </section>
 
 <!-- HOW IT WORKS -->
 <div class="how-bg">
   <section id="how" style="background: var(--white);">
     <div class="section-header">
-      <h2>How it works</h2>
-      <p>Three simple steps</p>
+      <h2>Put your first document to work</h2>
+      <p>Upload, review, and set up your follow-up.</p>
     </div>
     <div class="steps">
       <div class="step">
         <div class="step__num">1</div>
         <h3>Import a document</h3>
-        <p>Drop files in. PDF, Word, Excel, and images are supported.</p>
+        <p>Start with an inspection report, certificate, or contract. Upload a file or import a PDF attachment from Gmail.</p>
       </div>
       <div class="step">
         <div class="step__num">2</div>
-        <h3>AI extracts the data</h3>
-        <p>The system reads the document and extracts client name, expiry date, amounts, and more.</p>
+        <h3>Review the details</h3>
+        <p>Check the extracted client, report number, and next action date against the original. Edit any details that need attention.</p>
       </div>
       <div class="step">
         <div class="step__num">3</div>
-        <h3>Sync and remind</h3>
-        <p>Email alerts are scheduled, and inspections sync to Google Calendar with client and equipment details.</p>
+        <h3>Set up the follow-up</h3>
+        <p>Choose your reminder settings and recipients. Connect Google Calendar to see upcoming inspections alongside your schedule.</p>
       </div>
     </div>
   </section>
@@ -1473,41 +1434,23 @@
 <section id="faq">
   <div class="section-header">
     <h2>Frequently asked questions</h2>
-    <p>Still looking for an answer? Write to us on WhatsApp or email</p>
+    <p>Have a question about your documents? <a href="mailto:contact@remindocr.com">Email our team</a>.</p>
   </div>
   <div class="faq">
-    <details class="faq-item">
-      <summary>How do I start?</summary>
-      <p>Sign up for a 30-day free trial with no credit card, import your first documents, and set reminders. You can start in minutes.</p>
-    </details>
-    <details class="faq-item">
-      <summary>What kinds of reports and documents are supported?</summary>
-      <p>Lifting equipment, elevators, cranes, scaffolding, MEWPs, escalators, air and steam receivers, boilers, pressure vessels, and more — plus contracts, invoices, and general documents.</p>
-    </details>
-    <details class="faq-item">
-      <summary>How does import work?</summary>
-      <p>Drag a file, upload it, or connect Gmail and import from there. In every case, AI reads the document and extracts the relevant fields.</p>
-    </details>
-    <details class="faq-item">
-      <summary>What happens as expiry approaches?</summary>
-      <p>Automatic emails go out 90, 60, and 30 days ahead, using a template you can customize per client.</p>
-    </details>
-    <details class="faq-item">
-      <summary>Are my documents backed up and secure?</summary>
-      <p>Documents are stored in encrypted S3 storage, with optional Google Drive sync for a second backup.</p>
-    </details>
-    <details class="faq-item">
-      <summary>Can I cancel at any time?</summary>
-      <p>Yes. Cancel at any time. The trial is 30 days free, with no credit card.</p>
-    </details>
+    <details class="faq-item"><summary>Who is RemindOCR for?</summary><p>Inspection providers, equipment service businesses, and office teams that manage client documents and recurring follow-up. It brings reports, equipment records, key dates, and email reminders into one workflow.</p></details>
+    <details class="faq-item"><summary>What can I upload?</summary><p>Upload PDF, Word, Excel, and image files, including inspection reports, certificates, contracts, and invoices. Extraction results depend on the document’s layout and quality. Use the trial to check your own documents.</p></details>
+    <details class="faq-item"><summary>Should I review the dates AI extracts?</summary><p>Yes. Check extracted dates and client details against the original before relying on them for follow-up. For a contract, confirm whether you need to act before the expiration date, such as a cancellation or notice deadline.</p></details>
+    <details class="faq-item"><summary>How do reminders work?</summary><p>RemindOCR schedules email reminders ahead of tracked dates, with intervals such as 90, 60, and 30 days. Review your reminder settings and recipients, and customize the email template for your clients.</p></details>
+    <details class="faq-item"><summary>Do I need to connect Google?</summary><p>You can start by uploading documents directly. Gmail import, Google Calendar sync, and Google Drive sync are optional connections. Availability depends on your plan.</p></details>
+    <details class="faq-item"><summary>How can I evaluate it before paying?</summary><p>Start a 30-day free trial with no credit card required. Try your own reports, review the extracted fields, and set up reminders. <a href="/en/pricing">See plans and limits</a> before choosing a subscription.</p></details>
   </div>
 </section>
 
 <!-- CTA -->
 <div class="cta-section">
-  <h2>Ready to start?</h2>
-  <p>30-day trial with the full product, no credit card</p>
-  <a class="btn-white" href="https://app.remindocr.com/en/login?tab=register">Start free</a>
+  <h2>Start with the report sitting in your inbox.</h2>
+  <p>Try your own documents and build your first reminder workflow. Free for 30 days. No credit card required.</p>
+  <a class="btn-white" href="https://app.remindocr.com/en/login?tab=register">Start a 30-day free trial</a>
 </div>
 
 <script>
@@ -1597,7 +1540,7 @@
   <div class="site-footer__contact">
     Phone: <a href="tel:+972554605328">+972 55-460-5328</a> · Email: <a href="mailto:contact@remindocr.com">contact@remindocr.com</a>
   </div>
-  <a class="site-footer__wa" href="https://wa.me/972554605328?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20RemindOCR." target="_blank" rel="noopener">
+  <a class="site-footer__wa" href="https://wa.me/972554605328?text=Hi%2C%20I%27d%20like%20to%20learn%20more%20about%20RemindOCR." target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1s-.7 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2A10 10 0 0 0 3.5 17.2L2 22l4.9-1.5A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-2.9.9.9-2.8-.2-.3a8.2 8.2 0 1 1 6.9 3.6z"/></svg>
     Message us on WhatsApp
   </a>
@@ -1633,7 +1576,7 @@
     background: #17212b; color: rgba(255,255,255,0.9);
     border-radius: 12px; padding: 14px 18px;
     box-shadow: 0 8px 28px rgba(0,0,0,0.28);
-    font-family: 'Rubik', system-ui, sans-serif; font-size: 14px;
+    font-family: 'Segoe UI', 'Rubik', system-ui, sans-serif; font-size: 14px;
   }
   .cookie-consent__text { margin: 0; flex: 1 1 260px; line-height: 1.5; }
   .cookie-consent__text a { color: #63e2b7; text-decoration: none; }
