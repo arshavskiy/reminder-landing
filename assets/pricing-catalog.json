@@ -1,0 +1,109 @@
+{
+  "version": "2026-09-23",
+  "contactPhone": "972554605328",
+  "locales": {
+    "he": {
+      "currency": "ILS",
+      "symbol": "₪",
+      "monthlyPeriod": "/ חודש",
+      "trialPeriod": "/ 30 יום",
+      "recommended": "מומלץ לעסק פעיל",
+      "startTrial": "התחל בחינם",
+      "purchase": "לתיאום רכישה",
+      "purchaseNote": "המחיר ותקופת המנוי יאושרו לפני התשלום.",
+      "trialNote": "30 ימי ניסיון ללא כרטיס אשראי, עם עד 20 מסמכים לייבוא בסך הכול. סנכרון Google Calendar ועבודת שטח כלולים במסלול עסקי בלבד.",
+      "existingCustomerNote": "המחירים המוצגים הם מחירון להצטרפות חדשה. תנאי מנוי קיים נקבעים לפי ההסכם והחיובים בפועל.",
+      "expiredName": "הניסיון הסתיים",
+      "expiredBlurb": "אפשר לצפות בנתונים הקיימים. בחרו מסלול כדי לחדש יבוא ואוטומציות."
+    },
+    "en": {
+      "currency": "USD",
+      "symbol": "$",
+      "monthlyPeriod": "/ month",
+      "trialPeriod": "/ 30 days",
+      "recommended": "Recommended for active businesses",
+      "startTrial": "Start free trial",
+      "purchase": "Arrange purchase",
+      "purchaseNote": "Price and subscription term are confirmed before payment.",
+      "trialNote": "30-day trial, no credit card, with up to 20 document imports in total. Google Calendar sync and field work are Business features only.",
+      "existingCustomerNote": "Prices shown are list prices for new subscriptions. Existing subscriptions follow their agreed terms and actual invoices.",
+      "expiredName": "Trial ended",
+      "expiredBlurb": "View your existing data. Choose a plan to resume imports and automation."
+    }
+  },
+  "plans": [
+    {
+      "id": "trial",
+      "amounts": {"he": {"monthly": 0}, "en": {"monthly": 0}},
+      "copy": {
+        "he": {
+          "label": "ניסיון",
+          "name": "ניסיון · 30 יום",
+          "blurb": "התנסו בייבוא מסמכים ובתזכורות על הנתונים שלכם, ללא כרטיס אשראי.",
+          "features": ["עד 20 מסמכים בסך הכול — העלאה ו-Gmail יחד", "חילוץ נתונים באמצעות OCR ו-AI", "תזכורות אימייל אוטומטיות ללקוחות", "יצוא לאקסל ודוחות חודשיים", "סנכרון Google Drive", "עד 2 משתמשים ו-2 חשבונות דוא״ל"]
+        },
+        "en": {
+          "label": "Trial",
+          "name": "Trial · 30 days",
+          "blurb": "Try document imports and reminders with your own data, without a credit card.",
+          "features": ["Up to 20 documents total — uploads and Gmail combined", "OCR and AI data extraction", "Automatic email reminders to clients", "Excel export and monthly reports", "Google Drive sync", "Up to 2 users and 2 email accounts"]
+        }
+      }
+    },
+    {
+      "id": "digital",
+      "amounts": {"he": {"monthly": 149, "yearly": 1428}, "en": {"monthly": 45, "yearly": 432}},
+      "copy": {
+        "he": {
+          "label": "דיגיטלי",
+          "name": "דיגיטלי",
+          "blurb": "לבודק שמזין נתונים בעצמו ורוצה לנהל תסקירים, לקוחות ותזכורות במקום אחד.",
+          "features": ["הזנה ידנית ללא הגבלת תסקירים", "ניהול לקוחות וציוד", "הפקת תסקירים לחתימה ושליחה", "תזכורות אימייל אוטומטיות ללא הגבלה", "יצוא לאקסל ודוחות חודשיים", "עד 2 משתמשים", "ללא העלאת קבצים, יבוא Gmail או חילוץ AI"]
+        },
+        "en": {
+          "label": "Digital",
+          "name": "Digital",
+          "blurb": "For inspectors who enter data manually and want inspections, clients, and reminders in one place.",
+          "features": ["Unlimited manually entered inspections", "Client and equipment management", "Generate inspections for signing and sending", "Unlimited automatic email reminders", "Excel export and monthly reports", "Up to 2 users", "No file uploads, Gmail import, or AI extraction"]
+        }
+      }
+    },
+    {
+      "id": "basic",
+      "amounts": {"he": {"monthly": 249, "yearly": 2580}, "en": {"monthly": 75, "yearly": 780}},
+      "copy": {
+        "he": {
+          "label": "בסיסי",
+          "name": "בסיסי",
+          "blurb": "לבודק שרוצה לחסוך הקלדה: יבוא מסמכים, חילוץ נתונים ומעקב חידושים אוטומטי.",
+          "features": ["כל יכולות הניהול והתזכורות של המסלול הדיגיטלי", "יבוא עד 50 מסמכים בחודש — העלאה ו-Gmail יחד", "חילוץ נתונים באמצעות OCR ו-AI", "יבוא תסקירים מ-Gmail עד 16 חודשים אחורה", "שמירת קבצים וסנכרון Google Drive", "עד 2 משתמשים ו-2 חשבונות דוא״ל", "ללא סנכרון Calendar או יבוא היסטוריית חשבוניות מ-Gmail"]
+        },
+        "en": {
+          "label": "Basic",
+          "name": "Basic",
+          "blurb": "Save data-entry time with document imports, AI extraction, and automatic renewal reminders.",
+          "features": ["All Digital management and reminder capabilities", "Import up to 50 documents/month — uploads and Gmail combined", "OCR and AI data extraction", "Import inspections from Gmail up to 16 months back", "File storage and Google Drive sync", "Up to 2 users and 2 email accounts", "No Calendar sync or Gmail invoice history import"]
+        }
+      }
+    },
+    {
+      "id": "business",
+      "highlighted": true,
+      "amounts": {"he": {"monthly": 399, "yearly": 4164}, "en": {"monthly": 119, "yearly": 1248}},
+      "copy": {
+        "he": {
+          "label": "עסקי",
+          "name": "עסקי",
+          "blurb": "לעסק פעיל שרוצה לרכז תסקירים וחשבוניות, לתכנן בדיקות ביומן ולעבוד גם בשטח.",
+          "features": ["כל יכולות המסלול הבסיסי, עם יבוא מסמכים ללא הגבלה", "יבוא תסקירים מ-Gmail עד 24 חודשים אחורה", "יבוא חשבוניות וקבלות מ-Gmail עד 36 חודשים אחורה", "סנכרון Google Calendar לבדיקות עתידיות", "עבודת שטח: רשימות בדיקה ותמונות ציוד", "משתמשים וחשבונות דוא״ל ללא הגבלה", "תזכורות אוטומטיות, דוחות חודשיים ויצוא לאקסל"]
+        },
+        "en": {
+          "label": "Business",
+          "name": "Business",
+          "blurb": "For active businesses managing inspections and invoices, scheduling renewals, and working in the field.",
+          "features": ["All Basic capabilities, with unlimited document imports", "Import inspections from Gmail up to 24 months back", "Import invoices and receipts from Gmail up to 36 months back", "Google Calendar sync for upcoming inspections", "Field work: checklists and equipment photos", "Unlimited users and email accounts", "Automatic reminders, monthly reports, and Excel export"]
+        }
+      }
+    }
+  ]
+}
