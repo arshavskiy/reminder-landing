@@ -5,13 +5,8 @@ export function escapeHtml(value) {
     })[character]);
 }
 
-export function billingTerms(plan, locale, symbol) {
-    const amounts = plan.amounts[locale];
-    if (!amounts.yearly) return "";
-    const total = amounts.yearly.toLocaleString(locale === "he" ? "he-IL" : "en-US");
-    return locale === "he"
-        ? `בתשלום שנתי: ${symbol}${total} לשנה · או ${symbol}${amounts.monthly} בחיוב חודשי`
-        : `Billed yearly: ${symbol}${total} per year · or ${symbol}${amounts.monthly} billed monthly`;
+export function billingTerms() {
+    return "";
 }
 
 export function purchaseUrl(catalog, plan, locale) {
@@ -19,10 +14,9 @@ export function purchaseUrl(catalog, plan, locale) {
         return `https://app.remindocr.com/${locale === "en" ? "en/" : ""}login?tab=register`;
     }
     const copy = plan.copy[locale];
-    const terms = billingTerms(plan, locale, catalog.locales[locale].symbol);
     const message = locale === "he"
-        ? `שלום, אני מעוניין לרכוש את המסלול ${copy.name} של RemindOCR. ${terms}`
-        : `Hi, I would like to purchase the RemindOCR ${copy.name} plan. ${terms}`;
+        ? `שלום, אני מעוניין לרכוש את המסלול ${copy.name} של RemindOCR.`
+        : `Hi, I would like to purchase the RemindOCR ${copy.name} plan.`;
     return `https://wa.me/${catalog.contactPhone}?text=${encodeURIComponent(message)}`;
 }
 
@@ -33,13 +27,12 @@ export function renderPricing(catalog, locale, heading = "h2") {
         const copy = plan.copy[locale];
         const amount = plan.amounts[locale];
         const trial = plan.id === "trial";
-        const monthly = amount.yearly ? amount.yearly / 12 : amount.monthly;
+        const monthly = amount.monthly;
         return `<article class="plan${plan.highlighted ? " plan--highlighted" : ""}" data-plan="${escapeHtml(plan.id)}">
       ${plan.highlighted ? `<span class="plan__badge">${escapeHtml(labels.recommended)}</span>` : ""}
       <${headingTag} class="plan__name">${escapeHtml(copy.name)}</${headingTag}>
       <p class="plan__blurb">${escapeHtml(copy.blurb)}</p>
       <div class="plan__price"><strong>${escapeHtml(labels.symbol)}${monthly}</strong><span class="plan__price-period">${escapeHtml(trial ? labels.trialPeriod : labels.monthlyPeriod)}</span></div>
-      <p class="plan__price-year">${escapeHtml(billingTerms(plan, locale, labels.symbol))}</p>
       <ul class="plan__features">${copy.features.map((feature) => `<li>${escapeHtml(feature)}</li>`).join("")}</ul>
       <a class="plan__cta ${trial ? "plan__cta--ghost" : "plan__cta--primary"}" href="${escapeHtml(purchaseUrl(catalog, plan, locale))}"${trial ? "" : ' target="_blank" rel="noopener noreferrer"'}>${escapeHtml(trial ? labels.startTrial : labels.purchase)}</a>
       ${trial ? "" : `<p class="plan__soon-note">${escapeHtml(labels.purchaseNote)}</p>`}
