@@ -26,7 +26,8 @@ export function purchaseUrl(catalog, plan, locale) {
   return `https://wa.me/${catalog.contactPhone}?text=${encodeURIComponent(message)}`;
 }
 
-export function renderPricing(catalog, locale) {
+export function renderPricing(catalog, locale, heading = "h2") {
+  const headingTag = heading === "h3" ? "h3" : "h2";
   const labels = catalog.locales[locale];
   const cards = catalog.plans.map((plan) => {
     const copy = plan.copy[locale];
@@ -35,7 +36,7 @@ export function renderPricing(catalog, locale) {
     const monthly = amount.yearly ? amount.yearly / 12 : amount.monthly;
     return `<article class="plan${plan.highlighted ? " plan--highlighted" : ""}" data-plan="${escapeHtml(plan.id)}">
       ${plan.highlighted ? `<span class="plan__badge">${escapeHtml(labels.recommended)}</span>` : ""}
-      <h2 class="plan__name">${escapeHtml(copy.name)}</h2>
+      <${headingTag} class="plan__name">${escapeHtml(copy.name)}</${headingTag}>
       <p class="plan__blurb">${escapeHtml(copy.blurb)}</p>
       <div class="plan__price"><strong>${escapeHtml(labels.symbol)}${monthly}</strong><span class="plan__price-period">${escapeHtml(trial ? labels.trialPeriod : labels.monthlyPeriod)}</span></div>
       <p class="plan__price-year">${escapeHtml(billingTerms(plan, locale, labels.symbol))}</p>
@@ -59,7 +60,7 @@ if (typeof document !== "undefined") {
         if (!response.ok) throw new Error(`Pricing catalog: ${response.status}`);
         return response.json();
       })
-      .then((catalog) => { target.innerHTML = renderPricing(catalog, document.documentElement.lang === "en" ? "en" : "he"); })
+      .then((catalog) => { target.innerHTML = renderPricing(catalog, document.documentElement.lang === "en" ? "en" : "he", target.dataset.pricingHeading); })
       .catch((error) => { console.warn("Using published pricing snapshot.", error); });
   }
 }
