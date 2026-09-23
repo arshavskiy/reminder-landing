@@ -161,196 +161,6 @@
 
     section { width: min(1320px, 100%); margin: 0 auto; padding: 56px 48px 80px; }
 
-    .plans-grid {
-      display: grid;
-      /* auto-fit rather than a fixed count: with four plans a fixed 3 would
-         orphan the last card on a row of its own. The 230px floor keeps all
-         four on one row at the section's full width and drops to 2, then 1, as
-         the viewport narrows. */
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 24px;
-      align-items: start;
-    }
-
-    /* Self-serve checkout is not live yet, so the yearly/monthly buttons are
-       hidden rather than removed — unhide them and drop the WhatsApp block to
-       switch over once Green Invoice payment links exist. */
-    .plan--soon .plan__ctas { display: none; }
-    .plan__cta--wa {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: #25d366;
-      color: #fff;
-    }
-    .plan__cta--wa:hover { background: #1da851; }
-    .plan__cta--wa svg { width: 18px; height: 18px; fill: currentColor; flex: none; }
-    .plan__soon-note {
-      margin: 10px 0 0;
-      text-align: center;
-      font-size: 12px;
-      color: var(--text-2);
-    }
-
-    .plan {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px 28px;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-    .plan--highlighted {
-      border-color: var(--brand);
-      box-shadow: 0 12px 40px rgba(24,160,88,0.12);
-      position: relative;
-    }
-    .plan__badge {
-      position: absolute;
-      top: -13px;
-      right: 28px;
-      background: var(--brand);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 700;
-      padding: 4px 14px;
-      border-radius: 999px;
-    }
-    .plan__name { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
-    .plan__blurb { color: var(--text-2); font-size: 14px; min-height: 44px; margin-bottom: 18px; }
-
-    .plan__price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; margin-bottom: 6px; }
-    .plan__price strong { font-size: 40px; font-weight: 800; line-height: 1; }
-    .plan__price-old {
-      color: var(--text-2);
-      text-decoration: line-through;
-      font-size: 17px;
-      opacity: 0.75;
-    }
-    .plan__price-period { color: var(--text-2); font-size: 14px; }
-    .plan__price-year {
-      margin: 0 0 6px;
-      color: var(--text-2);
-      font-size: 13px;
-      font-weight: 500;
-    }
-    .plan__vat {
-      margin: 0 0 18px;
-      color: var(--text-2);
-      font-size: 12px;
-      opacity: 0.8;
-    }
-    /* One bordered control with two rows, so yearly and monthly read as a billing
-       choice rather than as a live button next to a disabled one. */
-    .plan__ctas {
-      display: flex;
-      flex-direction: column;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .plan__ctas--accent { border-color: var(--brand); }
-    .plan__cta-note {
-      display: block;
-      font-size: 12px;
-      font-weight: 500;
-      opacity: 0.85;
-      margin-top: 2px;
-    }
-    .plan__cta-save {
-      display: inline-block;
-      margin-inline-start: 6px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.22);
-      font-size: 11px;
-      font-weight: 700;
-      vertical-align: middle;
-    }
-    .plan__cta--ghost .plan__cta-save {
-      background: var(--brand-light);
-      color: var(--brand-dark);
-    }
-
-    .plan__features { list-style: none; margin-bottom: 26px; flex: 1; }
-    .plan__features li {
-      position: relative;
-      padding-right: 26px;
-      margin-bottom: 10px;
-      font-size: 14px;
-      color: var(--text-2);
-    }
-    .plan__features li::before {
-      content: "✓";
-      position: absolute;
-      right: 0;
-      color: var(--brand);
-      font-weight: 700;
-    }
-    .plan__features li.plan__feature--struck {
-      text-decoration: line-through;
-      text-decoration-thickness: 2px;
-      color: var(--text-2);
-      opacity: 0.65;
-    }
-
-    .plan__cta {
-      display: block;
-      text-align: center;
-      padding: 13px 20px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 15px;
-      text-decoration: none;
-      transition: background 0.15s, transform 0.15s;
-    }
-    .plan__cta--primary { background: var(--brand); color: #fff; }
-    .plan__cta--primary:hover { background: var(--brand-dark); }
-    .plan__cta--ghost { background: var(--white); color: var(--text); }
-    .plan__cta--ghost:hover { background: var(--bg); color: var(--brand-dark); }
-
-    /* Inside the group the buttons are segments, not standalone pills. */
-    .plan__ctas .plan__cta { border-radius: 0; }
-    .plan__ctas .plan__cta + .plan__cta {
-      border-top: 1px solid var(--border);
-      font-size: 14px;
-      font-weight: 600;
-      padding: 11px 20px;
-    }
-
-    .plan__additional {
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: var(--brand-dark);
-    }
-    .plans-note {
-      margin-top: 32px;
-      text-align: center;
-      color: var(--text-2);
-      font-size: 14px;
-    }
-
-    .plans-legal-note {
-      max-width: 780px;
-      margin: 14px auto 0;
-      text-align: center;
-      color: var(--text-2);
-      font-size: 13px;
-    }
-
-    .plans-legal-note a {
-      color: var(--brand-dark);
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .plans-legal-note a:hover {
-      text-decoration: underline;
-    }
-
     footer {
       background: #17212b;
       color: rgba(255,255,255,0.75);
@@ -377,7 +187,6 @@
        settle on three and leave the fourth plan alone on its own row. Force two
        even columns across that band instead. */
     @media (max-width: 1080px) and (min-width: 901px) {
-      .plans-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 900px) {
@@ -385,10 +194,10 @@
       .nav-links a:not(.nav-cta):not(.nav-lang) { display: none; }
       .plans-hero { padding: 48px 20px 32px; }
       section { padding: 40px 20px 56px; }
-      .plans-grid { grid-template-columns: 1fr; }
       footer { padding: 32px 20px; }
     }
   </style>
+    <link href="/assets/pricing.css" rel="stylesheet"/>
 </head>
 <body>
 
@@ -416,117 +225,94 @@
   </div>
 
   <section>
-    <div class="plans-grid">
+      <div data-pricing-catalog>
+          <!-- pricing:start -->
+          <div class="plans-grid">
+              <article class="plan" data-plan="trial">
 
-      <div class="plan">
-        <div class="plan__name">ניסיון · 30 יום</div>
-        <p class="plan__blurb">כל היכולות של המסלול הבסיסי, ללא כרטיס אשראי.</p>
-        <div class="plan__price">
-          <strong>₪0</strong>
-          <span class="plan__price-period">/ 30 יום</span>
-        </div>
-        <p class="plan__price-year">עד 50 מסמכים — ידני ומאימייל יחד</p>
-        <ul class="plan__features">
-          <li>תצוגה מקדימה וחילוץ נתונים AI</li>
-          <li>תזכורות אימייל אוטומטיות ללקוחות</li>
-          <li>יבוא עד 20 חשבוניות וקבלות</li>
-          <li>יצוא לאקסל ודוחות חודשיים</li>
-          <li>סנכרון Google Drive</li>
-        </ul>
-        <a class="plan__cta plan__cta--ghost" href="https://app.remindocr.com/login?tab=register">התחל בחינם</a>
+                  <h2 class="plan__name">ניסיון · 30 יום</h2>
+                  <p class="plan__blurb">התנסו בייבוא מסמכים ובתזכורות על הנתונים שלכם, ללא כרטיס אשראי.</p>
+                  <div class="plan__price"><strong>₪0</strong><span class="plan__price-period">/ 30 יום</span></div>
+                  <p class="plan__price-year"></p>
+                  <ul class="plan__features">
+                      <li>עד 20 מסמכים בסך הכול — העלאה ו-Gmail יחד</li>
+                      <li>חילוץ נתונים באמצעות OCR ו-AI</li>
+                      <li>תזכורות אימייל אוטומטיות ללקוחות</li>
+                      <li>יצוא לאקסל ודוחות חודשיים</li>
+                      <li>סנכרון Google Drive</li>
+                      <li>עד 2 משתמשים ו-2 חשבונות דוא״ל</li>
+                  </ul>
+                  <a class="plan__cta plan__cta--ghost" href="https://app.remindocr.com/login?tab=register">התחל
+                      בחינם</a>
+
+              </article>
+              <article class="plan" data-plan="digital">
+
+                  <h2 class="plan__name">דיגיטלי</h2>
+                  <p class="plan__blurb">לבודק שמזין נתונים בעצמו ורוצה לנהל תסקירים, לקוחות ותזכורות במקום אחד.</p>
+                  <div class="plan__price"><strong>₪119</strong><span class="plan__price-period">/ חודש</span></div>
+                  <p class="plan__price-year">בתשלום שנתי: ₪1,428 לשנה · או ₪149 בחיוב חודשי</p>
+                  <ul class="plan__features">
+                      <li>הזנה ידנית ללא הגבלת תסקירים</li>
+                      <li>ניהול לקוחות וציוד</li>
+                      <li>הפקת תסקירים לחתימה ושליחה</li>
+                      <li>תזכורות אימייל אוטומטיות ללא הגבלה</li>
+                      <li>יצוא לאקסל ודוחות חודשיים</li>
+                      <li>עד 2 משתמשים</li>
+                      <li>ללא העלאת קבצים, יבוא Gmail או חילוץ AI</li>
+                  </ul>
+                  <a class="plan__cta plan__cta--primary"
+                     href="https://wa.me/972554605328?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A8%D7%9B%D7%95%D7%A9%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20%D7%93%D7%99%D7%92%D7%99%D7%98%D7%9C%D7%99%20%D7%A9%D7%9C%20RemindOCR.%20%D7%91%D7%AA%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A9%D7%A0%D7%AA%D7%99%3A%20%E2%82%AA1%2C428%20%D7%9C%D7%A9%D7%A0%D7%94%20%C2%B7%20%D7%90%D7%95%20%E2%82%AA149%20%D7%91%D7%97%D7%99%D7%95%D7%91%20%D7%97%D7%95%D7%93%D7%A9%D7%99"
+                     rel="noopener noreferrer" target="_blank">לתיאום רכישה</a>
+                  <p class="plan__soon-note">המחיר ותקופת המנוי יאושרו לפני התשלום.</p>
+              </article>
+              <article class="plan" data-plan="basic">
+
+                  <h2 class="plan__name">בסיסי</h2>
+                  <p class="plan__blurb">לבודק שרוצה לחסוך הקלדה: יבוא מסמכים, חילוץ נתונים ומעקב חידושים אוטומטי.</p>
+                  <div class="plan__price"><strong>₪215</strong><span class="plan__price-period">/ חודש</span></div>
+                  <p class="plan__price-year">בתשלום שנתי: ₪2,580 לשנה · או ₪249 בחיוב חודשי</p>
+                  <ul class="plan__features">
+                      <li>כל יכולות הניהול והתזכורות של המסלול הדיגיטלי</li>
+                      <li>יבוא עד 50 מסמכים בחודש — העלאה ו-Gmail יחד</li>
+                      <li>חילוץ נתונים באמצעות OCR ו-AI</li>
+                      <li>יבוא תסקירים מ-Gmail עד 16 חודשים אחורה</li>
+                      <li>שמירת קבצים וסנכרון Google Drive</li>
+                      <li>עד 2 משתמשים ו-2 חשבונות דוא״ל</li>
+                      <li>ללא סנכרון Calendar או יבוא היסטוריית חשבוניות מ-Gmail</li>
+                  </ul>
+                  <a class="plan__cta plan__cta--primary"
+                     href="https://wa.me/972554605328?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A8%D7%9B%D7%95%D7%A9%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20%D7%91%D7%A1%D7%99%D7%A1%D7%99%20%D7%A9%D7%9C%20RemindOCR.%20%D7%91%D7%AA%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A9%D7%A0%D7%AA%D7%99%3A%20%E2%82%AA2%2C580%20%D7%9C%D7%A9%D7%A0%D7%94%20%C2%B7%20%D7%90%D7%95%20%E2%82%AA249%20%D7%91%D7%97%D7%99%D7%95%D7%91%20%D7%97%D7%95%D7%93%D7%A9%D7%99"
+                     rel="noopener noreferrer" target="_blank">לתיאום רכישה</a>
+                  <p class="plan__soon-note">המחיר ותקופת המנוי יאושרו לפני התשלום.</p>
+              </article>
+              <article class="plan plan--highlighted" data-plan="business">
+                  <span class="plan__badge">מומלץ לעסק פעיל</span>
+                  <h2 class="plan__name">עסקי</h2>
+                  <p class="plan__blurb">לעסק פעיל שרוצה לרכז תסקירים וחשבוניות, לתכנן בדיקות ביומן ולעבוד גם בשטח.</p>
+                  <div class="plan__price"><strong>₪347</strong><span class="plan__price-period">/ חודש</span></div>
+                  <p class="plan__price-year">בתשלום שנתי: ₪4,164 לשנה · או ₪399 בחיוב חודשי</p>
+                  <ul class="plan__features">
+                      <li>כל יכולות המסלול הבסיסי, עם יבוא מסמכים ללא הגבלה</li>
+                      <li>יבוא תסקירים מ-Gmail עד 24 חודשים אחורה</li>
+                      <li>יבוא חשבוניות וקבלות מ-Gmail עד 36 חודשים אחורה</li>
+                      <li>סנכרון Google Calendar לבדיקות עתידיות</li>
+                      <li>עבודת שטח: רשימות בדיקה ותמונות ציוד</li>
+                      <li>משתמשים וחשבונות דוא״ל ללא הגבלה</li>
+                      <li>תזכורות אוטומטיות, דוחות חודשיים ויצוא לאקסל</li>
+                  </ul>
+                  <a class="plan__cta plan__cta--primary"
+                     href="https://wa.me/972554605328?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A8%D7%9B%D7%95%D7%A9%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20%D7%A2%D7%A1%D7%A7%D7%99%20%D7%A9%D7%9C%20RemindOCR.%20%D7%91%D7%AA%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A9%D7%A0%D7%AA%D7%99%3A%20%E2%82%AA4%2C164%20%D7%9C%D7%A9%D7%A0%D7%94%20%C2%B7%20%D7%90%D7%95%20%E2%82%AA399%20%D7%91%D7%97%D7%99%D7%95%D7%91%20%D7%97%D7%95%D7%93%D7%A9%D7%99"
+                     rel="noopener noreferrer" target="_blank">לתיאום רכישה</a>
+                  <p class="plan__soon-note">המחיר ותקופת המנוי יאושרו לפני התשלום.</p>
+              </article>
+          </div>
+          <p class="plans-note">30 ימי ניסיון ללא כרטיס אשראי, עם עד 20 מסמכים לייבוא בסך הכול. סנכרון Google Calendar
+              ועבודת שטח כלולים במסלול עסקי בלבד.</p>
+          <p class="plans-note">המחירים המוצגים הם מחירון להצטרפות חדשה. תנאי מנוי קיים נקבעים לפי ההסכם והחיובים
+              בפועל.</p>
+          <!-- pricing:end -->
       </div>
-
-      <div class="plan plan--soon">
-        <div class="plan__name">דיגיטלי</div>
-        <p class="plan__blurb">לניהול תסקירים ותזכורות בהזנה ידנית, ללא שמירת קבצים בענן.</p>
-        <div class="plan__price">
-          <strong>₪47</strong>
-          <span class="plan__price-period">/ חודש</span>
-        </div>
-        <p class="plan__price-year">תסקירים ותזכורות ללא הגבלה</p>
-        <ul class="plan__features">
-          <li>הזנת נתונים ידנית — ללא העלאת קבצים</li>
-          <li>ניהול לקוחות וציוד</li>
-          <li>הפקת תסקירים לחתימה ושליחה</li>
-          <li>תזכורות אימייל אוטומטיות ללקוחות</li>
-          <li>יצוא לאקסל ודוחות חודשיים</li>
-        </ul>
-          <a class="plan__cta plan__cta--primary" href="https://mrng.to/SUPCi1tsrC" rel="noopener" target="_blank">
-              לתשלום
-        </a>
-          <p class="plan__soon-note">תשלום חד־פעמי בחשבונית ירוקה · חשבונית מס נשלחת במייל</p>
-      </div>
-
-      <div class="plan plan--soon">
-        <div class="plan__name">בסיסי</div>
-        <p class="plan__blurb">מתאים לעסק קטן שמייבא מסמכים בכל חודש.</p>
-        <div class="plan__price">
-          <span class="plan__price-old">₪88</span>
-          <strong>₪79</strong>
-          <span class="plan__price-period">/ חודש </span>
-        </div>
-        <p class="plan__price-year">בתשלום שנתי — ₪948 לשנה · או ₪88 בחיוב חודשי</p>
-        <ul class="plan__features">
-          <li>50 מסמכים בחודש — תסקירים וקבלות יחד</li>
-          <li>יבוא תסקירים של 16 חודשים האחרונים</li>
-          <li>ניהול לקוחות וציוד</li>
-          <li>ניהול תסקירים ושליחת תזכורות ללקוחות</li>
-          <li>יצוא קבלות לקובץ אקסל</li>
-          <li>הפקת דוחות חודשיים אוטומטיים</li>
-          <li>סנכרון Google Drive</li>
-        </ul>
-        <div class="plan__ctas">
-          <a class="plan__cta plan__cta--primary" role="link" aria-disabled="true" tabindex="-1">
-            שנתי — ₪79 / חודש<span class="plan__cta-save">חסכון 10%</span>
-          </a>
-          <a class="plan__cta plan__cta--ghost" role="link" aria-disabled="true" tabindex="-1">
-            או חודשי — ₪88 / חודש
-          </a>
-        </div>
-          <a class="plan__cta plan__cta--primary" href="https://mrng.to/5vjboMGOmm" rel="noopener" target="_blank">
-              לתשלום
-        </a>
-          <p class="plan__soon-note">תשלום חד־פעמי בחשבונית ירוקה · חשבונית מס נשלחת במייל</p>
-      </div>
-
-      <div class="plan plan--highlighted plan--soon">
-        <span class="plan__badge">הכי פופולרי</span>
-        <div class="plan__name">עסקי</div>
-        <p class="plan__blurb">לבודקים מוסמכים שמייבאים מסמכים באופן שוטף, עובדים עם כמה מאיילים ורוצים יומן Google
-          מסונכרן.</p>
-        <div class="plan__price">
-          <span class="plan__price-old">₪143</span>
-          <strong>₪128</strong>
-          <span class="plan__price-period">/ חודש</span>
-        </div>
-        <p class="plan__price-year">בתשלום שנתי — ₪1,536 לשנה · או ₪143 בחיוב חודשי</p>
-        <p class="plan__additional">כל מה שיש בבסיסי, ובנוסף</p>
-        <ul class="plan__features">
-          <li>יבוא תסקירים וחשבוניות ללא הגבלה</li>
-          <li>יבוא תסקירים מ-Gmail עד 24 חודשים אחורה</li>
-          <li>יבוא חשבוניות וקבלות מ-Gmail עד 36 חודשים אחורה</li>
-          <li>ניהול לקוחות וציוד</li>
-          <li>סנכרון Google Calendar לתסקירים עתידיים</li>
-        </ul>
-        <div class="plan__ctas plan__ctas--accent">
-          <a class="plan__cta plan__cta--primary" role="link" aria-disabled="true" tabindex="-1">
-            שנתי — ₪128 / חודש<span class="plan__cta-save">חסכון 10%</span>
-          </a>
-          <a class="plan__cta plan__cta--ghost" role="link" aria-disabled="true" tabindex="-1">
-            או חודשי — ₪143 / חודש
-          </a>
-        </div>
-          <a class="plan__cta plan__cta--primary" href="https://mrng.to/qE6K86XDbW" rel="noopener" target="_blank">
-              לתשלום
-        </a>
-          <p class="plan__soon-note">תשלום חד־פעמי בחשבונית ירוקה · חשבונית מס נשלחת במייל</p>
-      </div>
-
-    </div>
-
-    <p class="plans-note">
-      הניסיון כולל את כל יכולות המערכת למשך 30 יום, ללא כרטיס אשראי. מסלולי התשלום ייפתחו לרכישה בקרוב.
-    </p>
     <p class="plans-legal-note">
       רכישת מנוי מותנית באישור <a href="/terms">תנאי השימוש</a> ו<a href="/privacy">מדיניות הפרטיות</a>.
       בעמוד תשלום עצמי, כאשר יופעל, יוצג אישור מפורש לפני המעבר לסליקה.
@@ -614,5 +400,6 @@
     document.getElementById('cookie-decline').addEventListener('click', function () { decide('denied'); });
   })();
 </script>
+<script src="/assets/pricing.mjs" type="module"></script>
 </body>
 </html>
