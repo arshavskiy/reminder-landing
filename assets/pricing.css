@@ -1,194 +1,285 @@
 .plans-grid {
-  display: grid;
-  /* auto-fit rather than a fixed count: with four plans a fixed 3 would
-     orphan the last card on a row of its own. The 230px floor keeps all
-     four on one row at the section's full width and drops to 2, then 1, as
-     the viewport narrows. */
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 24px;
-  align-items: start;
+    display: grid;
+    /* auto-fit rather than a fixed count: with four plans a fixed 3 would
+       orphan the last card on a row of its own. The 230px floor keeps all
+       four on one row at the section's full width and drops to 2, then 1, as
+       the viewport narrows. */
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 24px;
+    align-items: start;
 }
 
 /* Self-serve checkout is not live yet, so the yearly/monthly buttons are
    hidden rather than removed — unhide them and drop the WhatsApp block to
    switch over once Green Invoice payment links exist. */
-.plan--soon .plan__ctas { display: none; }
-.plan__cta--wa {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: #25d366;
-  color: #fff;
+.plan--soon .plan__ctas {
+    display: none;
 }
-.plan__cta--wa:hover { background: #1da851; }
-.plan__cta--wa svg { width: 18px; height: 18px; fill: currentColor; flex: none; }
+
+.plan__cta--wa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #25d366;
+    color: #fff;
+}
+
+.plan__cta--wa:hover {
+    background: #1da851;
+}
+
+.plan__cta--wa svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    flex: none;
+}
+
 .plan__soon-note {
-  margin: 10px 0 0;
-  text-align: center;
-  font-size: 12px;
-  color: var(--text-2);
+    margin: 10px 0 0;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-2);
 }
 
 .plan {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 32px 28px;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
-.plan--highlighted {
-  border-color: var(--brand);
-  box-shadow: 0 12px 40px rgba(24,160,88,0.12);
-  position: relative;
-}
-.plan__badge {
-  position: absolute;
-  top: -13px;
-  inset-inline-end: 28px;
-  background: var(--brand);
-  color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 4px 14px;
-  border-radius: 999px;
-}
-.plan__name { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
-.plan__blurb { color: var(--text-2); font-size: 14px; min-height: 44px; margin-bottom: 18px; }
 
-.plan__price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; margin-bottom: 6px; }
-.plan__price strong { font-size: 40px; font-weight: 800; line-height: 1; }
+.plan--highlighted {
+    border-color: var(--brand);
+    box-shadow: 0 12px 40px rgba(24, 160, 88, 0.12);
+    position: relative;
+}
+
+.plan__badge {
+    position: absolute;
+    top: -13px;
+    inset-inline-end: 28px;
+    background: var(--brand);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 999px;
+}
+
+.plan__name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.plan__blurb {
+    color: var(--text-2);
+    font-size: 14px;
+    min-height: 44px;
+    margin-bottom: 18px;
+}
+
+.plan__price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.plan__price strong {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1;
+}
+
 .plan__price-old {
-  color: var(--text-2);
-  text-decoration: line-through;
-  font-size: 17px;
-  opacity: 0.75;
+    color: var(--text-2);
+    text-decoration: line-through;
+    font-size: 17px;
+    opacity: 0.75;
 }
-.plan__price-period { color: var(--text-2); font-size: 14px; }
+
+.plan__price-period {
+    color: var(--text-2);
+    font-size: 14px;
+}
+
 .plan__price-year {
-  margin: 0 0 6px;
-  color: var(--text-2);
-  font-size: 13px;
-  font-weight: 500;
+    margin: 0 0 6px;
+    color: var(--text-2);
+    font-size: 13px;
+    font-weight: 500;
 }
+
 .plan__vat {
-  margin: 0 0 18px;
-  color: var(--text-2);
-  font-size: 12px;
-  opacity: 0.8;
+    margin: 0 0 18px;
+    color: var(--text-2);
+    font-size: 12px;
+    opacity: 0.8;
 }
+
 /* One bordered control with two rows, so yearly and monthly read as a billing
    choice rather than as a live button next to a disabled one. */
 .plan__ctas {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-}
-.plan__ctas--accent { border-color: var(--brand); }
-.plan__cta-note {
-  display: block;
-  font-size: 12px;
-  font-weight: 500;
-  opacity: 0.85;
-  margin-top: 2px;
-}
-.plan__cta-save {
-  display: inline-block;
-  margin-inline-start: 6px;
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.22);
-  font-size: 11px;
-  font-weight: 700;
-  vertical-align: middle;
-}
-.plan__cta--ghost .plan__cta-save {
-  background: var(--brand-light);
-  color: var(--brand-dark);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
 }
 
-.plan__features { list-style: none; margin-bottom: 26px; flex: 1; }
+.plan__ctas--accent {
+    border-color: var(--brand);
+}
+
+.plan__cta-note {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.85;
+    margin-top: 2px;
+}
+
+.plan__cta-save {
+    display: inline-block;
+    margin-inline-start: 6px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.22);
+    font-size: 11px;
+    font-weight: 700;
+    vertical-align: middle;
+}
+
+.plan__cta--ghost .plan__cta-save {
+    background: var(--brand-light);
+    color: var(--brand-dark);
+}
+
+.plan__features {
+    list-style: none;
+    margin-bottom: 26px;
+    flex: 1;
+}
+
 .plan__features li {
-  position: relative;
-  padding-inline-start: 26px;
-  margin-bottom: 10px;
-  font-size: 14px;
-  color: var(--text-2);
+    position: relative;
+    padding-inline-start: 26px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--text-2);
 }
+
 .plan__features li::before {
-  content: "✓";
-  position: absolute;
-  inset-inline-start: 0;
-  color: var(--brand);
-  font-weight: 700;
+    content: "✓";
+    position: absolute;
+    inset-inline-start: 0;
+    color: var(--brand);
+    font-weight: 700;
 }
+
 .plan__features li.plan__feature--struck {
-  text-decoration: line-through;
-  text-decoration-thickness: 2px;
-  color: var(--text-2);
-  opacity: 0.65;
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    color: var(--text-2);
+    opacity: 0.65;
 }
 
 .plan__cta {
-  display: block;
-  text-align: center;
-  padding: 13px 20px;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 15px;
-  text-decoration: none;
-  transition: background 0.15s, transform 0.15s;
+    display: block;
+    text-align: center;
+    padding: 13px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.15s;
 }
-.plan__cta--primary { background: var(--brand); color: #fff; }
-.plan__cta--primary:hover { background: var(--brand-dark); }
-.plan__cta--ghost { background: var(--white); color: var(--text); }
-.plan__cta--ghost:hover { background: var(--bg); color: var(--brand-dark); }
+
+.plan__cta--primary {
+    background: var(--brand);
+    color: #fff;
+}
+
+.plan__cta--primary:hover {
+    background: var(--brand-dark);
+}
+
+.plan__cta--ghost {
+    background: var(--white);
+    color: var(--text);
+}
+
+.plan__cta--ghost:hover {
+    background: var(--bg);
+    color: var(--brand-dark);
+}
 
 /* Inside the group the buttons are segments, not standalone pills. */
-.plan__ctas .plan__cta { border-radius: 0; }
+.plan__ctas .plan__cta {
+    border-radius: 0;
+}
+
 .plan__ctas .plan__cta + .plan__cta {
-  border-top: 1px solid var(--border);
-  font-size: 14px;
-  font-weight: 600;
-  padding: 11px 20px;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 11px 20px;
 }
 
 .plan__additional {
-  font-size: 12px;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: var(--brand-dark);
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--brand-dark);
 }
+
 .plans-note {
-  margin-top: 32px;
-  text-align: center;
-  color: var(--text-2);
-  font-size: 14px;
+    margin-top: 32px;
+    text-align: center;
+    color: var(--text-2);
+    font-size: 14px;
 }
 
 .plans-legal-note {
-  max-width: 780px;
-  margin: 14px auto 0;
-  text-align: center;
-  color: var(--text-2);
-  font-size: 13px;
+    max-width: 780px;
+    margin: 14px auto 0;
+    text-align: center;
+    color: var(--text-2);
+    font-size: 13px;
 }
 
 .plans-legal-note a {
-  color: var(--brand-dark);
-  font-weight: 700;
-  text-decoration: none;
+    color: var(--brand-dark);
+    font-weight: 700;
+    text-decoration: none;
 }
 
 .plans-legal-note a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 
-#pricing { width: min(1320px, 100%); max-width: 1320px; scroll-margin-top: 80px; }
-@media (max-width: 1040px) { .plans-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 760px) { .plans-grid { grid-template-columns: minmax(0, 1fr); } }
+#pricing {
+    width: min(1320px, 100%);
+    max-width: 1320px;
+    scroll-margin-top: 80px;
+}
+
+@media (max-width: 1040px) {
+    .plans-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .plans-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}

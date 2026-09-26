@@ -1096,7 +1096,282 @@
       section { padding: 42px 16px; }
     }
   </style>
-  <link rel="stylesheet" href="/assets/pricing.css" />
+  <style>
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 24px;
+    align-items: start;
+}
+
+.plan--soon .plan__ctas {
+    display: none;
+}
+
+.plan__cta--wa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #25d366;
+    color: #fff;
+}
+
+.plan__cta--wa:hover {
+    background: #1da851;
+}
+
+.plan__cta--wa svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    flex: none;
+}
+
+.plan__soon-note {
+    margin: 10px 0 0;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-2);
+}
+
+.plan {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.plan--highlighted {
+    border-color: var(--brand);
+    box-shadow: 0 12px 40px rgba(24, 160, 88, 0.12);
+    position: relative;
+}
+
+.plan__badge {
+    position: absolute;
+    top: -13px;
+    inset-inline-end: 28px;
+    background: var(--brand);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 999px;
+}
+
+.plan__name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.plan__blurb {
+    color: var(--text-2);
+    font-size: 14px;
+    min-height: 44px;
+    margin-bottom: 18px;
+}
+
+.plan__price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.plan__price strong {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.plan__price-old {
+    color: var(--text-2);
+    text-decoration: line-through;
+    font-size: 17px;
+    opacity: 0.75;
+}
+
+.plan__price-period {
+    color: var(--text-2);
+    font-size: 14px;
+}
+
+.plan__price-year {
+    margin: 0 0 6px;
+    color: var(--text-2);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.plan__vat {
+    margin: 0 0 18px;
+    color: var(--text-2);
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.plan__ctas {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.plan__ctas--accent {
+    border-color: var(--brand);
+}
+
+.plan__cta-note {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.85;
+    margin-top: 2px;
+}
+
+.plan__cta-save {
+    display: inline-block;
+    margin-inline-start: 6px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.22);
+    font-size: 11px;
+    font-weight: 700;
+    vertical-align: middle;
+}
+
+.plan__cta--ghost .plan__cta-save {
+    background: var(--brand-light);
+    color: var(--brand-dark);
+}
+
+.plan__features {
+    list-style: none;
+    margin-bottom: 26px;
+    flex: 1;
+}
+
+.plan__features li {
+    position: relative;
+    padding-inline-start: 26px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--text-2);
+}
+
+.plan__features li::before {
+    content: "✓";
+    position: absolute;
+    inset-inline-start: 0;
+    color: var(--brand);
+    font-weight: 700;
+}
+
+.plan__features li.plan__feature--struck {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    color: var(--text-2);
+    opacity: 0.65;
+}
+
+.plan__cta {
+    display: block;
+    text-align: center;
+    padding: 13px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.15s;
+}
+
+.plan__cta--primary {
+    background: var(--brand);
+    color: #fff;
+}
+
+.plan__cta--primary:hover {
+    background: var(--brand-dark);
+}
+
+.plan__cta--ghost {
+    background: var(--white);
+    color: var(--text);
+}
+
+.plan__cta--ghost:hover {
+    background: var(--bg);
+    color: var(--brand-dark);
+}
+
+.plan__ctas .plan__cta {
+    border-radius: 0;
+}
+
+.plan__ctas .plan__cta + .plan__cta {
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 11px 20px;
+}
+
+.plan__additional {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--brand-dark);
+}
+
+.plans-note {
+    margin-top: 32px;
+    text-align: center;
+    color: var(--text-2);
+    font-size: 14px;
+}
+
+.plans-legal-note {
+    max-width: 780px;
+    margin: 14px auto 0;
+    text-align: center;
+    color: var(--text-2);
+    font-size: 13px;
+}
+
+.plans-legal-note a {
+    color: var(--brand-dark);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.plans-legal-note a:hover {
+    text-decoration: underline;
+}
+
+#pricing {
+    width: min(1320px, 100%);
+    max-width: 1320px;
+    scroll-margin-top: 80px;
+}
+
+@media (max-width: 1040px) {
+    .plans-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .plans-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+  </style>
 </head>
 <body>
 
@@ -1472,19 +1747,18 @@
 </div>
 
 <!-- PRICING -->
-<section id="pricing" aria-labelledby="pricing-title">
+<section aria-labelledby="pricing-title" id="pricing">
   <div class="section-header">
     <h2 id="pricing-title">מסלולים ומחירים</h2>
     <p>בחרו את המסלול שמתאים לנפח העבודה שלכם. אפשר להתחיל בניסיון חינם ולשדרג בכל שלב.</p>
   </div>
   <div data-pricing-catalog data-pricing-heading="h3">
-<!-- pricing:start -->
+    <!-- pricing:start -->
 <div class="plans-grid"><article class="plan" data-plan="trial">
 
       <h3 class="plan__name">ניסיון · 30 יום</h3>
       <p class="plan__blurb">התנסו בייבוא מסמכים ובתזכורות על הנתונים שלכם, ללא כרטיס אשראי.</p>
       <div class="plan__price"><strong>₪0</strong><span class="plan__price-period">/ 30 יום</span></div>
-      <p class="plan__price-year"></p>
       <ul class="plan__features"><li>עד 20 מסמכים בסך הכול — העלאה ו-Gmail יחד</li><li>חילוץ נתונים באמצעות OCR ו-AI</li><li>תזכורות אימייל אוטומטיות ללקוחות</li><li>יצוא לאקסל ודוחות חודשיים</li><li>סנכרון Google Drive</li><li>עד 2 משתמשים ו-2 חשבונות דוא״ל</li></ul>
       <a class="plan__cta plan__cta--ghost" href="https://app.remindocr.com/login?tab=register">התחל בחינם</a>
 
@@ -1493,30 +1767,27 @@
 
       <h3 class="plan__name">דיגיטלי</h3>
       <p class="plan__blurb">לבודק שמזין נתונים בעצמו ורוצה לנהל תסקירים, לקוחות ותזכורות במקום אחד.</p>
-      <div class="plan__price"><strong>₪119</strong><span class="plan__price-period">/ חודש</span></div>
-      <p class="plan__price-year">בתשלום שנתי: ₪1,428 לשנה · או ₪149 בחיוב חודשי</p>
+      <div class="plan__price"><strong>₪129</strong><span class="plan__price-period">/ חודש</span></div>
       <ul class="plan__features"><li>הזנה ידנית ללא הגבלת תסקירים</li><li>ניהול לקוחות וציוד</li><li>הפקת תסקירים לחתימה ושליחה</li><li>תזכורות אימייל אוטומטיות ללא הגבלה</li><li>יצוא לאקסל ודוחות חודשיים</li><li>עד 2 משתמשים</li><li>ללא העלאת קבצים, יבוא Gmail או חילוץ AI</li></ul>
-      <a class="plan__cta plan__cta--primary" href="https://wa.me/972554605328?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A8%D7%9B%D7%95%D7%A9%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20%D7%93%D7%99%D7%92%D7%99%D7%98%D7%9C%D7%99%20%D7%A9%D7%9C%20RemindOCR.%20%D7%91%D7%AA%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A9%D7%A0%D7%AA%D7%99%3A%20%E2%82%AA1%2C428%20%D7%9C%D7%A9%D7%A0%D7%94%20%C2%B7%20%D7%90%D7%95%20%E2%82%AA149%20%D7%91%D7%97%D7%99%D7%95%D7%91%20%D7%97%D7%95%D7%93%D7%A9%D7%99" target="_blank" rel="noopener noreferrer">לתיאום רכישה</a>
+      <a class="plan__cta plan__cta--primary" href="https://wa.me/972586281637?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A8%D7%9B%D7%95%D7%A9%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20%D7%93%D7%99%D7%92%D7%99%D7%98%D7%9C%D7%99%20%D7%A9%D7%9C%20RemindOCR." target="_blank" rel="noopener noreferrer">לתיאום רכישה</a>
       <p class="plan__soon-note">המחיר ותקופת המנוי יאושרו לפני התשלום.</p>
     </article>
 <article class="plan" data-plan="basic">
 
       <h3 class="plan__name">בסיסי</h3>
       <p class="plan__blurb">לבודק שרוצה לחסוך הקלדה: יבוא מסמכים, חילוץ נתונים ומעקב חידושים אוטומטי.</p>
-      <div class="plan__price"><strong>₪215</strong><span class="plan__price-period">/ חודש</span></div>
-      <p class="plan__price-year">בתשלום שנתי: ₪2,580 לשנה · או ₪249 בחיוב חודשי</p>
+      <div class="plan__price"><strong>₪210</strong><span class="plan__price-period">/ חודש</span></div>
       <ul class="plan__features"><li>כל יכולות הניהול והתזכורות של המסלול הדיגיטלי</li><li>יבוא עד 50 מסמכים בחודש — העלאה ו-Gmail יחד</li><li>חילוץ נתונים באמצעות OCR ו-AI</li><li>יבוא תסקירים מ-Gmail עד 16 חודשים אחורה</li><li>שמירת קבצים וסנכרון Google Drive</li><li>עד 2 משתמשים ו-2 חשבונות דוא״ל</li><li>ללא סנכרון Calendar או יבוא היסטוריית חשבוניות מ-Gmail</li></ul>
-      <a class="plan__cta plan__cta--primary" href="https://wa.me/972554605328?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A8%D7%9B%D7%95%D7%A9%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20%D7%91%D7%A1%D7%99%D7%A1%D7%99%20%D7%A9%D7%9C%20RemindOCR.%20%D7%91%D7%AA%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A9%D7%A0%D7%AA%D7%99%3A%20%E2%82%AA2%2C580%20%D7%9C%D7%A9%D7%A0%D7%94%20%C2%B7%20%D7%90%D7%95%20%E2%82%AA249%20%D7%91%D7%97%D7%99%D7%95%D7%91%20%D7%97%D7%95%D7%93%D7%A9%D7%99" target="_blank" rel="noopener noreferrer">לתיאום רכישה</a>
+      <a class="plan__cta plan__cta--primary" href="https://wa.me/972586281637?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A8%D7%9B%D7%95%D7%A9%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20%D7%91%D7%A1%D7%99%D7%A1%D7%99%20%D7%A9%D7%9C%20RemindOCR." target="_blank" rel="noopener noreferrer">לתיאום רכישה</a>
       <p class="plan__soon-note">המחיר ותקופת המנוי יאושרו לפני התשלום.</p>
     </article>
 <article class="plan plan--highlighted" data-plan="business">
       <span class="plan__badge">מומלץ לעסק פעיל</span>
       <h3 class="plan__name">עסקי</h3>
       <p class="plan__blurb">לעסק פעיל שרוצה לרכז תסקירים וחשבוניות, לתכנן בדיקות ביומן ולעבוד גם בשטח.</p>
-      <div class="plan__price"><strong>₪347</strong><span class="plan__price-period">/ חודש</span></div>
-      <p class="plan__price-year">בתשלום שנתי: ₪4,164 לשנה · או ₪399 בחיוב חודשי</p>
+      <div class="plan__price"><strong>₪249</strong><span class="plan__price-period">/ חודש</span></div>
       <ul class="plan__features"><li>כל יכולות המסלול הבסיסי, עם יבוא מסמכים ללא הגבלה</li><li>יבוא תסקירים מ-Gmail עד 24 חודשים אחורה</li><li>יבוא חשבוניות וקבלות מ-Gmail עד 36 חודשים אחורה</li><li>סנכרון Google Calendar לבדיקות עתידיות</li><li>עבודת שטח: רשימות בדיקה ותמונות ציוד</li><li>משתמשים וחשבונות דוא״ל ללא הגבלה</li><li>תזכורות אוטומטיות, דוחות חודשיים ויצוא לאקסל</li></ul>
-      <a class="plan__cta plan__cta--primary" href="https://wa.me/972554605328?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A8%D7%9B%D7%95%D7%A9%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20%D7%A2%D7%A1%D7%A7%D7%99%20%D7%A9%D7%9C%20RemindOCR.%20%D7%91%D7%AA%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A9%D7%A0%D7%AA%D7%99%3A%20%E2%82%AA4%2C164%20%D7%9C%D7%A9%D7%A0%D7%94%20%C2%B7%20%D7%90%D7%95%20%E2%82%AA399%20%D7%91%D7%97%D7%99%D7%95%D7%91%20%D7%97%D7%95%D7%93%D7%A9%D7%99" target="_blank" rel="noopener noreferrer">לתיאום רכישה</a>
+      <a class="plan__cta plan__cta--primary" href="https://wa.me/972586281637?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A8%D7%9B%D7%95%D7%A9%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20%D7%A2%D7%A1%D7%A7%D7%99%20%D7%A9%D7%9C%20RemindOCR." target="_blank" rel="noopener noreferrer">לתיאום רכישה</a>
       <p class="plan__soon-note">המחיר ותקופת המנוי יאושרו לפני התשלום.</p>
     </article></div>
     <p class="plans-note">30 ימי ניסיון ללא כרטיס אשראי, עם עד 20 מסמכים לייבוא בסך הכול. סנכרון Google Calendar ועבודת שטח כלולים במסלול עסקי בלבד.</p>
@@ -1655,9 +1926,9 @@
 <footer>
   <strong>RemindOCR</strong> — מערכת ניהול תסקירים ותזכורות לעסקים ישראלים
   <div class="site-footer__contact">
-    טלפון: <a href="tel:+972554605328">055-4605328</a> · דוא"ל: <a href="mailto:contact@remindocr.com">contact@remindocr.com</a>
+    טלפון: <a href="tel:+972586281637">+972586281637</a> · דוא"ל: <a href="mailto:contact@remindocr.com">contact@remindocr.com</a>
   </div>
-  <a class="site-footer__wa" href="https://wa.me/972554605328?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20RemindOCR." target="_blank" rel="noopener">
+  <a class="site-footer__wa" href="https://wa.me/972586281637?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20RemindOCR." target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1s-.7 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2A10 10 0 0 0 3.5 17.2L2 22l4.9-1.5A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-2.9.9.9-2.8-.2-.3a8.2 8.2 0 1 1 6.9 3.6z"/></svg>
     שלחו לנו הודעה ב-WhatsApp
   </a>
@@ -1740,6 +2011,6 @@
     document.getElementById('cookie-decline').addEventListener('click', function () { decide('denied'); });
   })();
 </script>
-  <script type="module" src="/assets/pricing.mjs"></script>
+<script src="/assets/pricing.mjs" type="module"></script>
 </body>
 </html>
