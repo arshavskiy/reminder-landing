@@ -52,7 +52,7 @@
     },
     {
       "id": "digital",
-      "amounts": {"he": {"monthly": 149, "yearly": 1428}, "en": {"monthly": 45, "yearly": 432}},
+      "amounts": {"he": {"monthly": 129, "yearly": 1236}, "en": {"monthly": 39, "yearly": 372}},
       "copy": {
         "he": {
           "label": "דיגיטלי",
@@ -70,7 +70,7 @@
     },
     {
       "id": "basic",
-      "amounts": {"he": {"monthly": 249, "yearly": 2580}, "en": {"monthly": 75, "yearly": 780}},
+      "amounts": {"he": {"monthly": 210, "yearly": 2016}, "en": {"monthly": 63, "yearly": 605}},
       "copy": {
         "he": {
           "label": "בסיסי",
@@ -89,7 +89,7 @@
     {
       "id": "business",
       "highlighted": true,
-      "amounts": {"he": {"monthly": 399, "yearly": 4164}, "en": {"monthly": 119, "yearly": 1248}},
+      "amounts": {"he": {"monthly": 249, "yearly": 2388}, "en": {"monthly": 75, "yearly": 720}},
       "copy": {
         "he": {
           "label": "עסקי",
