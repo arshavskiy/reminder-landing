@@ -40,13 +40,13 @@
           "label": "ניסיון",
           "name": "ניסיון · 30 יום",
           "blurb": "התנסו בייבוא מסמכים ובתזכורות על הנתונים שלכם, ללא כרטיס אשראי.",
-          "features": ["עד 20 מסמכים בסך הכול — העלאה ו-Gmail יחד", "חילוץ נתונים באמצעות OCR ו-AI", "תזכורות אימייל אוטומטיות ללקוחות", "יצוא לאקסל ודוחות חודשיים", "סנכרון Google Drive", "עד 2 משתמשים ו-2 חשבונות דוא״ל"]
+          "features": ["עד 20 מסמכים בסך הכול — העלאה ו-Gmail יחד", "חילוץ נתונים באמצעות OCR ו-AI", "תזכורות אימייל אוטומטיות ללקוחות", "יצוא לאקסל ודוחות חודשיים", "סנכרון Google Drive", "צילום מסמכים מהנייד ושיתוף קבצים ישירות לאפליקציה", "עד 2 משתמשים ו-2 חשבונות דוא״ל"]
         },
         "en": {
           "label": "Trial",
           "name": "Trial · 30 days",
           "blurb": "Try document imports and reminders with your own data, without a credit card.",
-          "features": ["Up to 20 documents total — uploads and Gmail combined", "OCR and AI data extraction", "Automatic email reminders to clients", "Excel export and monthly reports", "Google Drive sync", "Up to 2 users and 2 email accounts"]
+          "features": ["Up to 20 documents total — uploads and Gmail combined", "OCR and AI data extraction", "Automatic email reminders to clients", "Excel export and monthly reports", "Google Drive sync", "Photograph documents on your phone and share files straight into the app", "Up to 2 users and 2 email accounts"]
         }
       }
     },
@@ -76,13 +76,13 @@
           "label": "בסיסי",
           "name": "בסיסי",
           "blurb": "לבודק שרוצה לחסוך הקלדה: יבוא מסמכים, חילוץ נתונים ומעקב חידושים אוטומטי.",
-          "features": ["כל יכולות הניהול והתזכורות של המסלול הדיגיטלי", "יבוא עד 50 מסמכים בחודש — העלאה ו-Gmail יחד", "חילוץ נתונים באמצעות OCR ו-AI", "יבוא תסקירים מ-Gmail עד 16 חודשים אחורה", "שמירת קבצים וסנכרון Google Drive", "צילום מסמכים מהנייד ושיתוף קבצים ישירות לאפליקציה", "גילוי תזכורות בדואר, כולל סריקה שבועית והתראה (עברית, אנגלית ורוסית)", "עד 2 משתמשים ו-2 חשבונות דוא״ל", "ללא סנכרון Calendar, קליטת מסמכים בדואר או יבוא היסטוריית חשבוניות מ-Gmail"]
+          "features": ["כל יכולות הניהול והתזכורות של המסלול הדיגיטלי", "יבוא עד 50 מסמכים בחודש — העלאה ו-Gmail יחד", "חילוץ נתונים באמצעות OCR ו-AI", "יבוא תסקירים מ-Gmail עד 16 חודשים אחורה", "שמירת קבצים וסנכרון Google Drive", "צילום מסמכים מהנייד ושיתוף קבצים ישירות לאפליקציה", "עד 2 משתמשים ו-2 חשבונות דוא״ל", "ללא סנכרון Calendar, קליטת מסמכים בדואר או יבוא היסטוריית חשבוניות מ-Gmail"]
         },
         "en": {
           "label": "Basic",
           "name": "Basic",
           "blurb": "Save data-entry time with document imports, AI extraction, and automatic renewal reminders.",
-          "features": ["All Digital management and reminder capabilities", "Import up to 50 documents/month — uploads and Gmail combined", "OCR and AI data extraction", "Import inspections from Gmail up to 16 months back", "File storage and Google Drive sync", "Photograph documents on your phone and share files straight into the app", "Reminder discovery in your mailbox, with a weekly scan and alert (Hebrew, English and Russian)", "Up to 2 users and 2 email accounts", "No Calendar sync, email-in or Gmail invoice history import"]
+          "features": ["All Digital management and reminder capabilities", "Import up to 50 documents/month — uploads and Gmail combined", "OCR and AI data extraction", "Import inspections from Gmail up to 16 months back", "File storage and Google Drive sync", "Photograph documents on your phone and share files straight into the app", "Up to 2 users and 2 email accounts", "No Calendar sync, email-in or Gmail invoice history import"]
         }
       }
     },
