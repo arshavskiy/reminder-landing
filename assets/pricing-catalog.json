@@ -48,98 +48,309 @@
   "plans": [
     {
       "id": "trial",
-      "amounts": {"he": {"monthly": 0}, "en": {"monthly": 0}, "ru": {"monthly": 0}},
+      "amounts": {
+        "he": {
+          "monthly": 0
+        },
+        "en": {
+          "monthly": 0
+        },
+        "ru": {
+          "monthly": 0
+        }
+      },
       "copy": {
         "he": {
           "label": "ניסיון",
           "name": "ניסיון · 30 יום",
           "blurb": "התנסו בייבוא מסמכים ובתזכורות על הנתונים שלכם, ללא כרטיס אשראי.",
-          "features": ["עד 20 מסמכים בסך הכול — העלאה ו-Gmail יחד", "חילוץ נתונים באמצעות OCR ו-AI", "תור בדיקה לייבוא אוטומטי: מאשרים או מסירים מסמכים לא ודאיים", "תזכורות אימייל אוטומטיות ללקוחות", "יצוא לאקסל ודוחות חודשיים", "סנכרון Google Drive", "צילום מסמכים מהנייד ושיתוף קבצים ישירות לאפליקציה", "עד 2 משתמשים ו-2 חשבונות דוא״ל", "גילוי תזכורות: סריקת Gmail יומית או שבועית לאיתור מועדים ופגישות בעברית, באנגלית וברוסית", "התראות בדפדפן על תזכורות שנשלחו ועל ממצאים חדשים", "הטבלאות זוכרות סינון, מיון וגודל עמוד", "סנכרון Google Calendar ופיד יומן (ICS) ל-Apple ול-Outlook", "ממשק בעברית, באנגלית וברוסית"]
+          "features": [
+            "עד 20 מסמכים בסך הכול — העלאה ו-Gmail יחד",
+            "חילוץ נתונים באמצעות OCR ו-AI",
+            "תור בדיקה לייבוא אוטומטי: מאשרים או מסירים מסמכים לא ודאיים",
+            "תזכורות אימייל אוטומטיות ללקוחות",
+            "יצוא לאקסל ודוחות חודשיים",
+            "סנכרון Google Drive",
+            "צילום מסמכים מהנייד ושיתוף קבצים ישירות לאפליקציה",
+            "עד 2 משתמשים ו-2 חשבונות דוא״ל",
+            "גילוי תזכורות: סריקת Gmail יומית או שבועית לאיתור מועדים ופגישות בעברית, באנגלית וברוסית",
+            "התראות בדפדפן על תזכורות שנשלחו ועל ממצאים חדשים",
+            "הטבלאות זוכרות סינון, מיון וגודל עמוד",
+            "סנכרון Google Calendar ופיד יומן (ICS) ל-Apple ול-Outlook",
+            "ממשק בעברית, באנגלית וברוסית"
+          ]
         },
         "en": {
           "label": "Trial",
           "name": "Trial · 30 days",
           "blurb": "Try document imports and reminders with your own data, without a credit card.",
-          "features": ["Up to 20 documents total — uploads and Gmail combined", "OCR and AI data extraction", "Review queue for unattended imports: approve or remove uncertain documents", "Automatic email reminders to clients", "Excel export and monthly reports", "Google Drive sync", "Photograph documents on your phone and share files straight into the app", "Up to 2 users and 2 email accounts", "Reminder discovery: a daily or weekly Gmail scan for deadlines and meetings, in Hebrew, English and Russian", "Browser notifications for sent reminders and new findings", "Tables remember your filters, sorting and page size", "Google Calendar sync and a calendar feed (ICS) for Apple and Outlook", "Hebrew, English and Russian interface"]
+          "features": [
+            "Up to 20 documents total — uploads and Gmail combined",
+            "OCR and AI data extraction",
+            "Review queue for unattended imports: approve or remove uncertain documents",
+            "Automatic email reminders to clients",
+            "Excel export and monthly reports",
+            "Google Drive sync",
+            "Photograph documents on your phone and share files straight into the app",
+            "Up to 2 users and 2 email accounts",
+            "Reminder discovery: a daily or weekly Gmail scan for deadlines and meetings, in Hebrew, English and Russian",
+            "Browser notifications for sent reminders and new findings",
+            "Tables remember your filters, sorting and page size",
+            "Google Calendar sync and a calendar feed (ICS) for Apple and Outlook",
+            "Hebrew, English and Russian interface"
+          ]
         },
         "ru": {
           "label": "Пробный",
           "name": "Пробный период · 30 дней",
           "blurb": "Попробуйте импорт документов и напоминания на своих данных, без банковской карты.",
-          "features": ["До 20 документов всего — загрузка и Gmail вместе", "Извлечение данных с помощью OCR и ИИ", "Очередь проверки автоматических импортов: подтверждайте или удаляйте сомнительные документы", "Автоматические напоминания клиентам по email", "Экспорт в Excel и ежемесячные отчёты", "Синхронизация с Google Drive", "Съёмка документов на телефон и отправка файлов прямо в приложение", "До 2 пользователей и 2 почтовых аккаунтов", "Поиск напоминаний: ежедневное или еженедельное сканирование Gmail на сроки и встречи на иврите, английском и русском", "Уведомления в браузере об отправленных напоминаниях и новых находках", "Таблицы запоминают фильтры, сортировку и размер страницы", "Синхронизация с Google Календарём и календарь (ICS) для Apple и Outlook", "Интерфейс на иврите, английском и русском"]
+          "features": [
+            "До 20 документов всего — загрузка и Gmail вместе",
+            "Извлечение данных с помощью OCR и ИИ",
+            "Очередь проверки автоматических импортов: подтверждайте или удаляйте сомнительные документы",
+            "Автоматические напоминания клиентам по email",
+            "Экспорт в Excel и ежемесячные отчёты",
+            "Синхронизация с Google Drive",
+            "Съёмка документов на телефон и отправка файлов прямо в приложение",
+            "До 2 пользователей и 2 почтовых аккаунтов",
+            "Поиск напоминаний: ежедневное или еженедельное сканирование Gmail на сроки и встречи на иврите, английском и русском",
+            "Уведомления в браузере об отправленных напоминаниях и новых находках",
+            "Таблицы запоминают фильтры, сортировку и размер страницы",
+            "Синхронизация с Google Календарём и календарь (ICS) для Apple и Outlook",
+            "Интерфейс на иврите, английском и русском"
+          ]
         }
       }
     },
     {
       "id": "digital",
-      "amounts": {"he": {"monthly": 49, "yearly": 468}, "en": {"monthly": 15, "yearly": 144}, "ru": {"monthly": 15, "yearly": 144}},
+      "amounts": {
+        "he": {
+          "monthly": 49,
+          "yearly": 468
+        },
+        "en": {
+          "monthly": 15,
+          "yearly": 144
+        },
+        "ru": {
+          "monthly": 15,
+          "yearly": 144
+        }
+      },
       "copy": {
         "he": {
           "label": "דיגיטלי",
           "name": "דיגיטלי",
-          "blurb": "למי שמזין מועדים ותשלומים בעצמו ורוצה תזכורת לפני שמשהו פג — בלי העלאת קבצים.",
-          "features": ["הזנה ידנית ללא הגבלה של מועדים, חידושים ותשלומים", "תזכורות אימייל אוטומטיות ללא הגבלה לפני כל מועד ותשלום", "התראות בדפדפן על תזכורות שנשלחו", "סנכרון Google Calendar ופיד יומן (ICS) ל-Apple ול-Outlook", "לקוחות, ציוד ותסקירים, כולל תסקירים מוכנים לחתימה ושליחה", "יצוא לאקסל ודוחות חודשיים", "הטבלאות זוכרות סינון, מיון וגודל עמוד", "עד 2 משתמשים", "ללא העלאת קבצים, יבוא Gmail או חילוץ AI", "ממשק בעברית, באנגלית וברוסית"]
+          "blurb": "למי שרוצה לעקוב אחרי מועדים ותשלומים ולקבל תזכורת לפני שמשהו פג — ללא העלאת קבצים.",
+          "features": [
+            "הזנה ידנית ללא הגבלה של מועדים, חידושים ותשלומים",
+            "תזכורות אימייל אוטומטיות ללא הגבלה לפני כל מועד ותשלום",
+            "גילוי מועדים ותשלומים מ-Gmail — סריקה יומית או שבועית",
+            "יבוא חשבוניות מ-Gmail — עד 30 בחודש",
+            "התראות בדפדפן על תזכורות שנשלחו ועל ממצאים חדשים",
+            "סנכרון Google Calendar ופיד יומן (ICS) ל-Apple ול-Outlook",
+            "ממשק בעברית, באנגלית וברוסית"
+          ]
         },
         "en": {
           "label": "Digital",
           "name": "Digital",
-          "blurb": "For people who enter deadlines and payments themselves and want a reminder before anything is due — no file uploads needed.",
-          "features": ["Unlimited manually entered deadlines, renewals and payments", "Unlimited automatic email reminders before every deadline and payment", "Browser notifications for sent reminders", "Google Calendar sync and a calendar feed (ICS) for Apple and Outlook", "Clients, equipment and inspections, with inspection documents ready to sign and send", "Excel export and monthly reports", "Tables remember your filters, sorting and page size", "Up to 2 users", "No file uploads, Gmail import, or AI extraction", "Hebrew, English and Russian interface"]
+          "blurb": "For people who want to track deadlines and payments and get reminded before anything is due — no file uploads needed.",
+          "features": [
+            "Unlimited manually entered deadlines, renewals and payments",
+            "Unlimited automatic email reminders before every deadline and payment",
+            "Reminder discovery from Gmail — daily or weekly scan",
+            "Invoice import from Gmail — up to 30 per month",
+            "Browser notifications for sent reminders and new findings",
+            "Google Calendar sync and a calendar feed (ICS) for Apple and Outlook",
+            "Hebrew, English and Russian interface"
+          ]
         },
         "ru": {
           "label": "Цифровой",
           "name": "Цифровой",
-          "blurb": "Для тех, кто сам вводит сроки и платежи и хочет получать напоминание до наступления срока — без загрузки файлов.",
-          "features": ["Неограниченный ручной ввод сроков, продлений и платежей", "Неограниченные автоматические напоминания по email перед каждым сроком и платежом", "Уведомления в браузере об отправленных напоминаниях", "Синхронизация с Google Календарём и календарь (ICS) для Apple и Outlook", "Клиенты, оборудование и инспекции, с актами инспекций, готовыми к подписи и отправке", "Экспорт в Excel и ежемесячные отчёты", "Таблицы запоминают фильтры, сортировку и размер страницы", "До 2 пользователей", "Без загрузки файлов, импорта из Gmail и ИИ-извлечения", "Интерфейс на иврите, английском и русском"]
+          "blurb": "Для тех, кто хочет отслеживать сроки и платежи и получать напоминания до наступления срока — без загрузки файлов.",
+          "features": [
+            "Неограниченный ручной ввод сроков, продлений и платежей",
+            "Неограниченные автоматические напоминания по email перед каждым сроком и платежом",
+            "Поиск сроков и платежей в Gmail — ежедневное или еженедельное сканирование",
+            "Импорт счетов из Gmail — до 30 в месяц",
+            "Уведомления в браузере об отправленных напоминаниях и новых находках",
+            "Синхронизация с Google Календарём и календарь (ICS) для Apple и Outlook",
+            "Интерфейс на иврите, английском и русском"
+          ]
         }
       }
     },
     {
       "id": "basic",
-      "amounts": {"he": {"monthly": 97, "yearly": 936}, "en": {"monthly": 29, "yearly": 276}, "ru": {"monthly": 29, "yearly": 276}},
+      "amounts": {
+        "he": {
+          "monthly": 97,
+          "yearly": 936
+        },
+        "en": {
+          "monthly": 29,
+          "yearly": 276
+        },
+        "ru": {
+          "monthly": 29,
+          "yearly": 276
+        }
+      },
       "copy": {
         "he": {
           "label": "סטארטר",
           "name": "סטארטר",
           "blurb": "מכניסים מסמכים מ-Gmail, מהנייד או בהעלאה, ה-AI קורא תאריכים וסכומים, ומקבלים תזכורת לפני שהמועד מגיע.",
-          "features": ["כל יכולות מסלול דיגיטלי: מועדים, תזכורות ויומן", "יבוא עד 50 מסמכים בחודש — העלאה, מצלמת הנייד ו-Gmail יחד", "חילוץ תאריכים, שמות וסכומים באמצעות OCR ו-AI", "תור בדיקה לייבוא אוטומטי: מאשרים או מסירים מסמכים לא ודאיים", "גילוי תזכורות: סריקת Gmail יומית או שבועית לאיתור מועדים ופגישות בעברית, באנגלית וברוסית", "יבוא תסקירים מ-Gmail עד 16 חודשים אחורה", "שמירת קבצים וסנכרון Google Drive", "צילום מסמכים מהנייד ושיתוף קבצים ישירות לאפליקציה", "התראות בדפדפן על תזכורות שנשלחו ועל ממצאים חדשים", "הטבלאות זוכרות סינון, מיון וגודל עמוד", "עד 2 משתמשים ו-2 חשבונות דוא״ל", "ללא קליטת מסמכים בדואר או יבוא היסטוריית חשבוניות מ-Gmail", "ממשק בעברית, באנגלית וברוסית"]
+          "features": [
+            "כל יכולות מסלול דיגיטלי: מועדים, תזכורות ויומן",
+            "יבוא עד 50 מסמכים בחודש — העלאה, מצלמת הנייד ו-Gmail יחד",
+            "חילוץ תאריכים, שמות וסכומים באמצעות OCR ו-AI",
+            "תור בדיקה לייבוא אוטומטי: מאשרים או מסירים מסמכים לא ודאיים",
+            "גילוי תזכורות: סריקת Gmail יומית או שבועית לאיתור מועדים ופגישות בעברית, באנגלית וברוסית",
+            "יבוא תסקירים מ-Gmail עד 16 חודשים אחורה",
+            "שמירת קבצים וסנכרון Google Drive",
+            "צילום מסמכים מהנייד ושיתוף קבצים ישירות לאפליקציה",
+            "התראות בדפדפן על תזכורות שנשלחו ועל ממצאים חדשים",
+            "הטבלאות זוכרות סינון, מיון וגודל עמוד",
+            "עד 2 משתמשים ו-2 חשבונות דוא״ל",
+            "ללא קליטת מסמכים בדואר או יבוא היסטוריית חשבוניות מ-Gmail",
+            "ממשק בעברית, באנגלית וברוסית"
+          ]
         },
         "en": {
           "label": "Starter",
           "name": "Starter",
           "blurb": "Bring documents in from Gmail, your phone or an upload, let AI read the dates and amounts, and get reminded before anything is due.",
-          "features": ["Everything in Digital: deadlines, reminders and your calendar", "Import up to 50 documents/month — uploads, phone camera and Gmail combined", "OCR and AI extraction of dates, names and amounts", "Review queue for unattended imports: approve or remove uncertain documents", "Reminder discovery: a daily or weekly Gmail scan for deadlines and meetings, in Hebrew, English and Russian", "Import inspections from Gmail up to 16 months back", "File storage and Google Drive sync", "Photograph documents on your phone and share files straight into the app", "Browser notifications for sent reminders and new findings", "Tables remember your filters, sorting and page size", "Up to 2 users and 2 email accounts", "No email-in or Gmail invoice history import", "Hebrew, English and Russian interface"]
+          "features": [
+            "Everything in Digital: deadlines, reminders and your calendar",
+            "Import up to 50 documents/month — uploads, phone camera and Gmail combined",
+            "OCR and AI extraction of dates, names and amounts",
+            "Review queue for unattended imports: approve or remove uncertain documents",
+            "Reminder discovery: a daily or weekly Gmail scan for deadlines and meetings, in Hebrew, English and Russian",
+            "Import inspections from Gmail up to 16 months back",
+            "File storage and Google Drive sync",
+            "Photograph documents on your phone and share files straight into the app",
+            "Browser notifications for sent reminders and new findings",
+            "Tables remember your filters, sorting and page size",
+            "Up to 2 users and 2 email accounts",
+            "No email-in or Gmail invoice history import",
+            "Hebrew, English and Russian interface"
+          ]
         },
         "ru": {
           "label": "Starter",
           "name": "Starter",
           "blurb": "Загружайте документы из Gmail, с телефона или файлом, ИИ прочитает даты и суммы, а вы получите напоминание до наступления срока.",
-          "features": ["Всё из тарифа «Цифровой»: сроки, напоминания и календарь", "Импорт до 50 документов в месяц — загрузка, камера телефона и Gmail вместе", "Извлечение дат, имён и сумм с помощью OCR и ИИ", "Очередь проверки автоматических импортов: подтверждайте или удаляйте сомнительные документы", "Поиск напоминаний: ежедневное или еженедельное сканирование Gmail на сроки и встречи на иврите, английском и русском", "Импорт инспекций из Gmail за последние 16 месяцев", "Хранение файлов и синхронизация с Google Drive", "Съёмка документов на телефон и отправка файлов прямо в приложение", "Уведомления в браузере об отправленных напоминаниях и новых находках", "Таблицы запоминают фильтры, сортировку и размер страницы", "До 2 пользователей и 2 почтовых аккаунтов", "Без приёма документов по почте и импорта истории счетов из Gmail", "Интерфейс на иврите, английском и русском"]
+          "features": [
+            "Всё из тарифа «Цифровой»: сроки, напоминания и календарь",
+            "Импорт до 50 документов в месяц — загрузка, камера телефона и Gmail вместе",
+            "Извлечение дат, имён и сумм с помощью OCR и ИИ",
+            "Очередь проверки автоматических импортов: подтверждайте или удаляйте сомнительные документы",
+            "Поиск напоминаний: ежедневное или еженедельное сканирование Gmail на сроки и встречи на иврите, английском и русском",
+            "Импорт инспекций из Gmail за последние 16 месяцев",
+            "Хранение файлов и синхронизация с Google Drive",
+            "Съёмка документов на телефон и отправка файлов прямо в приложение",
+            "Уведомления в браузере об отправленных напоминаниях и новых находках",
+            "Таблицы запоминают фильтры, сортировку и размер страницы",
+            "До 2 пользователей и 2 почтовых аккаунтов",
+            "Без приёма документов по почте и импорта истории счетов из Gmail",
+            "Интерфейс на иврите, английском и русском"
+          ]
         }
       }
     },
     {
       "id": "business",
       "highlighted": true,
-      "amounts": {"he": {"monthly": 249, "yearly": 2388}, "en": {"monthly": 75, "yearly": 720}, "ru": {"monthly": 75, "yearly": 720}},
+      "amounts": {
+        "he": {
+          "monthly": 249,
+          "yearly": 2388
+        },
+        "en": {
+          "monthly": 75,
+          "yearly": 720
+        },
+        "ru": {
+          "monthly": 75,
+          "yearly": 720
+        }
+      },
       "copy": {
         "he": {
           "label": "פרו",
           "name": "פרו",
           "blurb": "לעסק פעיל שרוצה לרכז תסקירים וחשבוניות, לתכנן בדיקות ביומן ולעבוד גם בשטח.",
-          "features": ["כל יכולות מסלול סטארטר, עם יבוא מסמכים ללא הגבלה", "יבוא תסקירים מ-Gmail עד 24 חודשים אחורה", "תור בדיקה לייבוא אוטומטי: מאשרים או מסירים מסמכים לא ודאיים", "יבוא חשבוניות וקבלות מ-Gmail עד 36 חודשים אחורה", "סנכרון Google Calendar ופיד יומן (ICS) ל-Apple ול-Outlook", "קליטת מסמכים בדואר: כתובת אישית שאליה מעבירים חשבוניות ותסקירים", "עבודת שטח: רשימות בדיקה ותמונות ציוד", "משתמשים וחשבונות דוא״ל ללא הגבלה", "חשבוניות וקבלות: התאמה אוטומטית של קבלה לחשבונית וגרף הוצאות", "ייבוא יומי אוטומטי של חשבוניות וקבלות מ-Gmail", "תזכורות אוטומטיות, דוחות חודשיים ויצוא לאקסל", "גילוי תזכורות: סריקת Gmail יומית או שבועית לאיתור מועדים ופגישות בעברית, באנגלית וברוסית", "התראות בדפדפן על תזכורות שנשלחו ועל ממצאים חדשים", "הטבלאות זוכרות סינון, מיון וגודל עמוד", "תאריכי תשלום וחשבוניות לתשלום בקרוב ביומן הלוח הראשי", "סכומים במטבע זר (למשל רובל) מומרים לשקלים", "ממשק בעברית, באנגלית וברוסית"]
+          "features": [
+            "כל יכולות מסלול סטארטר, עם יבוא מסמכים ללא הגבלה",
+            "יבוא תסקירים מ-Gmail עד 24 חודשים אחורה",
+            "תור בדיקה לייבוא אוטומטי: מאשרים או מסירים מסמכים לא ודאיים",
+            "יבוא חשבוניות וקבלות מ-Gmail עד 36 חודשים אחורה",
+            "סנכרון Google Calendar ופיד יומן (ICS) ל-Apple ול-Outlook",
+            "קליטת מסמכים בדואר: כתובת אישית שאליה מעבירים חשבוניות ותסקירים",
+            "עבודת שטח: רשימות בדיקה ותמונות ציוד",
+            "משתמשים וחשבונות דוא״ל ללא הגבלה",
+            "חשבוניות וקבלות: התאמה אוטומטית של קבלה לחשבונית וגרף הוצאות",
+            "ייבוא יומי אוטומטי של חשבוניות וקבלות מ-Gmail",
+            "תזכורות אוטומטיות, דוחות חודשיים ויצוא לאקסל",
+            "גילוי תזכורות: סריקת Gmail יומית או שבועית לאיתור מועדים ופגישות בעברית, באנגלית וברוסית",
+            "התראות בדפדפן על תזכורות שנשלחו ועל ממצאים חדשים",
+            "הטבלאות זוכרות סינון, מיון וגודל עמוד",
+            "תאריכי תשלום וחשבוניות לתשלום בקרוב ביומן הלוח הראשי",
+            "סכומים במטבע זר (למשל רובל) מומרים לשקלים",
+            "ממשק בעברית, באנגלית וברוסית"
+          ]
         },
         "en": {
           "label": "Pro",
           "name": "Pro",
           "blurb": "For active businesses managing inspections and invoices, scheduling renewals, and working in the field.",
-          "features": ["All Starter capabilities, with unlimited document imports", "Import inspections from Gmail up to 24 months back", "Review queue for unattended imports: approve or remove uncertain documents", "Import invoices and receipts from Gmail up to 36 months back", "Google Calendar sync and a calendar feed (ICS) for Apple and Outlook", "Email-in: a personal address you forward invoices and reports to", "Field work: checklists and equipment photos", "Unlimited users and email accounts", "Invoices and receipts matched automatically, with an expenses graph", "Daily automatic import of invoices and receipts from Gmail", "Automatic reminders, monthly reports, and Excel export", "Reminder discovery: a daily or weekly Gmail scan for deadlines and meetings, in Hebrew, English and Russian", "Browser notifications for sent reminders and new findings", "Tables remember your filters, sorting and page size", "Payment dates and invoices due soon on the dashboard calendar", "Foreign-currency amounts (for example rubles) converted to shekels", "Hebrew, English and Russian interface"]
+          "features": [
+            "All Starter capabilities, with unlimited document imports",
+            "Import inspections from Gmail up to 24 months back",
+            "Review queue for unattended imports: approve or remove uncertain documents",
+            "Import invoices and receipts from Gmail up to 36 months back",
+            "Google Calendar sync and a calendar feed (ICS) for Apple and Outlook",
+            "Email-in: a personal address you forward invoices and reports to",
+            "Field work: checklists and equipment photos",
+            "Unlimited users and email accounts",
+            "Invoices and receipts matched automatically, with an expenses graph",
+            "Daily automatic import of invoices and receipts from Gmail",
+            "Automatic reminders, monthly reports, and Excel export",
+            "Reminder discovery: a daily or weekly Gmail scan for deadlines and meetings, in Hebrew, English and Russian",
+            "Browser notifications for sent reminders and new findings",
+            "Tables remember your filters, sorting and page size",
+            "Payment dates and invoices due soon on the dashboard calendar",
+            "Foreign-currency amounts (for example rubles) converted to shekels",
+            "Hebrew, English and Russian interface"
+          ]
         },
         "ru": {
           "label": "Pro",
           "name": "Pro",
           "blurb": "Для активного бизнеса, который ведёт инспекции и счета, планирует продления и работает в полях.",
-          "features": ["Все возможности тарифа «Starter» и неограниченный импорт документов", "Импорт инспекций из Gmail за последние 24 месяца", "Очередь проверки автоматических импортов: подтверждайте или удаляйте сомнительные документы", "Импорт счетов и чеков из Gmail за последние 36 месяцев", "Синхронизация с Google Календарём и календарь (ICS) для Apple и Outlook", "Приём по почте: личный адрес, на который пересылаются счета и отчёты", "Работа в полях: чек-листы и фото оборудования", "Неограниченное число пользователей и почтовых аккаунтов", "Автоматическое сопоставление счетов и чеков и график расходов", "Ежедневный автоматический импорт счетов и чеков из Gmail", "Автоматические напоминания, ежемесячные отчёты и экспорт в Excel", "Поиск напоминаний: ежедневное или еженедельное сканирование Gmail на сроки и встречи на иврите, английском и русском", "Уведомления в браузере об отправленных напоминаниях и новых находках", "Таблицы запоминают фильтры, сортировку и размер страницы", "Даты платежей и счета к оплате в календаре на главной", "Суммы в иностранной валюте (например, в рублях) пересчитываются в шекели", "Интерфейс на иврите, английском и русском"]
+          "features": [
+            "Все возможности тарифа «Starter» и неограниченный импорт документов",
+            "Импорт инспекций из Gmail за последние 24 месяца",
+            "Очередь проверки автоматических импортов: подтверждайте или удаляйте сомнительные документы",
+            "Импорт счетов и чеков из Gmail за последние 36 месяцев",
+            "Синхронизация с Google Календарём и календарь (ICS) для Apple и Outlook",
+            "Приём по почте: личный адрес, на который пересылаются счета и отчёты",
+            "Работа в полях: чек-листы и фото оборудования",
+            "Неограниченное число пользователей и почтовых аккаунтов",
+            "Автоматическое сопоставление счетов и чеков и график расходов",
+            "Ежедневный автоматический импорт счетов и чеков из Gmail",
+            "Автоматические напоминания, ежемесячные отчёты и экспорт в Excel",
+            "Поиск напоминаний: ежедневное или еженедельное сканирование Gmail на сроки и встречи на иврите, английском и русском",
+            "Уведомления в браузере об отправленных напоминаниях и новых находках",
+            "Таблицы запоминают фильтры, сортировку и размер страницы",
+            "Даты платежей и счета к оплате в календаре на главной",
+            "Суммы в иностранной валюте (например, в рублях) пересчитываются в шекели",
+            "Интерфейс на иврите, английском и русском"
+          ]
         }
       }
     }
