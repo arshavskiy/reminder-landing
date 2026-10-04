@@ -11,12 +11,14 @@ export function billingTerms() {
 
 export function purchaseUrl(catalog, plan, locale) {
     if (plan.id === "trial") {
-        return `https://app.remindocr.com/${locale === "en" ? "en/" : ""}login?tab=register`;
+        return `https://app.remindocr.com/${locale === "he" ? "" : `${locale}/`}login?tab=register`;
     }
     const copy = plan.copy[locale];
     const message = locale === "he"
         ? `שלום, אני מעוניין לרכוש את המסלול ${copy.name} של RemindOCR.`
-        : `Hi, I would like to purchase the RemindOCR ${copy.name} plan.`;
+        : locale === "ru"
+            ? `Здравствуйте, я хочу приобрести тариф ${copy.name} в RemindOCR.`
+            : `Hi, I would like to purchase the RemindOCR ${copy.name} plan.`;
     return `https://wa.me/${catalog.contactPhone}?text=${encodeURIComponent(message)}`;
 }
 
@@ -54,7 +56,7 @@ if (typeof document !== "undefined") {
                 return response.json();
             })
             .then((catalog) => {
-                target.innerHTML = renderPricing(catalog, document.documentElement.lang === "en" ? "en" : "he", target.dataset.pricingHeading);
+                target.innerHTML = renderPricing(catalog, ["en", "ru"].includes(document.documentElement.lang) ? document.documentElement.lang : "he", target.dataset.pricingHeading);
             })
             .catch((error) => {
                 console.warn("Using published pricing snapshot.", error);

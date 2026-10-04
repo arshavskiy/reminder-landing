@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+  <!-- Google tag (gtag.js) — skipped on localhost/local previews -->
+  <script>
+    if (!["localhost", "127.0.0.1"].includes(window.location.hostname)) {
+      var gaScript = document.createElement("script");
+      gaScript.async = true;
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-CV5TGV9V2X";
+      document.head.appendChild(gaScript);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      // Consent Mode v2: deny until the visitor chooses. wait_for_update holds the
+      // first hits briefly so a stored "granted" is applied before anything sends.
+      gtag('consent', 'default', {
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'wait_for_update': 500
+      });
+      try {
+        if (localStorage.getItem('ga_consent') === 'granted') {
+          gtag('consent', 'update', {
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted',
+            'ad_storage': 'granted',
+            'analytics_storage': 'granted'
+          });
+        }
+      } catch (e) {}
+      gtag('js', new Date());
+      gtag('config', 'G-CV5TGV9V2X');
+    }
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Тарифы — RemindOCR</title>
+  <meta name="description" content="Тарифы RemindOCR: документы, счета и чеки, автоматические напоминания, поиск сроков в почте, синхронизация с Google Календарём и Google Drive." />
+  <link rel="canonical" href="https://remindocr.com/ru/pricing" />
+  <link rel="alternate" hreflang="he" href="https://remindocr.com/pricing" />
+  <link rel="alternate" hreflang="en" href="https://remindocr.com/en/pricing" />
+  <link rel="alternate" hreflang="ru" href="https://remindocr.com/ru/pricing" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="fb:app_id" content="935630732930743" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="RemindOCR" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:url" content="https://remindocr.com/ru/pricing" />
+  <meta property="og:title" content="Тарифы — RemindOCR" />
+  <meta property="og:description" content="Тарифы RemindOCR: документы, счета и чеки, автоматические напоминания, поиск сроков в почте, синхронизация с Google Календарём и Google Drive." />
+
+  <meta name="theme-color" content="#18a058" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32-v2.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../icon-192-v2.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="../icon-512-v2.png" />
+  <link rel="icon" type="image/svg+xml" href="../favicon-v2.svg" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon-v2.png" />
+  <meta property="og:image" content="https://remindocr.com/og-image.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand: #18a058;
+      --brand-dark: #0c7a43;
+      --brand-light: rgba(24,160,88,0.1);
+      --text: #1a1a2e;
+      --text-2: #4a5568;
+      --bg: #f8fafb;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; right: 0; left: 0;
+      z-index: 20;
+      height: 64px;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-brand__logo { width: 40px; height: 40px; border-radius: 10px; object-fit: cover; }
+    .nav-brand__text { font-size: 17px; font-weight: 700; }
+
+    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-links a {
+      padding: 8px 16px;
+      border-radius: 8px;
+      color: var(--text-2);
+      font-size: 14px;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-links a:hover { background: var(--brand-light); color: var(--brand); }
+    .nav-cta {
+      padding: 10px 20px !important;
+      background: var(--brand);
+      color: #fff !important;
+      font-weight: 700;
+    }
+    .nav-cta:hover { background: var(--brand-dark); color: #fff !important; }
+    .nav-lang {
+      padding: 8px 12px !important;
+      font-size: 13px !important;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: transparent !important;
+      color: var(--text-2) !important;
+    }
+    .nav-lang:hover {
+      background: var(--brand-light) !important;
+      color: var(--brand) !important;
+    }
+
+    .page { padding-top: 64px; }
+
+    .plans-hero {
+      background: linear-gradient(180deg, #f0fdf4 0%, var(--bg) 100%);
+      padding: 72px 48px 48px;
+      text-align: center;
+    }
+    .plans-hero h1 {
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .plans-hero p {
+      max-width: 620px;
+      margin: 0 auto;
+      color: var(--text-2);
+      font-size: 17px;
+    }
+
+    section { width: min(1320px, 100%); margin: 0 auto; padding: 56px 48px 80px; }
+
+    footer {
+      background: #17212b;
+      color: rgba(255,255,255,0.75);
+      padding: 40px 48px;
+      text-align: center;
+      font-size: 14px;
+    }
+    footer strong { color: #fff; }
+    footer .site-footer__legal {
+      margin-top: 8px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+    }
+    footer .site-footer__legal a {
+      color: #63e2b7;
+      text-decoration: none;
+    }
+    footer .site-footer__legal a:hover {
+      color: #8fecd0;
+      text-decoration: underline;
+    }
+
+    /* Between the four-across and the single-column layouts, auto-fit would
+       settle on three and leave the fourth plan alone on its own row. Force two
+       even columns across that band instead. */
+    @media (max-width: 1080px) and (min-width: 901px) {
+    }
+
+    @media (max-width: 900px) {
+      nav { height: auto; min-height: 58px; padding: 10px 16px; }
+      .nav-links a:not(.nav-cta):not(.nav-lang) { display: none; }
+      .plans-hero { padding: 48px 20px 32px; }
+      section { padding: 40px 20px 56px; }
+      footer { padding: 32px 20px; }
+    }
+  </style>
+    <link href="/assets/pricing.css" rel="stylesheet"/>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="/ru">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="../remindocr-logo-dark.png" />
+      <img class="nav-brand__logo" src="../remindocr-logo-light.png" alt="" />
+    </picture>
+    <span class="nav-brand__text">RemindOCR</span>
+  </a>
+  <div class="nav-links">
+    <a class="nav-lang" href="/pricing" hreflang="he" lang="he">עברית</a>
+    <a class="nav-lang" href="/en/pricing" hreflang="en" lang="en">English</a>
+    <a href="/ru#features">Возможности</a>
+    <a href="/ru#how">Как это работает</a>
+    <a href="/ru/pricing">Тарифы</a>
+    <a class="nav-cta" href="https://app.remindocr.com/ru/login">Войти</a>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="plans-hero">
+    <h1>Тарифы и цены</h1>
+    <p>Выберите тариф под свой объём работы. Начните бесплатно и переходите на платный в любой момент.</p>
+  </div>
+
+  <section>
+      <div data-pricing-catalog>
+          <!-- pricing:start -->
+<div class="plans-grid"><article class="plan" data-plan="trial">
+
+      <h2 class="plan__name">Пробный период · 30 дней</h2>
+      <p class="plan__blurb">Попробуйте импорт документов и напоминания на своих данных, без банковской карты.</p>
+      <div class="plan__price"><strong>$0</strong><span class="plan__price-period">/ 30 дней</span></div>
+      <ul class="plan__features"><li>До 20 документов всего — загрузка и Gmail вместе</li><li>Извлечение данных с помощью OCR и ИИ</li><li>Очередь проверки автоматических импортов: подтверждайте или удаляйте сомнительные документы</li><li>Автоматические напоминания клиентам по email</li><li>Экспорт в Excel и ежемесячные отчёты</li><li>Синхронизация с Google Drive</li><li>Съёмка документов на телефон и отправка файлов прямо в приложение</li><li>До 2 пользователей и 2 почтовых аккаунтов</li><li>Поиск напоминаний: ежедневное или еженедельное сканирование Gmail на сроки и встречи на иврите, английском и русском</li><li>Уведомления в браузере об отправленных напоминаниях и новых находках</li><li>Таблицы запоминают фильтры, сортировку и размер страницы</li><li>Интерфейс на иврите, английском и русском</li></ul>
+      <a class="plan__cta plan__cta--ghost" href="https://app.remindocr.com/ru/login?tab=register">Начать бесплатно</a>
+
+    </article>
+<article class="plan" data-plan="digital">
+
+      <h2 class="plan__name">Цифровой</h2>
+      <p class="plan__blurb">Для инспектора, который вводит данные сам и хочет вести инспекции, клиентов и напоминания в одном месте.</p>
+      <div class="plan__price"><strong>$39</strong><span class="plan__price-period">/ мес.</span></div>
+      <ul class="plan__features"><li>Неограниченное количество вручную введённых инспекций</li><li>Управление клиентами и оборудованием</li><li>Подготовка инспекций к подписи и отправке</li><li>Неограниченные автоматические напоминания по email</li><li>Экспорт в Excel и ежемесячные отчёты</li><li>До 2 пользователей</li><li>Таблицы запоминают фильтры, сортировку и размер страницы</li><li>Без загрузки файлов, импорта из Gmail и ИИ-извлечения</li><li>Интерфейс на иврите, английском и русском</li></ul>
+      <a class="plan__cta plan__cta--primary" href="https://wa.me/972554605328?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%8F%20%D1%85%D0%BE%D1%87%D1%83%20%D0%BF%D1%80%D0%B8%D0%BE%D0%B1%D1%80%D0%B5%D1%81%D1%82%D0%B8%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%D0%A6%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%BE%D0%B9%20%D0%B2%20RemindOCR." target="_blank" rel="noopener noreferrer">Согласовать покупку</a>
+      <p class="plan__soon-note">Цена и срок подписки подтверждаются до оплаты.</p>
+    </article>
+<article class="plan" data-plan="basic">
+
+      <h2 class="plan__name">Базовый</h2>
+      <p class="plan__blurb">Экономьте время на вводе данных: импорт документов, ИИ-извлечение и автоматические напоминания о продлении.</p>
+      <div class="plan__price"><strong>$63</strong><span class="plan__price-period">/ мес.</span></div>
+      <ul class="plan__features"><li>Все возможности управления и напоминаний тарифа «Цифровой»</li><li>Импорт до 50 документов в месяц — загрузка и Gmail вместе</li><li>Очередь проверки автоматических импортов: подтверждайте или удаляйте сомнительные документы</li><li>Извлечение данных с помощью OCR и ИИ</li><li>Импорт инспекций из Gmail за последние 16 месяцев</li><li>Хранение файлов и синхронизация с Google Drive</li><li>Съёмка документов на телефон и отправка файлов прямо в приложение</li><li>До 2 пользователей и 2 почтовых аккаунтов</li><li>Поиск напоминаний: ежедневное или еженедельное сканирование Gmail на сроки и встречи на иврите, английском и русском</li><li>Уведомления в браузере об отправленных напоминаниях и новых находках</li><li>Таблицы запоминают фильтры, сортировку и размер страницы</li><li>Без синхронизации с Календарём, приёма документов по почте и импорта истории счетов из Gmail</li><li>Интерфейс на иврите, английском и русском</li></ul>
+      <a class="plan__cta plan__cta--primary" href="https://wa.me/972554605328?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%8F%20%D1%85%D0%BE%D1%87%D1%83%20%D0%BF%D1%80%D0%B8%D0%BE%D0%B1%D1%80%D0%B5%D1%81%D1%82%D0%B8%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%B2%20RemindOCR." target="_blank" rel="noopener noreferrer">Согласовать покупку</a>
+      <p class="plan__soon-note">Цена и срок подписки подтверждаются до оплаты.</p>
+    </article>
+<article class="plan plan--highlighted" data-plan="business">
+      <span class="plan__badge">Рекомендуем для активного бизнеса</span>
+      <h2 class="plan__name">Бизнес</h2>
+      <p class="plan__blurb">Для активного бизнеса, который ведёт инспекции и счета, планирует продления и работает в полях.</p>
+      <div class="plan__price"><strong>$75</strong><span class="plan__price-period">/ мес.</span></div>
+      <ul class="plan__features"><li>Все возможности тарифа «Базовый» и неограниченный импорт документов</li><li>Импорт инспекций из Gmail за последние 24 месяца</li><li>Очередь проверки автоматических импортов: подтверждайте или удаляйте сомнительные документы</li><li>Импорт счетов и чеков из Gmail за последние 36 месяцев</li><li>Синхронизация с Google Календарём и календарь (ICS) для Apple и Outlook</li><li>Приём по почте: личный адрес, на который пересылаются счета и отчёты</li><li>Работа в полях: чек-листы и фото оборудования</li><li>Неограниченное число пользователей и почтовых аккаунтов</li><li>Автоматическое сопоставление счетов и чеков и график расходов</li><li>Ежедневный автоматический импорт счетов и чеков из Gmail</li><li>Автоматические напоминания, ежемесячные отчёты и экспорт в Excel</li><li>Поиск напоминаний: ежедневное или еженедельное сканирование Gmail на сроки и встречи на иврите, английском и русском</li><li>Уведомления в браузере об отправленных напоминаниях и новых находках</li><li>Таблицы запоминают фильтры, сортировку и размер страницы</li><li>Даты платежей и счета к оплате в календаре на главной</li><li>Суммы в иностранной валюте (например, в рублях) пересчитываются в шекели</li><li>Интерфейс на иврите, английском и русском</li></ul>
+      <a class="plan__cta plan__cta--primary" href="https://wa.me/972554605328?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%8F%20%D1%85%D0%BE%D1%87%D1%83%20%D0%BF%D1%80%D0%B8%D0%BE%D0%B1%D1%80%D0%B5%D1%81%D1%82%D0%B8%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%20%D0%B2%20RemindOCR." target="_blank" rel="noopener noreferrer">Согласовать покупку</a>
+      <p class="plan__soon-note">Цена и срок подписки подтверждаются до оплаты.</p>
+    </article></div>
+    <p class="plans-note">30 дней пробного периода без банковской карты, до 20 импортов документов в сумме. Синхронизация календаря, приём документов по почте и работа в полях доступны только на тарифе «Бизнес».</p>
+    <p class="plans-note">Указаны прайс-цены для новых подписок. Условия действующих подписок определяются договором и фактическими счетами.</p>
+<!-- pricing:end -->
+      </div>
+    <p class="plans-legal-note">
+      Для оформления подписки нужно согласиться с <a href="/en/terms">Условиями использования</a> и <a href="/en/privacy">Политикой конфиденциальности</a> (на английском).
+      На странице самостоятельной оплаты, когда она будет включена, перед платежом появится явное подтверждение.
+    </p>
+  </section>
+</div>
+
+<footer>
+  <strong>RemindOCR</strong> — Контроль документов, сроков и платежей
+  <div class="site-footer__legal">
+    © 2026 HandCoded. Все права защищены. |
+    <a href="/en/terms">Условия</a> |
+    <a href="/en/privacy">Конфиденциальность</a> |
+    <a href="/en/accessibility">Доступность</a> |
+    <a href="/en/security">Безопасность</a>
+  </div>
+</footer>
+
+
+<!-- Cookie consent banner -->
+<div id="cookie-consent" class="cookie-consent" hidden>
+  <p class="cookie-consent__text">
+    Мы используем cookie, чтобы понимать, как используется сайт, и улучшать его.
+    <a href="/en/privacy">Конфиденциальность</a>
+  </p>
+  <div class="cookie-consent__actions">
+    <button type="button" id="cookie-decline" class="cookie-consent__btn">Отклонить</button>
+    <button type="button" id="cookie-accept" class="cookie-consent__btn cookie-consent__btn--primary">Принять</button>
+  </div>
+</div>
+<style>
+  /* [hidden] only applies display:none via the UA sheet, which a class rule
+     outranks — without this the banner stays on screen after the choice. */
+  .cookie-consent[hidden] { display: none !important; }
+  .cookie-consent {
+    position: fixed; inset-inline: 16px; bottom: 16px; z-index: 9999;
+    max-width: 620px; margin-inline: auto;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+    background: #17212b; color: rgba(255,255,255,0.9);
+    border-radius: 12px; padding: 14px 18px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.28);
+    font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px;
+  }
+  .cookie-consent__text { margin: 0; flex: 1 1 260px; line-height: 1.5; }
+  .cookie-consent__text a { color: #63e2b7; text-decoration: none; }
+  .cookie-consent__text a:hover { text-decoration: underline; }
+  .cookie-consent__actions { display: flex; gap: 8px; flex: 0 0 auto; }
+  @media (max-width: 460px) {
+    .cookie-consent__actions { width: 100%; }
+    .cookie-consent__btn { flex: 1 1 0; }
+  }
+  .cookie-consent__btn {
+    border: 1px solid rgba(255,255,255,0.25); background: transparent;
+    color: inherit; border-radius: 8px; padding: 10px 20px;
+    font: inherit; font-weight: 600; cursor: pointer;
+    /* 44px is the minimum comfortable touch target on mobile. */
+    min-height: 44px; min-width: 88px;
+  }
+  .cookie-consent__btn:hover { background: rgba(255,255,255,0.08); }
+  .cookie-consent__btn--primary { background: #18a058; border-color: #18a058; color: #fff; }
+  .cookie-consent__btn--primary:hover { background: #36ad6a; }
+</style>
+<script>
+  (function () {
+    var el = document.getElementById('cookie-consent');
+    if (!el) return;
+    var stored = null;
+    try { stored = localStorage.getItem('ga_consent'); } catch (e) {}
+    if (!stored) el.hidden = false;
+
+    function decide(value) {
+      try { localStorage.setItem('ga_consent', value); } catch (e) {}
+      if (typeof gtag === 'function') {
+        var granted = value === 'granted';
+        gtag('consent', 'update', {
+          'ad_user_data': granted ? 'granted' : 'denied',
+          'ad_personalization': granted ? 'granted' : 'denied',
+          'ad_storage': granted ? 'granted' : 'denied',
+          'analytics_storage': granted ? 'granted' : 'denied'
+        });
+      }
+      el.hidden = true;
+    }
+    document.getElementById('cookie-accept').addEventListener('click', function () { decide('granted'); });
+    document.getElementById('cookie-decline').addEventListener('click', function () { decide('denied'); });
+  })();
+</script>
+<script src="/assets/pricing.mjs" type="module"></script>
+</body>
+</html>

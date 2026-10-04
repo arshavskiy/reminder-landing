@@ -34,6 +34,7 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://remindocr.com/pricing"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://remindocr.com/en/pricing"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://remindocr.com/ru/pricing"/>
   </url>
   <url>
     <loc>https://remindocr.com/en/pricing</loc>
@@ -41,6 +42,15 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://remindocr.com/pricing"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://remindocr.com/en/pricing"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://remindocr.com/ru/pricing"/>
+  </url>
+  <url>
+    <loc>https://remindocr.com/ru/pricing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://remindocr.com/pricing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://remindocr.com/en/pricing"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://remindocr.com/ru/pricing"/>
   </url>
   <url>
     <loc>https://remindocr.com/privacy</loc>
