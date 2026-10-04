@@ -190,9 +190,9 @@
       margin: 0 auto;
       padding: 84px 48px 76px;
       display: grid;
-      /* Same proportions as the app's hero: fluid copy, fixed-width card. */
-      grid-template-columns: minmax(0, 1fr) 420px;
-      gap: 64px;
+      grid-template-columns: minmax(0, 760px);
+      justify-content: center;
+      text-align: center;
       align-items: center;
     }
 
@@ -234,256 +234,8 @@
       margin: 0 0 18px;
     }
 
-    /* ── Animated product demo ──────────────────────────────
-       Three steps cross-fade on a 12s loop (4s each). Everything is CSS so it
-       stays crisp at any size; the whole widget is one labelled role="img" for
-       screen readers, and the animation stops under prefers-reduced-motion. */
-    .demo {
-      width: 100%;
-      max-width: 420px;
-      justify-self: end;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-    }
-
-    .demo__bar {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 12px 16px;
-      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
-    }
-    .demo__dot {
-      width: 9px; height: 9px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.45);
-    }
-    .demo__dot:first-child { background: rgba(255,255,255,0.85); }
-    .demo__title {
-      margin-inline-start: auto;
-      color: rgba(255,255,255,0.95);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-    }
-
-    .demo__body { position: relative; height: 300px; padding: 20px; }
-
-    .demo__step {
-      position: absolute;
-      inset: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      opacity: 0;
-      animation: demo-step 20s infinite;
-    }
-    .demo__step--1 { animation-delay: 0s; }
-    .demo__step--2 { animation-delay: 4s; }
-    .demo__step--3 { animation-delay: 8s; }
-    .demo__step--4 { animation-delay: 12s; }
-    .demo__step--5 { animation-delay: 16s; }
-
-    /* 5 steps x 4s = 20s. Each is visible for a fifth of the loop, with a
-       short fade at each end — hence 1.6%/18.4% rather than 0%/20%. */
-    @keyframes demo-step {
-      0%          { opacity: 0; transform: translateY(8px); }
-      1.6%, 18.4% { opacity: 1; transform: translateY(0); }
-      20%, 100%   { opacity: 0; transform: translateY(-8px); }
-    }
-
-    .demo__label {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--brand);
-      letter-spacing: 0.3px;
-    }
-
-    .demo__row, .demo__alert {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 14px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-    }
-    .demo__file, .demo__alert-icon { font-size: 20px; flex-shrink: 0; }
-    .demo__meta { display: flex; flex-direction: column; min-width: 0; flex: 1; }
-    .demo__name {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .demo__sub { font-size: 11px; color: var(--text-2); }
-
-    .demo__tag {
-      font-size: 11px;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 999px;
-      flex-shrink: 0;
-    }
-    .demo__tag--wait { background: #fef3c7; color: #92400e; }
-    .demo__tag--ok { background: var(--brand-light); color: var(--brand-dark); }
-
-    .demo__field {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 9px 14px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 13px;
-    }
-    .demo__field span { color: var(--text-2); }
-    .demo__field strong { color: var(--text); font-weight: 600; }
-    .demo__sent { color: var(--brand) !important; }
-
-    .demo__alert { background: var(--brand-light); border-color: rgba(24,160,88,0.25); }
-
-    /* Month view — mirrors the dashboard's reminder calendar, where each day
-       cell carries a chip per reminder: solid for sent, tinted for scheduled. */
-    .demo__cal {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-      background: var(--white);
-    }
-    .demo__cal-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 8px 12px;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-      font-size: 12px;
-      font-weight: 700;
-    }
-    .demo__cal-count {
-      font-weight: 600;
-      font-size: 10px;
-      color: var(--brand-dark);
-      background: var(--brand-light);
-      border-radius: 999px;
-      padding: 2px 8px;
-    }
-    .demo__cal-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 1px;
-      background: var(--border);
-    }
-    .demo__cal-dow {
-      background: var(--bg);
-      text-align: center;
-      font-size: 10px;
-      font-weight: 700;
-      color: var(--text-2);
-      padding: 4px 0;
-    }
-    .demo__cal-cell {
-      background: var(--white);
-      min-height: 40px;
-      padding: 3px 4px;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .demo__cal-cell b {
-      font-size: 10px;
-      font-weight: 600;
-      color: var(--text-2);
-    }
-    .demo__chip {
-      display: block;
-      height: 5px;
-      border-radius: 2px;
-      background: var(--brand-light);
-      border: 1px solid rgba(24,160,88,0.35);
-    }
-    .demo__chip--sent { background: var(--brand); border-color: var(--brand); }
-
-    .demo__legend {
-      display: flex;
-      gap: 14px;
-      font-size: 11px;
-      color: var(--text-2);
-    }
-    .demo__legend span { display: inline-flex; align-items: center; gap: 5px; }
-    .demo__swatch {
-      width: 9px; height: 9px;
-      border-radius: 2px;
-      display: inline-block;
-    }
-    .demo__swatch--rem { background: var(--brand-light); border: 1px solid rgba(24,160,88,0.35); }
-    .demo__swatch--sent { background: var(--brand); }
-
-    .demo__steps-nav {
-      display: flex;
-      justify-content: center;
-      gap: 6px;
-      padding: 0 0 16px;
-    }
-    .demo__pip {
-      width: 22px; height: 4px;
-      border-radius: 999px;
-      background: var(--border);
-      animation: demo-pip 20s infinite;
-    }
-    .demo__pip--1 { animation-delay: 0s; }
-    .demo__pip--2 { animation-delay: 4s; }
-    .demo__pip--3 { animation-delay: 8s; }
-    .demo__pip--4 { animation-delay: 12s; }
-    .demo__pip--5 { animation-delay: 16s; }
-
-    @keyframes demo-pip {
-      0%, 0.8%    { background: var(--border); }
-      1.6%, 18.4% { background: var(--brand); }
-      20%, 100%   { background: var(--border); }
-    }
-
-    /* Manual paging. Setting data-step on .demo pins one step and its pip,
-       overriding the animation, so the demo is still explorable when motion is
-       suppressed or a visitor wants to read a step at their own pace. */
-    .demo[data-step] .demo__step { animation: none; opacity: 0; transform: none; }
-    .demo[data-step] .demo__pip { animation: none; background: var(--border); }
-    .demo[data-step="1"] .demo__step--1,
-    .demo[data-step="2"] .demo__step--2,
-    .demo[data-step="3"] .demo__step--3,
-    .demo[data-step="4"] .demo__step--4,
-    .demo[data-step="5"] .demo__step--5 { opacity: 1; }
-    .demo[data-step="1"] .demo__pip--1,
-    .demo[data-step="2"] .demo__pip--2,
-    .demo[data-step="3"] .demo__pip--3,
-    .demo[data-step="4"] .demo__pip--4,
-    .demo[data-step="5"] .demo__pip--5 { background: var(--brand); }
-
-    .demo__pip { border: none; padding: 0; cursor: pointer; }
-
-    /* Honour a reduced-motion preference: no cycling, hold the first step.
-       Every delay is cleared too — leaving them set while animations are off
-       let a later pip stay highlighted over the first step's content. */
-    @media (prefers-reduced-motion: reduce) {
-      .demo__step, .demo__pip {
-        animation: none;
-        animation-delay: 0s;
-      }
-      .demo__step { opacity: 0; transform: none; }
-      .demo__pip { background: var(--border); }
-      .demo__step--1 { opacity: 1; }
-      .demo__pip--1 { background: var(--brand); }
-    }
-
     .hero-actions {
+      justify-content: center;
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
@@ -705,7 +457,8 @@
     .compare-bg { background: var(--white); }
     .compare {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 680px);
+      justify-content: center;
       gap: 24px;
     }
     .compare-col {
@@ -713,7 +466,6 @@
       border: 1px solid var(--border);
       padding: 28px;
     }
-    .compare-col--bad { background: #fdf5f4; border-color: #f3d9d6; }
     .compare-col--good { background: var(--brand-light); border-color: rgba(24,160,88,0.25); }
     .compare-col__head {
       display: flex;
@@ -735,7 +487,6 @@
       color: #fff;
       flex-shrink: 0;
     }
-    .compare-col--bad .compare-col__icon { background: #d9534f; }
     .compare-col--good .compare-col__icon { background: var(--brand); }
     .compare-list { list-style: none; counter-reset: compare-step; }
     .compare-list li {
@@ -1027,7 +778,6 @@
       }
       .hero-badge { margin-bottom: 16px; }
       .hero h1 { margin-bottom: 16px; }
-      .demo { justify-self: center; max-width: 440px; }
       .hero-desc {
         font-size: 16px;
         margin-bottom: 28px;
@@ -1138,218 +888,7 @@
       </div>
       <p style="margin-top: 14px; color: var(--text-2); font-size: 14px;">30 дней бесплатно · До 20 импортов документов · Банковская карта не нужна</p>
     </div>
-
-    <!-- Animated product demo. Replaces the sign-in card that used to sit here:
-         authentication belongs on the app, so a marketing page is better spent
-         showing what the product does. Built in CSS rather than as a video or
-         GIF so it stays sharp at any size and costs no extra download. -->
-    <!-- Not role="img": the step pips below are real buttons, and an img role
-         would hide them from assistive technology. -->
-    <div class="demo" role="group"
-         aria-label="Демо: календарь напоминаний, автоматическое извлечение данных, напоминания об истечении срока, импорт документов и архив">
-      <div class="demo__bar">
-        <span class="demo__dot"></span>
-        <span class="demo__dot"></span>
-        <span class="demo__dot"></span>
-        <span class="demo__title">Пример рабочего процесса</span>
-      </div>
-
-      <div class="demo__body">
-        <div class="demo__step demo__step--4">
-          <div class="demo__label">Импорт документов</div>
-          <div class="demo__row">
-            <span class="demo__file">📄</span>
-            <div class="demo__meta">
-              <span class="demo__name">Договор обслуживания 18229.pdf</span>
-              <span class="demo__sub">Из Gmail · 1,2 МБ</span>
-            </div>
-            <span class="demo__tag demo__tag--wait">Импорт…</span>
-          </div>
-          <div class="demo__row">
-            <span class="demo__file">🧾</span>
-            <div class="demo__meta">
-              <span class="demo__name">Счёт 40710.pdf</span>
-              <span class="demo__sub">Ручная загрузка · 0,4 МБ</span>
-            </div>
-            <span class="demo__tag demo__tag--ok">Готово</span>
-          </div>
-        </div>
-
-        <div class="demo__step demo__step--2">
-          <div class="demo__label">Автоматическое извлечение</div>
-          <div class="demo__field"><span>Клиент</span><strong>Acme Services</strong></div>
-          <div class="demo__field"><span>№ документа</span><strong>18229.484590</strong></div>
-          <div class="demo__field"><span>Срок действия</span><strong>14 мар 2027</strong></div>
-        </div>
-
-        <div class="demo__step demo__step--3">
-          <div class="demo__label">Автоматическое напоминание</div>
-          <div class="demo__alert">
-            <span class="demo__alert-icon">⏰</span>
-            <div class="demo__meta">
-              <span class="demo__name">Договор истекает через 90 дней</span>
-              <span class="demo__sub">Email отправлен Acme Services</span>
-            </div>
-          </div>
-          <div class="demo__field"><span>За 90 дней</span><strong class="demo__sent">Отправлено ✓</strong></div>
-          <div class="demo__field"><span>За 60 дней</span><strong>Запланировано</strong></div>
-          <div class="demo__field"><span>За 30 дней</span><strong>Запланировано</strong></div>
-        </div>
-
-        <!-- Step 4 — the dashboard's document deadline month view -->
-        <div class="demo__step demo__step--1">
-          <div class="demo__label">Ближайшие сроки по документам</div>
-          <div class="demo__cal">
-            <div class="demo__cal-head">
-              <span>Сентябрь 2026</span>
-              <span class="demo__cal-count">50 напоминаний</span>
-            </div>
-            <div class="demo__cal-grid">
-              <span class="demo__cal-dow">S</span>
-              <span class="demo__cal-dow">M</span>
-              <span class="demo__cal-dow">T</span>
-              <span class="demo__cal-dow">W</span>
-              <span class="demo__cal-dow">T</span>
-              <span class="demo__cal-dow">F</span>
-              <span class="demo__cal-dow">S</span>
-
-              <span class="demo__cal-cell"><b>6</b></span>
-              <span class="demo__cal-cell">
-                <b>7</b>
-                <i class="demo__chip"></i>
-                <i class="demo__chip"></i>
-              </span>
-              <span class="demo__cal-cell"><b>8</b></span>
-              <span class="demo__cal-cell">
-                <b>9</b>
-                <i class="demo__chip"></i>
-              </span>
-              <span class="demo__cal-cell"><b>10</b></span>
-              <span class="demo__cal-cell">
-                <b>11</b>
-                <i class="demo__chip"></i>
-              </span>
-              <span class="demo__cal-cell"><b>12</b></span>
-
-              <span class="demo__cal-cell">
-                <b>13</b>
-                <i class="demo__chip demo__chip--sent"></i>
-              </span>
-              <span class="demo__cal-cell">
-                <b>14</b>
-                <i class="demo__chip"></i>
-                <i class="demo__chip"></i>
-              </span>
-              <span class="demo__cal-cell"><b>15</b></span>
-              <span class="demo__cal-cell"><b>16</b></span>
-              <span class="demo__cal-cell">
-                <b>17</b>
-                <i class="demo__chip demo__chip--sent"></i>
-              </span>
-              <span class="demo__cal-cell"><b>18</b></span>
-              <span class="demo__cal-cell"><b>19</b></span>
-            </div>
-          </div>
-          <div class="demo__legend">
-            <span><i class="demo__swatch demo__swatch--rem"></i>Напоминания</span>
-            <span><i class="demo__swatch demo__swatch--sent"></i>Отправлено</span>
-          </div>
-        </div>
-
-        <!-- Step 5 — the documents archive, organized and searchable -->
-        <div class="demo__step demo__step--5">
-<div class="demo__label">Счета и чеки</div>
-<div class="demo__row">
-<span class="demo__file">📄</span>
-<div class="demo__meta">
-<span class="demo__name">Счёт 40710.pdf</span>
-<span class="demo__sub">Acme Services · 120 $ · оплатить до 12 окт 2026</span>
 </div>
-<span class="demo__tag demo__tag--wait">К оплате</span>
-</div>
-<div class="demo__row">
-<span class="demo__file">🧾</span>
-<div class="demo__meta">
-<span class="demo__name">Чек 7731.pdf</span>
-<span class="demo__sub">Сопоставлен со счётом 40710 · 120 $</span>
-</div>
-<span class="demo__tag demo__tag--ok">Оплачен</span>
-</div>
-<div class="demo__row">
-<span class="demo__file">📄</span>
-<div class="demo__meta">
-<span class="demo__name">Страховка 20114.pdf</span>
-<span class="demo__sub">KR Construction · до 2 ноя 2026</span>
-</div>
-<span class="demo__tag demo__tag--wait">Скоро срок</span>
-</div>
-        </div>
-      </div>
-
-      <div class="demo__steps-nav">
-        <button class="demo__pip demo__pip--1" type="button" data-goto="1" aria-label="Ближайшие сроки по документам"></button>
-        <button class="demo__pip demo__pip--2" type="button" data-goto="2" aria-label="Извлечение данных"></button>
-        <button class="demo__pip demo__pip--3" type="button" data-goto="3" aria-label="Автоматическое напоминание"></button>
-        <button class="demo__pip demo__pip--4" type="button" data-goto="4" aria-label="Импорт документов"></button>
-        <button class="demo__pip demo__pip--5" type="button" data-goto="5" aria-label="Счета и чеки"></button>
-      </div>
-    </div>
-
-    <script>
-      (function () {
-        var demo = document.querySelector('.demo');
-        if (!demo) return;
-
-        var STEPS = 5;
-        var INTERVAL = 4000;
-        var current = 1;
-        var timer = null;
-
-        function show(step) {
-          current = step;
-          demo.dataset.step = String(step);
-        }
-
-        function advance() {
-          show(current % STEPS + 1);
-        }
-
-        function start() {
-          stop();
-          timer = setInterval(advance, INTERVAL);
-        }
-
-        function stop() {
-          if (timer) { clearInterval(timer); timer = null; }
-        }
-
-        // Driving the rotation from JS rather than leaving it to the CSS
-        // animation, because that animation is disabled under reduced motion —
-        // which would otherwise freeze the demo on step 1 forever. A fade is
-        // motion; a slideshow that swaps content is not, so this still respects
-        // the preference while keeping every step reachable.
-        document.querySelectorAll('.demo__pip').forEach(function (pip) {
-          pip.addEventListener('click', function () {
-            show(Number(pip.dataset.goto));
-            start(); // restart the clock so the chosen step gets a full turn
-          });
-        });
-
-        // Pause while the pointer is over the demo, so a step can be read.
-        demo.addEventListener('mouseenter', stop);
-        demo.addEventListener('mouseleave', start);
-
-        // Do not animate a demo nobody is looking at.
-        document.addEventListener('visibilitychange', function () {
-          if (document.hidden) stop(); else start();
-        });
-
-        show(1);
-        start();
-      })();
-    </script>
-
-  </div>
 </div>
 
 <!-- BEFORE / AFTER -->
@@ -1360,19 +899,6 @@
       <p>RemindOCR собирает их, читает даты и суммы и напоминает до наступления срока.</p>
     </div>
     <div class="compare">
-      <div class="compare-col compare-col--bad">
-        <div class="compare-col__head">
-          <span class="compare-col__icon">✕</span>
-          <span>Когда контроль ведётся в почте и таблицах</span>
-        </div>
-        <ol class="compare-list">
-<li>Договоры, счета и сертификаты приходят в разные ящики, приложения и папки</li>
-<li>Сроки и суммы приходится вручную переносить в таблицу</li>
-<li>Оплаченный счёт и чек не сопоставляются, и расход считается дважды</li>
-<li>Записи в календаре тоже нужно обновлять вручную</li>
-<li>О продлении или счёте узнаёшь, когда срок уже прошёл</li>
-</ol>
-      </div>
       <div class="compare-col compare-col--good">
         <div class="compare-col__head">
           <span class="compare-col__icon">✓</span>
