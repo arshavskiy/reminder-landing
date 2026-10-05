@@ -150,6 +150,7 @@
             "יבוא חשבוניות מ-Gmail — עד 30 בחודש",
             "התראות בדפדפן על תזכורות שנשלחו ועל ממצאים חדשים",
             "סנכרון Google Calendar ופיד יומן (ICS) ל-Apple ול-Outlook",
+            "יצוא חשבוניות לאקסל",
             "ממשק בעברית, באנגלית וברוסית"
           ]
         },
@@ -164,6 +165,7 @@
             "Invoice import from Gmail — up to 30 per month",
             "Browser notifications for sent reminders and new findings",
             "Google Calendar sync and a calendar feed (ICS) for Apple and Outlook",
+            "Excel export of invoices",
             "Hebrew, English and Russian interface"
           ]
         },
@@ -178,6 +180,7 @@
             "Импорт счетов из Gmail — до 30 в месяц",
             "Уведомления в браузере об отправленных напоминаниях и новых находках",
             "Синхронизация с Google Календарём и календарь (ICS) для Apple и Outlook",
+            "Экспорт счетов в Excel",
             "Интерфейс на иврите, английском и русском"
           ]
         }
